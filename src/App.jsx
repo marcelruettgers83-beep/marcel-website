@@ -207,12 +207,7 @@ function AboutSection() {
 
   return (
     <section id="about" ref={ref} style={{ padding: '8rem 6vw', background: T.cream }}>
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'clamp(220px, 30%, 340px) 1fr',
-        gap: 'clamp(3rem, 6vw, 6rem)',
-        alignItems: 'flex-start',
-      }}>
+      <div className="about-grid">
         {/* Left — Portrait */}
         <div className="about-left" style={{ position: 'sticky', top: '7rem' }}>
           <div style={{
@@ -288,7 +283,7 @@ function StatsBar() {
       <p className="font-data" style={{ color: T.clay, fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '2.5rem' }}>
         Track Record
       </p>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2rem' }}>
+      <div className="stats-grid">
         {stats.map(({ num, label }) => (
           <div key={num} className="stat-item">
             <div className="font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: T.cream, lineHeight: 1 }}>{num}</div>
@@ -719,16 +714,17 @@ function Protocol() {
             background: num === '01' ? T.moss : T.cream,
             border: `1px solid ${num === '01' ? 'transparent' : 'rgba(46,64,54,0.12)'}`,
             borderRadius: '2rem', padding: 'clamp(2rem, 4vw, 3rem)',
-            display: 'grid', gridTemplateColumns: '1fr auto', gap: '2rem', alignItems: 'center',
           }}>
-            <div>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', marginBottom: '1rem' }}>
-                <span className="font-data" style={{ fontSize: '0.7rem', color: num === '01' ? T.clay : T.clay, letterSpacing: '0.15em' }}>{num}</span>
-                <h3 style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 700, fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)', color: num === '01' ? T.cream : T.charcoal, margin: 0 }}>{title}</h3>
+            <div className="proto-card-inner">
+              <div>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', marginBottom: '1rem' }}>
+                  <span className="font-data" style={{ fontSize: '0.7rem', color: num === '01' ? T.clay : T.clay, letterSpacing: '0.15em' }}>{num}</span>
+                  <h3 style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 700, fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)', color: num === '01' ? T.cream : T.charcoal, margin: 0 }}>{title}</h3>
+                </div>
+                <p style={{ fontSize: '0.9rem', color: num === '01' ? 'rgba(242,240,233,0.7)' : 'rgba(26,26,26,0.6)', lineHeight: 1.7, margin: 0, maxWidth: '480px' }}>{desc}</p>
               </div>
-              <p style={{ fontSize: '0.9rem', color: num === '01' ? 'rgba(242,240,233,0.7)' : 'rgba(26,26,26,0.6)', lineHeight: 1.7, margin: 0, maxWidth: '480px' }}>{desc}</p>
+              <div style={{ opacity: 0.7, flexShrink: 0 }}>{anim}</div>
             </div>
-            <div style={{ opacity: 0.7 }}>{anim}</div>
           </div>
         ))}
       </div>
@@ -986,12 +982,101 @@ function GlobalStyles() {
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(6px); }
       }
-      @media (max-width: 768px) {
-        .hidden-mobile { display: none !important; }
-        .show-mobile { display: block !important; }
-      }
+
+      /* ── Desktop: show nav, hide hamburger ── */
       @media (min-width: 769px) {
         .show-mobile { display: none !important; }
+      }
+
+      /* ── About section grid ── */
+      .about-grid {
+        display: grid;
+        grid-template-columns: clamp(220px, 30%, 340px) 1fr;
+        gap: clamp(3rem, 6vw, 6rem);
+        align-items: flex-start;
+      }
+
+      /* ── Stats bar grid ── */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 2rem;
+      }
+
+      /* ── Protocol card inner grid ── */
+      .proto-card-inner {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      /* ════════════════════════════════════════
+         MOBILE — ≤ 768px
+         ════════════════════════════════════════ */
+      @media (max-width: 768px) {
+        .hidden-mobile { display: none !important; }
+        .show-mobile   { display: block !important; }
+
+        /* Section padding */
+        section { padding-top: 5rem !important; padding-bottom: 5rem !important; }
+
+        /* Hero */
+        #hero { padding: 0 6vw 6vh !important; }
+
+        /* About grid → single column */
+        .about-grid {
+          grid-template-columns: 1fr !important;
+          gap: 2.5rem !important;
+        }
+        .about-left {
+          position: static !important;
+          max-width: 260px;
+        }
+
+        /* Stats bar → 2×2 grid */
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 1.5rem !important;
+        }
+
+        /* Features heading */
+        #services h2 { font-size: 1.75rem !important; }
+
+        /* Features cards → single column */
+        #services > div > div[style*="grid"] {
+          grid-template-columns: 1fr !important;
+        }
+
+        /* Protocol card inner → stack anim under text */
+        .proto-card-inner {
+          grid-template-columns: 1fr !important;
+          gap: 1.25rem !important;
+        }
+
+        /* Testimonials → single column scroll */
+        section[style*="#2E4036"] > div[style*="grid"] {
+          grid-template-columns: 1fr !important;
+        }
+
+        /* Footer grid → single column */
+        footer > div:first-child {
+          grid-template-columns: 1fr !important;
+          gap: 2rem !important;
+        }
+
+        /* Reduce hero heading on very small screens */
+        .font-drama { font-size: clamp(3.5rem, 20vw, 7rem) !important; }
+      }
+
+      /* ── Small phones ≤ 480px ── */
+      @media (max-width: 480px) {
+        /* Navbar pill full-width */
+        nav { width: calc(100% - 2rem) !important; padding: 0.5rem 1rem !important; }
+        /* Stats: all 4 in 2×2 */
+        .stat-item { min-width: 0; }
+        /* FAQ answer text */
+        .faq-item p { padding-right: 0 !important; }
       }
     `}</style>
   )
