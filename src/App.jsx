@@ -195,11 +195,11 @@ function AboutSection() {
 
   const experience = [
     {
-      org: 'IKEA - 80M euro P&L, 11 Locations',
+      org: 'Large Retail Organization',
       detail: 'I ran the operation. I learned that growth at scale is a systems problem, not a people problem. You build the infrastructure right, or you burn out fixing the same things every week.',
     },
     {
-      org: 'Blaze.ai - 300 to 2,700 Customers/Month in 9 Months',
+      org: 'AI-powered SaaS',
       detail: 'A fast-growing SaaS with broken systems. I rebuilt the GTM engine end-to-end: acquisition, conversion, partnerships. Achieved 900% growth in the partnership program through systems, not just harder work.',
     },
   ]
@@ -951,8 +951,8 @@ function FounderBottleneck() {
   ]
 
   return (
-    <section ref={ref} style={{ background: T.charcoal, padding: '8rem 6vw' }}>
-      <div style={{ maxWidth: '760px' }}>
+    <section ref={ref} style={{ background: T.charcoal, padding: '8rem 6vw', textAlign: 'center' }}>
+      <div style={{ maxWidth: '760px', margin: '0 auto' }}>
         <span className="bottleneck-item font-data" style={{ color: T.clay, fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>The Problem</span>
         <h2 className="bottleneck-item" style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 800, fontSize: 'clamp(2rem, 4.5vw, 3.25rem)', color: T.cream, margin: '0.75rem 0 2.5rem', lineHeight: 1.1 }}>
           You Built the Traction.{' '}
