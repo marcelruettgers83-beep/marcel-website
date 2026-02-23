@@ -7,7 +7,7 @@ import './index.css'
 gsap.registerPlugin(ScrollTrigger)
 
 /* ═══════════════════════════════════════════════════════════════
-   DESIGN TOKENS — Preset A: Organic Tech
+   DESIGN TOKENS - Preset A: Organic Tech
    ═══════════════════════════════════════════════════════════════ */
 const T = {
   moss: '#2E4036',
@@ -90,7 +90,7 @@ function Navbar() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   B. HERO SECTION — "The Opening Shot"
+   B. HERO SECTION - "The Opening Shot"
    ═══════════════════════════════════════════════════════════════ */
 function Hero() {
   const elRef = useRef(null)
@@ -108,7 +108,7 @@ function Hero() {
   return (
     <section ref={elRef} id="hero" style={{
       height: '100dvh', position: 'relative', overflow: 'hidden',
-      display: 'flex', alignItems: 'flex-end',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
     }}>
       {/* Background image */}
       <div style={{
@@ -122,48 +122,44 @@ function Hero() {
         background: `linear-gradient(to top, ${T.charcoal} 0%, rgba(26,26,26,0.85) 40%, rgba(46,64,54,0.5) 70%, transparent 100%)`,
       }} />
 
-      {/* Content — bottom-left third */}
-      <div style={{ position: 'relative', zIndex: 2, padding: '0 6vw 8vh', maxWidth: '800px' }}>
-        <p className="hero-item font-data" style={{ color: T.clay, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+      {/* Content - centered */}
+      <div style={{ position: 'relative', zIndex: 2, padding: '0 6vw', maxWidth: '900px', textAlign: 'center' }}>
+        <p className="hero-item font-data" style={{ color: T.clay, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
           <MapPin size={12} /> Amsterdam, NL
         </p>
 
-        {/* Hero headline */}
-        <h1 style={{ margin: 0, lineHeight: 1.05 }}>
-          <span className="hero-item" style={{ display: 'block', fontFamily: '"Plus Jakarta Sans"', fontWeight: 800, fontSize: 'clamp(1.9rem, 4.5vw, 3.2rem)', color: T.cream, letterSpacing: '-0.02em', marginBottom: '0.5rem', maxWidth: '680px' }}>
-            Your Growth Shouldn't Depend on You{' '}
+        <h1 style={{ margin: 0, lineHeight: 1.0 }}>
+          <span className="hero-item" style={{ display: 'block', fontFamily: '"Plus Jakarta Sans"', fontWeight: 800, fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', color: T.cream, letterSpacing: '-0.01em', marginBottom: '0.5rem' }}>
+            Your Growth Shouldn't Depend on You
           </span>
-          <span className="hero-item font-drama" style={{ display: 'block', fontSize: 'clamp(3.2rem, 10vw, 7.5rem)', color: T.cream, lineHeight: 0.88, marginBottom: '0.5rem' }}>
+          <span className="hero-item font-drama" style={{ display: 'block', fontSize: 'clamp(4rem, 9vw, 8rem)', color: T.cream, lineHeight: 0.9 }}>
             Being in Every Room.
           </span>
         </h1>
 
-        <p className="hero-item" style={{ color: 'rgba(242,240,233,0.75)', fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)', maxWidth: '560px', lineHeight: 1.75, margin: '1.75rem 0 0.5rem' }}>
-          You've built a company that works. Now it only works when you're pushing. Every decision loops back to you. Your systems are duct-taped together. And you're starting to wonder whether more growth will just mean more chaos.
+        <p className="hero-item" style={{ color: 'rgba(242,240,233,0.72)', fontSize: 'clamp(0.95rem, 1.4vw, 1.1rem)', maxWidth: '560px', lineHeight: 1.75, margin: '2.5rem auto 0.75rem' }}>
+          You've built a company that works. Now it only works when you're pushing. Every decision loops back to you. Your systems are duct-taped together. And you're starting to wonder if more growth will just mean more chaos.
         </p>
-        <p className="hero-item" style={{ color: T.cream, fontSize: 'clamp(0.95rem, 1.4vw, 1.05rem)', maxWidth: '500px', lineHeight: 1.6, margin: '0.75rem 0 2rem', fontWeight: 600 }}>
+        <p className="hero-item" style={{ color: T.cream, fontSize: 'clamp(0.95rem, 1.3vw, 1.05rem)', lineHeight: 1.6, margin: '0 auto 2.5rem', fontWeight: 600 }}>
           I build the operating infrastructure that breaks that pattern.
         </p>
 
-        <div className="hero-item" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-          <div>
-            <a
-              href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0gzf2H3GezuYwA1xN3iu2bStrp5lWeXwkJO2oC_oU8OymykSe6oxOxCmN8UhPSY-5L0mSZUDda"
-              target="_blank" rel="noreferrer"
-              className="btn-magnetic" style={{
-                background: T.clay, color: T.cream, padding: '0.875rem 2rem',
-                borderRadius: '9999px', fontSize: '0.9rem', fontWeight: 700,
-                textDecoration: 'none', letterSpacing: '0.04em', display: 'inline-block',
-              }}>
-              <span className="btn-slide" style={{ background: T.moss }}></span>
-              <span className="btn-label">Book a Conversation</span>
-            </a>
-          </div>
-          <span className="font-data" style={{ color: 'rgba(242,240,233,0.45)', fontSize: '0.7rem', letterSpacing: '0.1em' }}>30 minutes. No pitch deck. Just what's broken and whether I can help fix it.</span>
+        <div className="hero-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
+          <a
+            href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0gzf2H3GezuYwA1xN3iu2bStrp5lWeXwkJO2oC_oU8OymykSe6oxOxCmN8UhPSY-5L0mSZUDda"
+            target="_blank" rel="noreferrer"
+            className="btn-magnetic" style={{
+              background: T.clay, color: T.cream, padding: '1rem 2.5rem',
+              borderRadius: '9999px', fontSize: '0.95rem', fontWeight: 700,
+              textDecoration: 'none', letterSpacing: '0.04em', display: 'inline-block',
+            }}>
+            <span className="btn-slide" style={{ background: T.moss }}></span>
+            <span className="btn-label">Book a Conversation</span>
+          </a>
+          <span className="font-data" style={{ color: 'rgba(242,240,233,0.4)', fontSize: '0.7rem', letterSpacing: '0.1em' }}>30 minutes. No pitch deck. No hard sell.</span>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="hero-item" style={{ marginTop: '2.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'rgba(242,240,233,0.4)' }}>
+        <div className="hero-item" style={{ marginTop: '3rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: 'rgba(242,240,233,0.35)' }}>
           <ChevronDown size={14} style={{ animation: 'bounce 2s infinite' }} />
           <span className="font-data" style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Scroll</span>
         </div>
@@ -171,6 +167,7 @@ function Hero() {
     </section>
   )
 }
+
 
 /* ═══════════════════════════════════════════════════════════════
    ABOUT SECTION
@@ -198,19 +195,19 @@ function AboutSection() {
 
   const experience = [
     {
-      org: 'IKEA — 80M euro P&L, 11 Locations',
+      org: 'IKEA - 80M euro P&L, 11 Locations',
       detail: 'I ran the operation. I learned that growth at scale is a systems problem, not a people problem. You build the infrastructure right, or you burn out fixing the same things every week.',
     },
     {
-      org: 'Blaze.ai — 300 to 2,700 Customers/Month in 9 Months',
-      detail: 'A fast-growing SaaS with broken systems. I rebuilt the GTM engine end-to-end — acquisition, conversion, partnerships. Achieved 900% growth in the partnership program through systems, not just harder work.',
+      org: 'Blaze.ai - 300 to 2,700 Customers/Month in 9 Months',
+      detail: 'A fast-growing SaaS with broken systems. I rebuilt the GTM engine end-to-end: acquisition, conversion, partnerships. Achieved 900% growth in the partnership program through systems, not just harder work.',
     },
   ]
 
   return (
     <section id="about" ref={ref} style={{ padding: '8rem 6vw', background: T.cream }}>
       <div className="about-grid">
-        {/* Left — Portrait */}
+        {/* Left - Portrait */}
         <div className="about-left" style={{ position: 'sticky', top: '7rem' }}>
           <div style={{
             borderRadius: '2rem',
@@ -230,7 +227,7 @@ function AboutSection() {
           </div>
         </div>
 
-        {/* Right — Bio + experience */}
+        {/* Right - Bio + experience */}
         <div className="about-right">
           <span className="font-data" style={{ color: T.clay, fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>About</span>
           <h2 style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 800, fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)', color: T.charcoal, margin: '0.75rem 0 1.25rem', lineHeight: 1.1 }}>
@@ -238,7 +235,7 @@ function AboutSection() {
             <span className="font-drama" style={{ color: T.moss, fontSize: '1.05em' }}>Here's what you need to know.</span>
           </h2>
           <p style={{ fontSize: 'clamp(1rem, 1.4vw, 1.1rem)', color: 'rgba(26,26,26,0.7)', lineHeight: 1.8, marginBottom: '0.75rem', maxWidth: '520px' }}>
-            I've spent 20 years learning how growth breaks — and how to make it work without the person at the top holding everything together.
+            I've spent 20 years learning how growth breaks - and how to make it work without the person at the top holding everything together.
           </p>
           <p className="font-data" style={{ fontSize: '0.75rem', color: T.moss, letterSpacing: '0.08em', marginBottom: '2.5rem', fontStyle: 'italic' }}>
             Diagnose what's broken. Fix the foundation. Build systems your team owns. Step back.
@@ -276,10 +273,9 @@ function StatsBar() {
   }, [])
 
   const stats = [
-    { num: '10+', label: 'Years scaling chaos into systems' },
+    { num: '18+', label: 'Years scaling chaos into systems' },
     { num: '3x', label: 'Scaling companies Series A to C' },
-    { num: '€50M+', label: 'Total venture-backed growth influenced' },
-    { num: '12', label: 'Teams built & optimized across EU' },
+    { num: '12', label: 'Teams built and optimized across EU and US' },
   ]
 
   return (
@@ -300,7 +296,7 @@ function StatsBar() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   C. FEATURES — "Interactive Functional Artifacts"
+   C. FEATURES - "Interactive Functional Artifacts"
    ═══════════════════════════════════════════════════════════════ */
 
 // Card 1: Diagnostic Shuffler
@@ -550,7 +546,7 @@ function TheDifference() {
 
   const points = [
     { label: 'In your CRM', desc: 'Configuring the actual workflows, not describing what they should look like.' },
-    { label: 'Sitting with your team', desc: 'Training them to run what we build together — not handing them a PDF they\'ll never open.' },
+    { label: 'Sitting with your team', desc: 'Training them to run what we build together - not handing them a PDF they\'ll never open.' },
     { label: 'Stepping back when it works', desc: 'Your team owns the growth engine. I stay available for the decisions that matter.' },
   ]
 
@@ -588,7 +584,7 @@ function TheDifference() {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   E. PROTOCOL — "Sticky Stacking Archive"
+   E. PROTOCOL - "Sticky Stacking Archive"
    ═══════════════════════════════════════════════════════════════ */
 
 // Rotating geometric SVG
@@ -781,7 +777,7 @@ function Testimonials() {
     {
       name: 'Eddie Wu',
       role: 'CEO · Blaze.ai',
-      quote: "Marcel is a rare structured thinker that executes and leads with high precision. Scaling affiliates, referrals, and advocacy — Marcel exceeded our ambitious goals.",
+      quote: "Marcel is a rare structured thinker that executes and leads with high precision. Scaling affiliates, referrals, and advocacy - Marcel exceeded our ambitious goals.",
     },
     {
       name: 'Joe Girton',
@@ -791,12 +787,12 @@ function Testimonials() {
     {
       name: 'Edward van den Bergh',
       role: 'General Manager · Scaling Service & Manufacturing SMEs',
-      quote: "Marcel has been superb — creating a clear plan, providing regular updates on results, and the plan he is executing is already showing results. We are very satisfied with the professionalism of his work and would happily recommend him.",
+      quote: "Marcel has been superb - creating a clear plan, providing regular updates on results, and the plan he is executing is already showing results. We are very satisfied with the professionalism of his work and would happily recommend him.",
     },
     {
       name: 'Ania Sosin',
       role: 'Urbanist · Interior Architect · Tutor',
-      quote: "After just a few minutes of discussing my project with Marcel, I knew I wanted to work with him. He asked insightful questions — not just about the technical aspects but also about the marketing strategy and how to authentically reflect my persona. I trust Marcel completely when it comes to design taste, language choices, and promotional advice.",
+      quote: "After just a few minutes of discussing my project with Marcel, I knew I wanted to work with him. He asked insightful questions - not just about the technical aspects but also about the marketing strategy and how to authentically reflect my persona. I trust Marcel completely when it comes to design taste, language choices, and promotional advice.",
     },
   ]
 
@@ -844,10 +840,10 @@ function FAQ() {
   }, [])
 
   const faqs = [
-    { q: 'What does "Fractional" actually mean?', a: 'Part-time experienced growth operator. You get executive-level thinking without the full-time salary. I typically work with you 1-2 days a week — embedded in your operations, not emailing from the outside.' },
-    { q: 'What size companies do you work with?', a: '$1M to $20M revenue — post-product-market fit. This is the stage where growth creates chaos. You\'ve proven it works. Now the question is whether it can work without you in every room.' },
+    { q: 'What does "Fractional" actually mean?', a: 'Part-time experienced growth operator. You get executive-level thinking without the full-time salary. I typically work with you 1-2 days a week - embedded in your operations, not emailing from the outside.' },
+    { q: 'What size companies do you work with?', a: '$1M to $20M revenue - post-product-market fit. This is the stage where growth creates chaos. You\'ve proven it works. Now the question is whether it can work without you in every room.' },
     { q: 'How quickly can I see results?', a: 'Clarity in 2 weeks from the diagnostic. Fundamental fixes in 4 weeks. Meaningful operational improvements in 60-90 days.' },
-    { q: 'How is this different from hiring a consultant?', a: 'I build in your CRM and workflows — not just deliver decks. I sit with your team, configure the tools, train them to run what we build together. That\'s the difference between a consultant and an architect.' },
+    { q: 'How is this different from hiring a consultant?', a: 'I build in your CRM and workflows - not just deliver decks. I sit with your team, configure the tools, train them to run what we build together. That\'s the difference between a consultant and an architect.' },
     { q: 'What about team resistance to new processes?', a: 'I build with the team, not just drop processes on them. They learn by doing alongside me, so by the time I step back they already own it.' },
     { q: 'What\'s the investment?', a: 'It starts with a diagnostic deep dive. From there we define what the engagement looks like based on what we find. No forever contracts.' },
     { q: 'Do you work with clients outside Amsterdam?', a: 'Remote-first, async-first. I work regularly with companies in the US, EU, and Canada. Location has never been a blocker.' },
@@ -1007,7 +1003,7 @@ function IsThisForYou() {
     'Founder-led company doing $1M–$20M',
     'Operational chaos eating your time',
     'Tried hiring for execution, but need architecture',
-    'Wants systems your team owns — without you in every room',
+    'Wants systems your team owns - without you in every room',
   ]
   const notFit = [
     'Looking for a tactician (ads, emails, campaigns)',
@@ -1180,7 +1176,7 @@ function GlobalStyles() {
       }
 
       /* ════════════════════════════════════════
-         MOBILE — ≤ 768px
+         MOBILE - ≤ 768px
          ════════════════════════════════════════ */
       @media (max-width: 768px) {
         .hidden-mobile { display: none !important; }
