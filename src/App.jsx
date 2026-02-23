@@ -91,27 +91,35 @@ function Hero() {
       }} />
 
       {/* Content - centered */}
-      <div style={{ position: 'relative', zIndex: 2, padding: '0 6vw', maxWidth: '900px', textAlign: 'center' }}>
-        <p className="hero-item font-data" style={{ color: T.clay, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
-          <MapPin size={12} /> Amsterdam, NL
-        </p>
+      <div style={{ position: 'relative', zIndex: 2, padding: '0 8vw', maxWidth: '1100px', textAlign: 'center' }}>
 
-        <h1 className="hero-item" style={{
-          margin: 0,
-          fontFamily: '"Plus Jakarta Sans"',
-          fontWeight: 800,
-          fontSize: 'clamp(2.75rem, 6.5vw, 5.5rem)',
-          color: T.cream,
-          lineHeight: 1.05,
-          letterSpacing: '-0.03em',
-        }}>
-          Your Growth Shouldn't Depend on You Being in Every Room.
+        <h1 style={{ margin: '0 0 2rem', lineHeight: 1.08 }}>
+          <span className="hero-item" style={{
+            display: 'block',
+            fontFamily: '"Plus Jakarta Sans"',
+            fontWeight: 700,
+            fontSize: 'clamp(1.5rem, 2.8vw, 2.5rem)',
+            color: 'rgba(242,240,233,0.75)',
+            letterSpacing: '-0.01em',
+            marginBottom: '0.3rem',
+          }}>
+            Your Growth Shouldn't Depend on You
+          </span>
+          <span className="hero-item font-drama" style={{
+            display: 'block',
+            fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+            color: T.cream,
+            lineHeight: 1.05,
+            letterSpacing: '-0.02em',
+          }}>
+            Being in Every Room.
+          </span>
         </h1>
 
-        <p className="hero-item" style={{ color: 'rgba(242,240,233,0.72)', fontSize: 'clamp(0.95rem, 1.4vw, 1.1rem)', maxWidth: '560px', lineHeight: 1.75, margin: '2.5rem auto 0.75rem' }}>
+        <p className="hero-item" style={{ color: 'rgba(242,240,233,0.65)', fontSize: 'clamp(0.9rem, 1.3vw, 1.05rem)', maxWidth: '520px', lineHeight: 1.75, margin: '0 auto 1rem' }}>
           You've built a company that works. Now it only works when you're pushing. Every decision loops back to you. Your systems are duct-taped together. And you're starting to wonder if more growth will just mean more chaos.
         </p>
-        <p className="hero-item" style={{ color: T.cream, fontSize: 'clamp(0.95rem, 1.3vw, 1.05rem)', lineHeight: 1.6, margin: '0 auto 2.5rem', fontWeight: 600 }}>
+        <p className="hero-item" style={{ color: T.cream, fontSize: 'clamp(0.9rem, 1.2vw, 1rem)', lineHeight: 1.6, margin: '0 auto 2.25rem', fontWeight: 600 }}>
           I build the operating infrastructure that breaks that pattern.
         </p>
 
@@ -127,14 +135,15 @@ function Hero() {
             <span className="btn-slide" style={{ background: T.moss }}></span>
             <span className="btn-label">Book a Conversation</span>
           </a>
-          <span className="font-data" style={{ color: 'rgba(242,240,233,0.4)', fontSize: '0.7rem', letterSpacing: '0.1em' }}>30 minutes. No pitch deck. No hard sell.</span>
+          <span className="font-data" style={{ color: 'rgba(242,240,233,0.35)', fontSize: '0.7rem', letterSpacing: '0.1em' }}>30 minutes. No pitch deck. No hard sell.</span>
         </div>
 
-        <div className="hero-item" style={{ marginTop: '3rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: 'rgba(242,240,233,0.35)' }}>
+        <div className="hero-item" style={{ marginTop: '3rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: 'rgba(242,240,233,0.3)' }}>
           <ChevronDown size={14} style={{ animation: 'bounce 2s infinite' }} />
           <span className="font-data" style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Scroll</span>
         </div>
       </div>
+
     </section>
   )
 }
@@ -1155,9 +1164,9 @@ function GlobalStyles() {
 
         /* Hero - keep centered, just reduce padding */
         #hero { padding: 0 5vw !important; }
-        #hero h1 span:first-child { font-size: clamp(1.5rem, 5vw, 2rem) !important; }
-        #hero .font-drama { font-size: clamp(3rem, 14vw, 5rem) !important; }
-        #hero p { font-size: 0.9rem !important; }
+        #hero h1 span:first-child { font-size: clamp(1.1rem, 4.5vw, 1.5rem) !important; }
+        #hero .font-drama { font-size: clamp(2rem, 10vw, 3rem) !important; }
+        #hero p { font-size: 0.875rem !important; }
 
         /* About grid -> single column */
         .about-grid {
