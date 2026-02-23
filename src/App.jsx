@@ -96,13 +96,16 @@ function Hero() {
           <MapPin size={12} /> Amsterdam, NL
         </p>
 
-        <h1 style={{ margin: 0, lineHeight: 1.05 }}>
-          <span className="hero-item" style={{ display: 'block', fontFamily: '"Plus Jakarta Sans"', fontWeight: 800, fontSize: 'clamp(2rem, 4.5vw, 3.75rem)', color: T.cream, letterSpacing: '-0.02em', marginBottom: '0.2rem' }}>
-            Your Growth Shouldn't Depend on You
-          </span>
-          <span className="hero-item font-drama" style={{ display: 'block', fontSize: 'clamp(3.5rem, 8vw, 7rem)', color: T.cream, lineHeight: 0.9 }}>
-            Being in Every Room.
-          </span>
+        <h1 className="hero-item" style={{
+          margin: 0,
+          fontFamily: '"Plus Jakarta Sans"',
+          fontWeight: 800,
+          fontSize: 'clamp(2.75rem, 6.5vw, 5.5rem)',
+          color: T.cream,
+          lineHeight: 1.05,
+          letterSpacing: '-0.03em',
+        }}>
+          Your Growth Shouldn't Depend on You Being in Every Room.
         </h1>
 
         <p className="hero-item" style={{ color: 'rgba(242,240,233,0.72)', fontSize: 'clamp(0.95rem, 1.4vw, 1.1rem)', maxWidth: '560px', lineHeight: 1.75, margin: '2.5rem auto 0.75rem' }}>
