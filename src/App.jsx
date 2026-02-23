@@ -91,7 +91,7 @@ function Hero() {
       }} />
 
       {/* Content - centered */}
-      <div style={{ position: 'relative', zIndex: 2, padding: '0 8vw', maxWidth: '1100px', textAlign: 'center' }}>
+      <div style={{ position: 'relative', zIndex: 2, padding: '80px 8vw 0', maxWidth: '1100px', textAlign: 'center' }}>
 
         <h1 style={{ margin: '0 0 2rem', lineHeight: 1.08 }}>
           <span className="hero-item" style={{
