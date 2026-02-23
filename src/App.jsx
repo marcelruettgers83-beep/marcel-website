@@ -21,15 +21,12 @@ const T = {
    ═══════════════════════════════════════════════════════════════ */
 function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  const links = ['About', 'Services', 'Work', 'Contact']
 
   return (
     <nav
@@ -49,42 +46,13 @@ function Navbar() {
         <a href="#" style={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.85rem', letterSpacing: '0.05em', color: scrolled ? T.moss : T.cream, fontWeight: 700, textDecoration: 'none', transition: 'color 0.5s ease' }}>
           MR_
         </a>
-
-        {/* Desktop nav */}
-        <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }} className="hidden-mobile">
-          {links.map(l => (
-            <a key={l} href={`#${l.toLowerCase()}`} className="link-lift"
-              style={{ fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.04em', textDecoration: 'none', color: scrolled ? T.charcoal : 'rgba(242,240,233,0.85)', textTransform: 'uppercase' }}>
-              {l}
-            </a>
-          ))}
-          <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0gzf2H3GezuYwA1xN3iu2bStrp5lWeXwkJO2oC_oU8OymykSe6oxOxCmN8UhPSY-5L0mSZUDda" target="_blank" rel="noreferrer" className="btn-magnetic"
-            style={{ background: T.clay, color: T.cream, padding: '0.5rem 1.25rem', borderRadius: '9999px', fontSize: '0.8rem', fontWeight: 700, textDecoration: 'none', letterSpacing: '0.04em', display: 'inline-block' }}>
-            <span className="btn-slide" style={{ background: T.moss }}></span>
-            <span className="btn-label">Book a Call</span>
-          </a>
-        </div>
-
-        {/* Mobile hamburger */}
-        <button onClick={() => setOpen(!open)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: scrolled ? T.charcoal : T.cream, display: 'none' }} className="show-mobile">
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        {/* Book a Call — always visible */}
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0gzf2H3GezuYwA1xN3iu2bStrp5lWeXwkJO2oC_oU8OymykSe6oxOxCmN8UhPSY-5L0mSZUDda" target="_blank" rel="noreferrer" className="btn-magnetic"
+          style={{ background: T.clay, color: T.cream, padding: '0.5rem 1.25rem', borderRadius: '9999px', fontSize: '0.8rem', fontWeight: 700, textDecoration: 'none', letterSpacing: '0.04em', display: 'inline-block' }}>
+          <span className="btn-slide" style={{ background: T.moss }}></span>
+          <span className="btn-label">Book a Call</span>
+        </a>
       </div>
-
-      {/* Mobile menu */}
-      {open && (
-        <div style={{ padding: '1rem 0.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem' }}>
-          {links.map(l => (
-            <a key={l} href={`#${l.toLowerCase()}`} onClick={() => setOpen(false)}
-              style={{ fontSize: '0.9rem', fontWeight: 600, textDecoration: 'none', color: scrolled ? T.charcoal : T.cream }}>
-              {l}
-            </a>
-          ))}
-          <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0gzf2H3GezuYwA1xN3iu2bStrp5lWeXwkJO2oC_oU8OymykSe6oxOxCmN8UhPSY-5L0mSZUDda" target="_blank" rel="noreferrer" style={{ background: T.clay, color: T.cream, padding: '0.6rem 1.25rem', borderRadius: '9999px', fontSize: '0.9rem', fontWeight: 700, textDecoration: 'none', textAlign: 'center', marginTop: '0.5rem' }}>
-            Book a Call
-          </a>
-        </div>
-      )}
     </nav>
   )
 }
@@ -128,11 +96,11 @@ function Hero() {
           <MapPin size={12} /> Amsterdam, NL
         </p>
 
-        <h1 style={{ margin: 0, lineHeight: 1.0 }}>
-          <span className="hero-item" style={{ display: 'block', fontFamily: '"Plus Jakarta Sans"', fontWeight: 800, fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', color: T.cream, letterSpacing: '-0.01em', marginBottom: '0.5rem' }}>
+        <h1 style={{ margin: 0, lineHeight: 1.05 }}>
+          <span className="hero-item" style={{ display: 'block', fontFamily: '"Plus Jakarta Sans"', fontWeight: 800, fontSize: 'clamp(2rem, 4.5vw, 3.75rem)', color: T.cream, letterSpacing: '-0.02em', marginBottom: '0.2rem' }}>
             Your Growth Shouldn't Depend on You
           </span>
-          <span className="hero-item font-drama" style={{ display: 'block', fontSize: 'clamp(4rem, 9vw, 8rem)', color: T.cream, lineHeight: 0.9 }}>
+          <span className="hero-item font-drama" style={{ display: 'block', fontSize: 'clamp(3.5rem, 8vw, 7rem)', color: T.cream, lineHeight: 0.9 }}>
             Being in Every Room.
           </span>
         </h1>
@@ -1179,69 +1147,70 @@ function GlobalStyles() {
          MOBILE - ≤ 768px
          ════════════════════════════════════════ */
       @media (max-width: 768px) {
-        .hidden-mobile { display: none !important; }
-        .show-mobile   { display: block !important; }
-
         /* Section padding */
-        section { padding-top: 5rem !important; padding-bottom: 5rem !important; }
+        section { padding-top: 4rem !important; padding-bottom: 4rem !important; }
 
-        /* Hero */
-        #hero { padding: 0 6vw 6vh !important; }
+        /* Hero - keep centered, just reduce padding */
+        #hero { padding: 0 5vw !important; }
+        #hero h1 span:first-child { font-size: clamp(1.5rem, 5vw, 2rem) !important; }
+        #hero .font-drama { font-size: clamp(3rem, 14vw, 5rem) !important; }
+        #hero p { font-size: 0.9rem !important; }
 
-        /* About grid → single column */
+        /* About grid -> single column */
         .about-grid {
           grid-template-columns: 1fr !important;
-          gap: 2.5rem !important;
+          gap: 2rem !important;
         }
         .about-left {
           position: static !important;
-          max-width: 260px;
+          max-width: 240px;
+          margin: 0 auto;
         }
 
-        /* Stats bar → 2×2 grid */
+        /* Stats bar -> 2x2 grid */
         .stats-grid {
           grid-template-columns: repeat(2, 1fr) !important;
-          gap: 1.5rem !important;
+          gap: 1.25rem !important;
         }
 
         /* Features heading */
         #services h2 { font-size: 1.75rem !important; }
 
-        /* Features cards → single column */
+        /* Features cards -> single column */
         #services > div > div[style*="grid"] {
           grid-template-columns: 1fr !important;
         }
 
-        /* Protocol card inner → stack anim under text */
+        /* Protocol card inner -> stack anim under text */
         .proto-card-inner {
           grid-template-columns: 1fr !important;
-          gap: 1.25rem !important;
+          gap: 1rem !important;
         }
 
-        /* Testimonials → single column scroll */
+        /* Testimonials -> single column */
         section[style*="#2E4036"] > div[style*="grid"] {
           grid-template-columns: 1fr !important;
         }
 
-        /* Footer grid → single column */
+        /* TheDifference 3-col -> single col */
+        section[style*="#1A1A1A"] div[style*="auto-fit"] {
+          grid-template-columns: 1fr !important;
+        }
+
+        /* Footer grid -> single column */
         footer > div:first-child {
           grid-template-columns: 1fr !important;
           gap: 2rem !important;
         }
-
-        /* Reduce hero heading on very small screens */
-        .font-drama { font-size: clamp(3.5rem, 20vw, 7rem) !important; }
       }
 
       /* ── Small phones ≤ 480px ── */
       @media (max-width: 480px) {
-        /* Navbar pill full-width */
-        nav { width: calc(100% - 2rem) !important; padding: 0.5rem 1rem !important; }
-        /* Stats: all 4 in 2×2 */
+        nav { width: calc(100% - 1.5rem) !important; padding: 0.5rem 1rem !important; }
         .stat-item { min-width: 0; }
-        /* FAQ answer text */
         .faq-item p { padding-right: 0 !important; }
       }
+
     `}</style>
   )
 }
