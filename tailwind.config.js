@@ -7,21 +7,26 @@ export default {
   theme: {
     extend: {
       colors: {
-        moss: '#2E4036',
-        clay: '#CC5833',
-        cream: '#F2F0E9',
-        charcoal: '#1A1A1A',
+        paper: '#E8E4DD',
+        signal: '#E63B2E',
+        offwhite: '#F5F3EE',
+        black: '#111111',
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'Outfit', 'sans-serif'],
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        mono: ['"IBM Plex Mono"', 'monospace'],
+        sans: ['"Space Grotesk"', 'sans-serif'],
+        serif: ['"DM Serif Display"', 'serif'],
+        mono: ['"Space Mono"', 'monospace'],
       },
       borderRadius: {
         '2rem': '2rem',
         '3rem': '3rem',
         '4rem': '4rem',
       },
+      letterSpacing: {
+        tightest: '-.075em',
+        tighter: '-.05em',
+        tight: '-.025em',
+      }
     },
   },
   plugins: [],

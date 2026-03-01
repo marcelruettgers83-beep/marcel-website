@@ -1,20 +1,23 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Linkedin, Twitter, ArrowUpRight, Menu, X, MapPin, ChevronDown } from 'lucide-react'
+import { ChevronDown, ArrowRight } from 'lucide-react'
 import './index.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
 /* ═══════════════════════════════════════════════════════════════
-   DESIGN TOKENS - Preset A: Organic Tech
+   DESIGN TOKENS - Preset C: Brutalist Signal
    ═══════════════════════════════════════════════════════════════ */
 const T = {
-  moss: '#2E4036',
-  clay: '#CC5833',
-  cream: '#F2F0E9',
-  charcoal: '#1A1A1A',
+  paper: '#E8E4DD',
+  signal: '#E63B2E',
+  offwhite: '#F5F3EE',
+  black: '#111111',
 }
+
+const BRAND = "Ruettgers Digital"
+const CTA_LINK = "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0gzf2H3GezuYwA1xN3iu2bStrp5lWeXwkJO2oC_oU8OymykSe6oxOxCmN8UhPSY-5L0mSZUDda"
 
 /* ═══════════════════════════════════════════════════════════════
    A. NAVBAR
@@ -34,23 +37,21 @@ function Navbar() {
         position: 'fixed', top: '1.25rem', left: '50%', transform: 'translateX(-50%)',
         zIndex: 1000, width: 'calc(100% - 2.5rem)', maxWidth: '900px',
         transition: 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-        background: scrolled ? 'rgba(242,240,233,0.75)' : 'transparent',
+        background: scrolled ? 'rgba(245,243,238,0.75)' : 'transparent',
         backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        border: scrolled ? '1px solid rgba(46,64,54,0.15)' : '1px solid transparent',
+        border: scrolled ? `1px solid rgba(17,17,17,0.15)` : '1px solid transparent',
         borderRadius: '9999px',
         padding: '0.6rem 1.5rem',
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        {/* Logo */}
-        <a href="#" style={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.85rem', letterSpacing: '0.05em', color: scrolled ? T.moss : T.cream, fontWeight: 700, textDecoration: 'none', transition: 'color 0.5s ease' }}>
-          MR_
+        <a href="#" style={{ fontFamily: '"Space Mono"', fontSize: '0.85rem', letterSpacing: '0.05em', color: scrolled ? T.black : T.paper, fontWeight: 700, textDecoration: 'none', transition: 'color 0.5s ease' }}>
+          RD_
         </a>
-        {/* Book a Call — always visible */}
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0gzf2H3GezuYwA1xN3iu2bStrp5lWeXwkJO2oC_oU8OymykSe6oxOxCmN8UhPSY-5L0mSZUDda" target="_blank" rel="noreferrer" className="btn-magnetic"
-          style={{ background: T.clay, color: T.cream, padding: '0.5rem 1.25rem', borderRadius: '9999px', fontSize: '0.8rem', fontWeight: 700, textDecoration: 'none', letterSpacing: '0.04em', display: 'inline-block' }}>
-          <span className="btn-slide" style={{ background: T.moss }}></span>
-          <span className="btn-label">Book a Call</span>
+        <a href={CTA_LINK} target="_blank" rel="noreferrer" className="btn-magnetic"
+          style={{ background: T.signal, color: T.offwhite, padding: '0.5rem 1.25rem', borderRadius: '9999px', fontSize: '0.8rem', fontWeight: 700, textDecoration: 'none', letterSpacing: '0.04em', display: 'inline-block' }}>
+          <span className="btn-slide" style={{ background: T.black }}></span>
+          <span className="btn-label">Book Your Affiliate Program Diagnostic</span>
         </a>
       </div>
     </nav>
@@ -58,7 +59,7 @@ function Navbar() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   B. HERO SECTION - "The Opening Shot"
+   B. HERO SECTION
    ═══════════════════════════════════════════════════════════════ */
 function Hero() {
   const elRef = useRef(null)
@@ -66,8 +67,8 @@ function Hero() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from('.hero-item', {
-        y: 50, opacity: 0, duration: 1.1, stagger: 0.1,
-        ease: 'power3.out', delay: 0.3,
+        y: 40, opacity: 0, duration: 1.1, stagger: 0.08,
+        ease: 'power3.out', delay: 0.2,
       })
     }, elRef)
     return () => ctx.revert()
@@ -76,160 +77,63 @@ function Hero() {
   return (
     <section ref={elRef} id="hero" style={{
       height: '100dvh', position: 'relative', overflow: 'hidden',
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      display: 'flex', alignItems: 'flex-end', paddingBottom: '12vh',
     }}>
-      {/* Background image */}
       <div style={{
         position: 'absolute', inset: 0,
-        backgroundImage: `url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1800&auto=format&fit=crop&q=80')`,
+        backgroundImage: `url('https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?w=1800&auto=format&fit=crop&q=80')`,
         backgroundSize: 'cover', backgroundPosition: 'center',
       }} />
-      {/* Heavy gradient overlay */}
       <div style={{
         position: 'absolute', inset: 0,
-        background: `linear-gradient(to top, ${T.charcoal} 0%, rgba(26,26,26,0.85) 40%, rgba(46,64,54,0.5) 70%, transparent 100%)`,
+        background: `linear-gradient(to top, ${T.black} 0%, rgba(17,17,17,0.85) 40%, rgba(17,17,17,0.4) 75%, transparent 100%)`,
       }} />
 
-      {/* Content - centered */}
-      <div style={{ position: 'relative', zIndex: 2, padding: '80px 8vw 0', maxWidth: '1100px', textAlign: 'center' }}>
-
-        <h1 style={{ margin: '0 0 2rem', lineHeight: 1.08 }}>
+      <div style={{ position: 'relative', zIndex: 2, padding: '0 6vw', maxWidth: '1200px' }}>
+        <h1 style={{ margin: '0 0 1.5rem', lineHeight: 1.05 }}>
           <span className="hero-item" style={{
             display: 'block',
-            fontFamily: '"Plus Jakarta Sans"',
+            fontFamily: '"Space Grotesk"',
             fontWeight: 700,
-            fontSize: 'clamp(1.5rem, 2.8vw, 2.5rem)',
-            color: 'rgba(242,240,233,0.75)',
-            letterSpacing: '-0.01em',
-            marginBottom: '0.3rem',
+            fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
+            color: T.paper,
+            letterSpacing: '-0.02em',
+            marginBottom: '0.2rem',
+            textTransform: 'uppercase',
           }}>
-            Your Growth Shouldn't Depend on You
+            Most Affiliate Programs Fail Before They Start.
           </span>
           <span className="hero-item font-drama" style={{
             display: 'block',
-            fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-            color: T.cream,
-            lineHeight: 1.05,
+            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+            color: T.offwhite,
+            lineHeight: 0.9,
             letterSpacing: '-0.02em',
+            marginLeft: '-0.05em',
           }}>
-            Being in Every Room.
+            Yours Doesn't Have To.
           </span>
         </h1>
 
-        <p className="hero-item" style={{ color: 'rgba(242,240,233,0.65)', fontSize: 'clamp(0.9rem, 1.3vw, 1.05rem)', maxWidth: '520px', lineHeight: 1.75, margin: '0 auto 1rem' }}>
-          You've built a company that works. Now it only works when you're pushing. Every decision loops back to you. Your systems are duct-taped together. And you're starting to wonder if more growth will just mean more chaos.
-        </p>
-        <p className="hero-item" style={{ color: T.cream, fontSize: 'clamp(0.9rem, 1.2vw, 1rem)', lineHeight: 1.6, margin: '0 auto 2.25rem', fontWeight: 600 }}>
-          I build the operating infrastructure that breaks that pattern.
+        <p className="hero-item" style={{ color: 'rgba(232,228,221,0.7)', fontSize: 'clamp(1rem, 1.4vw, 1.25rem)', maxWidth: '750px', lineHeight: 1.6, margin: '0 0 2rem', fontFamily: '"Space Mono"' }}>
+          I build affiliate and partner programs that actually work - then hand them to your team to run. No agency retainers. No 12-month contracts. Just a system that pays for itself.
         </p>
 
-        <div className="hero-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
+        <div className="hero-item" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
           <a
-            href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0gzf2H3GezuYwA1xN3iu2bStrp5lWeXwkJO2oC_oU8OymykSe6oxOxCmN8UhPSY-5L0mSZUDda"
+            href={CTA_LINK}
             target="_blank" rel="noreferrer"
             className="btn-magnetic" style={{
-              background: T.clay, color: T.cream, padding: '1rem 2.5rem',
-              borderRadius: '9999px', fontSize: '0.95rem', fontWeight: 700,
-              textDecoration: 'none', letterSpacing: '0.04em', display: 'inline-block',
+              background: T.signal, color: T.offwhite, padding: '1.25rem 2.5rem',
+              borderRadius: '9999px', fontSize: '1rem', fontWeight: 700,
+              textDecoration: 'none', letterSpacing: '0.04em', display: 'inline-flex', alignItems: 'center', gap: '0.75rem'
             }}>
-            <span className="btn-slide" style={{ background: T.moss }}></span>
-            <span className="btn-label">Book a Conversation</span>
+            <span className="btn-slide" style={{ background: T.paper }}></span>
+            <span className="btn-label" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'inherit' }}>
+              Book Your Affiliate Program Diagnostic <ArrowRight size={18} />
+            </span>
           </a>
-          <span className="font-data" style={{ color: 'rgba(242,240,233,0.35)', fontSize: '0.7rem', letterSpacing: '0.1em' }}>30 minutes. No pitch deck. No hard sell.</span>
-        </div>
-
-        <div className="hero-item" style={{ marginTop: '3rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: 'rgba(242,240,233,0.3)' }}>
-          <ChevronDown size={14} style={{ animation: 'bounce 2s infinite' }} />
-          <span className="font-data" style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Scroll</span>
-        </div>
-      </div>
-
-    </section>
-  )
-}
-
-
-/* ═══════════════════════════════════════════════════════════════
-   ABOUT SECTION
-   ═══════════════════════════════════════════════════════════════ */
-function AboutSection() {
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.about-left', {
-        scrollTrigger: { trigger: ref.current, start: 'top 80%' },
-        x: -40, opacity: 0, duration: 1.0, ease: 'power3.out',
-      })
-      gsap.from('.about-right', {
-        scrollTrigger: { trigger: ref.current, start: 'top 75%' },
-        x: 40, opacity: 0, duration: 1.0, ease: 'power3.out', delay: 0.1,
-      })
-      gsap.from('.about-exp', {
-        scrollTrigger: { trigger: ref.current, start: 'top 70%' },
-        y: 20, opacity: 0, stagger: 0.12, duration: 0.7, ease: 'power3.out', delay: 0.2,
-      })
-    }, ref)
-    return () => ctx.revert()
-  }, [])
-
-  const experience = [
-    {
-      org: 'Large Retail Organization',
-      detail: 'I ran the operation. I learned that growth at scale is a systems problem, not a people problem. You build the infrastructure right, or you burn out fixing the same things every week.',
-    },
-    {
-      org: 'AI-powered SaaS',
-      detail: 'A fast-growing SaaS with broken systems. I rebuilt the GTM engine end-to-end: acquisition, conversion, partnerships. Achieved 900% growth in the partnership program through systems, not just harder work.',
-    },
-  ]
-
-  return (
-    <section id="about" ref={ref} style={{ padding: '8rem 6vw', background: T.cream }}>
-      <div className="about-grid">
-        {/* Left - Portrait */}
-        <div className="about-left" style={{ position: 'sticky', top: '7rem' }}>
-          <div style={{
-            borderRadius: '2rem',
-            overflow: 'hidden',
-            boxShadow: '0 24px 60px rgba(46,64,54,0.18)',
-            aspectRatio: '3/4',
-          }}>
-            <img
-              src="/marcel-portrait.jpg"
-              alt="Marcel Ruettgers"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }}
-            />
-          </div>
-          <div style={{ marginTop: '1.25rem', padding: '0 0.25rem' }}>
-            <div style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 700, fontSize: '1rem', color: T.charcoal }}>Marcel Ruettgers</div>
-            <div className="font-data" style={{ fontSize: '0.7rem', color: T.clay, marginTop: '0.2rem', letterSpacing: '0.08em' }}>Fractional Head of Growth · Amsterdam</div>
-          </div>
-        </div>
-
-        {/* Right - Bio + experience */}
-        <div className="about-right">
-          <span className="font-data" style={{ color: T.clay, fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>About</span>
-          <h2 style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 800, fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)', color: T.charcoal, margin: '0.75rem 0 1.25rem', lineHeight: 1.1 }}>
-            Hi, I'm Marcel.{' '}
-            <span className="font-drama" style={{ color: T.moss, fontSize: '1.05em' }}>Here's what you need to know.</span>
-          </h2>
-          <p style={{ fontSize: 'clamp(1rem, 1.4vw, 1.1rem)', color: 'rgba(26,26,26,0.7)', lineHeight: 1.8, marginBottom: '0.75rem', maxWidth: '520px' }}>
-            I've spent 20 years learning how growth breaks - and how to make it work without the person at the top holding everything together.
-          </p>
-          <p className="font-data" style={{ fontSize: '0.75rem', color: T.moss, letterSpacing: '0.08em', marginBottom: '2.5rem', fontStyle: 'italic' }}>
-            Diagnose what's broken. Fix the foundation. Build systems your team owns. Step back.
-          </p>
-
-          {/* Experience highlights */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            {experience.map(({ org, detail }) => (
-              <div key={org} className="about-exp card-surface" style={{ padding: '1.5rem 1.75rem', borderRadius: '1.5rem' }}>
-                <div className="font-data" style={{ fontSize: '0.65rem', color: T.clay, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.6rem' }}>{org}</div>
-                <p style={{ fontSize: '0.875rem', color: 'rgba(26,26,26,0.65)', lineHeight: 1.7, margin: 0 }}>{detail}</p>
-              </div>
-            ))}
-          </div>
+          <span className="font-data" style={{ color: 'rgba(232,228,221,0.4)', fontSize: '0.8rem', letterSpacing: '0.1em' }}><ChevronDown size={14} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '0.5rem', animation: 'bounce 2s infinite' }} />SCROLL TO INSPECT</span>
         </div>
       </div>
     </section>
@@ -237,54 +141,13 @@ function AboutSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   STATS BAR
+   C. FEATURES (The Problem Agitation)
    ═══════════════════════════════════════════════════════════════ */
-function StatsBar() {
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.stat-item', {
-        scrollTrigger: { trigger: ref.current, start: 'top 85%' },
-        y: 30, opacity: 0, stagger: 0.15, duration: 0.8, ease: 'power3.out',
-      })
-    }, ref)
-    return () => ctx.revert()
-  }, [])
-
-  const stats = [
-    { num: '18+', label: 'Years scaling chaos into systems' },
-    { num: '3x', label: 'Scaling companies Series A to C' },
-    { num: '12', label: 'Teams built and optimized across EU and US' },
-  ]
-
-  return (
-    <section ref={ref} style={{ background: T.moss, padding: '4rem 6vw' }}>
-      <p className="font-data" style={{ color: T.clay, fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '2.5rem' }}>
-        Track Record
-      </p>
-      <div className="stats-grid">
-        {stats.map(({ num, label }) => (
-          <div key={num} className="stat-item">
-            <div className="font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: T.cream, lineHeight: 1 }}>{num}</div>
-            <div style={{ color: 'rgba(242,240,233,0.6)', fontSize: '0.85rem', marginTop: '0.5rem', lineHeight: 1.4 }}>{label}</div>
-          </div>
-        ))}
-      </div>
-    </section>
-  )
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   C. FEATURES - "Interactive Functional Artifacts"
-   ═══════════════════════════════════════════════════════════════ */
-
-// Card 1: Diagnostic Shuffler
 function ShufflerCard() {
   const items = [
-    { label: 'Growth Architecture', sub: 'Map the full customer journey' },
-    { label: 'Stack Optimisation', sub: 'Fix the data & reporting layer' },
-    { label: 'Revenue Ops Setup', sub: "Know what's actually working" },
+    { label: 'Anyone with a pulse', sub: 'Coupon sites cannibalizing existing customers.' },
+    { label: 'Zero Audience Overlap', sub: 'Content creators with no relevance.' },
+    { label: 'Identify and Vet', sub: 'Quality partners don\'t just appear.' },
   ]
   const [cards, setCards] = useState([...items])
 
@@ -295,15 +158,15 @@ function ShufflerCard() {
         next.unshift(next.pop())
         return next
       })
-    }, 2800)
+    }, 3000)
     return () => clearInterval(id)
   }, [])
 
   return (
     <div className="card-surface" style={{ padding: '2rem', height: '320px', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-        <div style={{ width: 6, height: 6, borderRadius: '50%', background: T.clay, animation: 'pulse-dot 2s infinite' }} />
-        <span className="font-data" style={{ color: T.clay, fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Diagnostic</span>
+        <div style={{ width: 8, height: 8, background: T.signal }} />
+        <span className="font-data" style={{ color: T.signal, fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Issue #1</span>
       </div>
       <div style={{ flex: 1, position: 'relative', overflow: 'hidden' }}>
         {cards.map((card, i) => (
@@ -311,14 +174,14 @@ function ShufflerCard() {
             position: 'absolute', left: 0, right: 0,
             top: `${i * 70}px`,
             transition: 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)',
-            background: i === 0 ? T.moss : 'white',
-            border: `1px solid ${i === 0 ? T.moss : 'rgba(46,64,54,0.1)'}`,
-            borderRadius: '1rem', padding: '0.875rem 1.25rem',
+            background: i === 0 ? T.black : T.paper,
+            border: `1px solid ${i === 0 ? T.black : 'rgba(17,17,17,0.1)'}`,
+            borderRadius: '1rem', padding: '1rem 1.25rem',
             opacity: i > 2 ? 0 : 1 - i * 0.15,
             transform: `scale(${1 - i * 0.02})`,
           }}>
-            <div style={{ fontWeight: 700, fontSize: '0.9rem', color: i === 0 ? T.cream : T.charcoal }}>{card.label}</div>
-            <div style={{ fontSize: '0.75rem', color: i === 0 ? 'rgba(242,240,233,0.7)' : 'rgba(26,26,26,0.5)', marginTop: '0.2rem' }}>{card.sub}</div>
+            <div style={{ fontWeight: 700, fontSize: '0.95rem', color: i === 0 ? T.offwhite : T.black }}>{card.label}</div>
+            <div style={{ fontSize: '0.8rem', color: i === 0 ? 'rgba(245,243,238,0.7)' : 'rgba(17,17,17,0.6)', marginTop: '0.25rem' }}>{card.sub}</div>
           </div>
         ))}
       </div>
@@ -326,14 +189,12 @@ function ShufflerCard() {
   )
 }
 
-// Card 2: Telemetry Typewriter
 function TypewriterCard() {
   const messages = [
-    'Fractional leadership embedded in ops...',
-    'Running growth dept so you own vision...',
-    'Cross-functional alignment achieved...',
-    'Team velocity increased 40%...',
-    'Scaling without the founder bottleneck...',
+    'A flat 20% commission sounds generous...',
+    'But with a 90-day sales cycle...',
+    'And only tracking last-click...',
+    'Best affiliates subsidize the worst...',
   ]
   const [msgIdx, setMsgIdx] = useState(0)
   const [text, setText] = useState('')
@@ -344,7 +205,7 @@ function TypewriterCard() {
       const t = setTimeout(() => {
         setText(prev => prev + messages[msgIdx][charIdx])
         setCharIdx(c => c + 1)
-      }, 45)
+      }, 40)
       return () => clearTimeout(t)
     } else {
       const t = setTimeout(() => {
@@ -357,48 +218,46 @@ function TypewriterCard() {
   }, [charIdx, msgIdx])
 
   const logs = [
-    { time: '09:14:22', msg: 'Strategy session complete' },
-    { time: '09:31:05', msg: 'CRM audit: 12 leaks found' },
-    { time: '10:02:44', msg: 'Growth OKRs locked for Q2' },
+    { time: '01:04', msg: 'Economics evaluated' },
+    { time: '01:12', msg: 'Attribution tracked' },
+    { time: '01:44', msg: 'Commission mismatch' },
   ]
 
   return (
-    <div className="card-surface" style={{ padding: '2rem', height: '320px', overflow: 'hidden' }}>
+    <div className="card-surface" style={{ padding: '2rem', height: '320px', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.25rem' }}>
-        <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#4CAF50', animation: 'pulse-dot 1.5s infinite' }} />
-        <span className="font-data" style={{ color: '#4CAF50', fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Live Feed</span>
+        <div style={{ width: 8, height: 8, background: T.signal, animation: 'pulse-dot 1s infinite step-end' }} />
+        <span className="font-data" style={{ color: T.signal, fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Issue #2</span>
       </div>
-      <div style={{ background: T.charcoal, borderRadius: '0.75rem', padding: '1rem', fontFamily: '"IBM Plex Mono"', fontSize: '0.72rem', marginBottom: '1rem' }}>
+      <div style={{ flex: 1, background: '#000', borderRadius: '0.5rem', padding: '1.25rem', fontFamily: '"Space Mono"', fontSize: '0.75rem', border: `1px solid rgba(255,255,255,0.1)` }}>
         {logs.map(l => (
-          <div key={l.time} style={{ display: 'flex', gap: '1rem', marginBottom: '0.35rem' }}>
-            <span style={{ color: T.clay }}>{l.time}</span>
-            <span style={{ color: 'rgba(242,240,233,0.6)' }}>{l.msg}</span>
+          <div key={l.time} style={{ display: 'flex', gap: '1rem', marginBottom: '0.5rem' }}>
+            <span style={{ color: 'rgba(255,255,255,0.4)' }}>[{l.time}]</span>
+            <span style={{ color: 'rgba(255,255,255,0.7)' }}>{l.msg}</span>
           </div>
         ))}
-        <div style={{ display: 'flex', gap: '1rem', marginTop: '0.75rem' }}>
-          <span style={{ color: T.clay }}>{`>`}</span>
-          <span style={{ color: T.cream }}>{text}<span style={{ borderRight: `2px solid ${T.clay}`, marginLeft: 1, animation: 'blink 1s step-end infinite' }}>&nbsp;</span></span>
+        <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+          <span style={{ color: T.signal }}>{`>`}</span>
+          <span style={{ color: '#fff' }}>{text}<span style={{ borderRight: `8px solid ${T.signal}`, marginLeft: 2, animation: 'blink 1s step-end infinite' }}>&nbsp;</span></span>
         </div>
       </div>
-      <span className="font-data" style={{ fontSize: '0.7rem', color: 'rgba(26,26,26,0.5)' }}>Fractional Leadership · Real-time ops</span>
     </div>
   )
 }
 
-// Card 3: Cursor Protocol Scheduler
 function SchedulerCard() {
   const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
   const [active, setActive] = useState(null)
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 })
-  const [phase, setPhase] = useState(0) // 0=idle,1=move,2=click,3=done
+  const [phase, setPhase] = useState(0)
 
   useEffect(() => {
-    const targets = [1, 2, 3, 4] // Mon–Thu
+    const targets = [2, 4]
     let step = 0
     const run = () => {
       if (step < targets.length) {
         setPhase(1)
-        setCursorPos({ x: targets[step] * 42 + 16, y: 36 })
+        setCursorPos({ x: targets[step] * 38 + 24, y: 44 })
         setTimeout(() => {
           setPhase(2)
           setActive(targets[step])
@@ -407,12 +266,15 @@ function SchedulerCard() {
         }, 500)
       } else {
         setTimeout(() => {
-          setActive(null)
-          setCursorPos({ x: 0, y: 0 })
-          setPhase(0)
-          step = 0
-          setTimeout(run, 2000)
-        }, 1500)
+          setPhase(1)
+          setCursorPos({ x: 220, y: 120 })
+          setTimeout(() => {
+            setActive(null)
+            setPhase(0)
+            step = 0
+            setTimeout(run, 1500)
+          }, 400)
+        }, 1000)
       }
     }
     const init = setTimeout(run, 1000)
@@ -420,43 +282,43 @@ function SchedulerCard() {
   }, [])
 
   return (
-    <div className="card-surface" style={{ padding: '2rem', height: '320px' }}>
+    <div className="card-surface" style={{ padding: '2rem', height: '320px', display: 'flex', flexDirection: 'column' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.25rem' }}>
-        <span className="font-data" style={{ color: T.moss, fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Operational Rigor</span>
+        <div style={{ width: 8, height: 8, background: T.black }} />
+        <span className="font-data" style={{ color: T.black, fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Issue #3</span>
       </div>
-      <p style={{ fontSize: '0.85rem', color: 'rgba(26,26,26,0.6)', marginBottom: '1.5rem', lineHeight: 1.5 }}>
-        Turning chaos into a predictable, documented machine.
+      <p style={{ fontSize: '0.9rem', color: 'rgba(17,17,17,0.7)', marginBottom: '1.5rem', lineHeight: 1.5, flex: 1 }}>
+        The program lives in someone's side project folder. No onboarding flow, no content assets.
       </p>
-      <div style={{ position: 'relative', padding: '0.75rem', background: 'white', borderRadius: '1rem', border: '1px solid rgba(46,64,54,0.1)' }}>
+      <div style={{ position: 'relative', padding: '1rem', background: '#fff', borderRadius: '0.5rem', border: '1px solid rgba(17,17,17,0.1)' }}>
         <div style={{ display: 'flex', gap: '6px', justifyContent: 'space-between' }}>
           {days.map((d, i) => (
             <div key={i} style={{
-              width: 36, height: 36, borderRadius: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
-              background: active === i ? T.clay : 'transparent',
-              border: `1px solid ${active === i ? T.clay : 'rgba(46,64,54,0.1)'}`,
+              width: 32, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center',
+              background: active === i ? T.signal : 'transparent',
+              border: `1px solid ${active === i ? T.signal : 'rgba(17,17,17,0.1)'}`,
               transition: 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)',
-              transform: active === i ? 'scale(0.95)' : 'scale(1)',
             }}>
-              <span className="font-data" style={{ fontSize: '0.7rem', color: active === i ? T.cream : 'rgba(26,26,26,0.4)', fontWeight: 700 }}>{d}</span>
+              <span className="font-data" style={{ fontSize: '0.75rem', color: active === i ? '#fff' : 'rgba(17,17,17,0.4)', fontWeight: 700 }}>{d}</span>
             </div>
           ))}
         </div>
-        {/* Animated cursor */}
+
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '1rem' }}>
+          <div style={{ background: T.black, color: '#fff', fontSize: '0.65rem', padding: '0.4rem 0.8rem', fontFamily: '"Space Mono"' }}>ERROR: NO SYSTEMS</div>
+        </div>
+
         {phase > 0 && (
-          <div className="scheduler-cursor" style={{
+          <svg className="scheduler-cursor" style={{
             position: 'absolute', top: cursorPos.y, left: cursorPos.x,
-            width: 14, height: 14, borderRadius: '50%', background: T.clay, opacity: 0.85,
-            boxShadow: `0 0 0 4px ${T.clay}33`,
-            pointerEvents: 'none',
-          }} />
+            width: 20, height: 20, fill: T.black, stroke: '#fff', strokeWidth: 1.5,
+            pointerEvents: 'none', zIndex: 10,
+            transform: phase === 2 ? 'scale(0.85)' : 'scale(1)'
+          }} viewBox="0 0 24 24">
+            <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" />
+          </svg>
         )}
       </div>
-      <div style={{ marginTop: '1rem', display: 'flex', gap: '0.5rem' }}>
-        <div style={{ flex: 1, height: 4, borderRadius: 2, background: T.moss, opacity: 0.6 }} />
-        <div style={{ flex: 1, height: 4, borderRadius: 2, background: T.clay, opacity: 0.6 }} />
-        <div style={{ flex: 1, height: 4, borderRadius: 2, background: T.moss, opacity: 0.3 }} />
-      </div>
-      <p className="font-data" style={{ fontSize: '0.65rem', color: 'rgba(26,26,26,0.4)', marginTop: '0.5rem', letterSpacing: '0.1em' }}>WEEKLY CADENCE LOCKED</p>
     </div>
   )
 }
@@ -468,165 +330,112 @@ function Features() {
     const ctx = gsap.context(() => {
       gsap.from('.feat-head', {
         scrollTrigger: { trigger: ref.current, start: 'top 80%' },
-        y: 30, opacity: 0, duration: 0.9, ease: 'power3.out',
+        y: 40, opacity: 0, duration: 0.9, ease: 'power3.out',
       })
       gsap.from('.feat-card', {
         scrollTrigger: { trigger: ref.current, start: 'top 75%' },
-        y: 50, opacity: 0, stagger: 0.15, duration: 0.9, ease: 'power3.out',
+        y: 60, opacity: 0, stagger: 0.15, duration: 0.9, ease: 'power3.out',
       })
     }, ref)
     return () => ctx.revert()
   }, [])
 
-  const cards = [
-    { label: 'Growth Architecture', desc: 'I map your entire customer journey and identify the leaks. We fix the data, the stack, and the reporting so you actually know what\'s working.', comp: <ShufflerCard /> },
-    { label: 'Fractional Leadership', desc: 'Managing a growing team shouldn\'t be your full-time job. I step in to run the growth department while you focus on the vision.', comp: <TypewriterCard /> },
-    { label: 'Operational Rigor', desc: 'Standardizing the mess. I implement the rituals, documentation, and processes that turn "winging it" into a predictable machine.', comp: <SchedulerCard /> },
-  ]
-
   return (
-    <section id="services" ref={ref} style={{ padding: '8rem 6vw', background: T.cream }}>
-      <div className="feat-head" style={{ marginBottom: '4rem', maxWidth: '600px' }}>
-        <span className="font-data" style={{ color: T.clay, fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>What I Do</span>
-        <h2 style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: T.charcoal, marginTop: '0.75rem', marginBottom: '0.75rem', lineHeight: 1.1 }}>
-          Strategic Operations for<br /><span className="font-drama" style={{ color: T.moss, fontSize: '1.15em' }}>Sustainable Scale</span>
+    <section ref={ref} style={{ padding: '8rem 6vw', background: T.offwhite }}>
+      <div className="feat-head" style={{ marginBottom: '4rem', maxWidth: '850px' }}>
+        <h2 style={{ fontFamily: '"Space Grotesk"', fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', color: T.black, margin: '0 0 1rem', lineHeight: 1.1, textTransform: 'uppercase', letterSpacing: '-0.02em' }}>
+          The Three Ways Companies Botch Their Affiliate Programs
         </h2>
+        <p style={{ fontFamily: '"Space Mono"', fontSize: '1rem', color: 'rgba(17,17,17,0.6)', lineHeight: 1.6 }}>
+          Here's the pattern I see over and over. A company decides affiliate marketing is the next growth channel. Someone on the team signs up for a platform. They recruit a handful of partners. They wait. Six months later, it fails because nobody built the machine.
+        </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
-        {cards.map(({ label, desc, comp }) => (
-          <div key={label} className="feat-card" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            {comp}
-            <div style={{ padding: '0 0.5rem' }}>
-              <h3 style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 700, fontSize: '1.1rem', color: T.charcoal, margin: '0 0 0.4rem' }}>{label}</h3>
-              <p style={{ fontSize: '0.875rem', color: 'rgba(26,26,26,0.6)', lineHeight: 1.6, margin: 0 }}>{desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  )
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   D. THE DIFFERENCE
-   ═══════════════════════════════════════════════════════════════ */
-function TheDifference() {
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.diff-item', {
-        scrollTrigger: { trigger: ref.current, start: 'top 70%' },
-        y: 30, opacity: 0, stagger: 0.12, duration: 0.8, ease: 'power3.out',
-      })
-    }, ref)
-    return () => ctx.revert()
-  }, [])
-
-  const points = [
-    { label: 'In your CRM', desc: 'Configuring the actual workflows, not describing what they should look like.' },
-    { label: 'Sitting with your team', desc: 'Training them to run what we build together - not handing them a PDF they\'ll never open.' },
-    { label: 'Stepping back when it works', desc: 'Your team owns the growth engine. I stay available for the decisions that matter.' },
-  ]
-
-  return (
-    <section ref={ref} style={{ position: 'relative', padding: '10rem 6vw', background: T.charcoal, overflow: 'hidden' }}>
-      <div style={{
-        position: 'absolute', inset: 0, opacity: 0.06,
-        backgroundImage: `url('https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=1400&auto=format&fit=crop&q=60')`,
-        backgroundSize: 'cover', backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-      }} />
-
-      <div style={{ position: 'relative', zIndex: 1, maxWidth: '860px' }}>
-        <span className="diff-item font-data" style={{ color: T.clay, fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>The Difference</span>
-        <p className="diff-item" style={{ color: 'rgba(242,240,233,0.45)', fontSize: '1rem', lineHeight: 1.7, margin: '1rem 0 1.5rem' }}>
-          Most growth consultants hand you a deck and wish you luck.
-        </p>
-        <p className="diff-item" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.5rem)', lineHeight: 1.25, color: T.cream, fontFamily: '"Plus Jakarta Sans"', fontWeight: 700, marginBottom: '3.5rem' }}>
-          I build it. I train your team on it. Then I step back.
-          <span className="font-drama" style={{ display: 'block', color: T.clay, fontSize: '1.2em', marginTop: '0.25rem' }}> That's the difference between a consultant and an architect.</span>
-        </p>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem' }}>
-          {points.map(({ label, desc }) => (
-            <div key={label} className="diff-item" style={{ padding: '1.75rem', background: 'rgba(242,240,233,0.05)', border: '1px solid rgba(242,240,233,0.1)', borderRadius: '1.5rem' }}>
-              <div style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 700, fontSize: '0.95rem', color: T.cream, marginBottom: '0.5rem' }}>{label}</div>
-              <p style={{ fontSize: '0.85rem', color: 'rgba(242,240,233,0.5)', lineHeight: 1.65, margin: 0 }}>{desc}</p>
-            </div>
-          ))}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+        <div className="feat-card">
+          <ShufflerCard />
+          <h3 style={{ marginTop: '1.5rem', marginBottom: '0.5rem', fontSize: '1.25rem', fontWeight: 700 }}>1. Wrong partners.</h3>
+          <p style={{ fontSize: '0.9rem', color: 'rgba(17,17,17,0.6)', lineHeight: 1.6 }}>Quality partners don't just appear - they need to be identified, vetted, and sold on why your program is worth their time.</p>
+        </div>
+        <div className="feat-card">
+          <TypewriterCard />
+          <h3 style={{ marginTop: '1.5rem', marginBottom: '0.5rem', fontSize: '1.25rem', fontWeight: 700 }}>2. Wrong incentives.</h3>
+          <p style={{ fontSize: '0.9rem', color: 'rgba(17,17,17,0.6)', lineHeight: 1.6 }}>Commission structures need to match your economics, not your competitor's homepage.</p>
+        </div>
+        <div className="feat-card">
+          <SchedulerCard />
+          <h3 style={{ marginTop: '1.5rem', marginBottom: '0.5rem', fontSize: '1.25rem', fontWeight: 700 }}>3. No systems.</h3>
+          <p style={{ fontSize: '0.9rem', color: 'rgba(17,17,17,0.6)', lineHeight: 1.6 }}>The program doesn't fail because affiliate marketing doesn't work. It fails because nobody built the machine.</p>
         </div>
       </div>
     </section>
   )
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   D. PHILOSOPHY
+   ═══════════════════════════════════════════════════════════════ */
+function Philosophy() {
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from('.philo-text', {
+        scrollTrigger: { trigger: ref.current, start: 'top 75%' },
+        opacity: 0, y: 30, duration: 1, stagger: 0.2, ease: 'power3.out'
+      })
+    }, ref)
+    return () => ctx.revert()
+  }, [])
+
+  return (
+    <section ref={ref} style={{ position: 'relative', background: T.black, padding: '10rem 6vw', color: T.offwhite, overflow: 'hidden' }}>
+      <div style={{
+        position: 'absolute', inset: 0,
+        backgroundImage: `url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2400&auto=format&fit=crop')`,
+        backgroundSize: 'cover', backgroundAttachment: 'fixed', opacity: 0.1, mixBlendMode: 'luminosity'
+      }} />
+      <div style={{ position: 'relative', zIndex: 1, maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
+        <p className="philo-text" style={{ fontFamily: '"Space Mono"', fontSize: '0.9rem', color: 'rgba(245,243,238,0.5)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '2rem' }}>
+          Built to Run Without Me. <br /><span style={{ color: 'rgba(245,243,238,0.8)' }}>Built to Grow With Me.</span>
+        </p>
+        <h2 className="philo-text" style={{ fontFamily: '"Space Grotesk"', fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3.5rem)', lineHeight: 1.1, margin: '0 0 1rem' }}>
+          Agencies want you dependent.
+        </h2>
+        <h2 className="philo-text font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', lineHeight: 1, color: T.signal }}>
+          I build it so your team owns it.
+        </h2>
+        <p className="philo-text" style={{ fontFamily: '"Space Mono"', fontSize: '1.1rem', marginTop: '2rem', color: 'rgba(245,243,238,0.7)', maxWidth: '800px', margin: '2rem auto 0', lineHeight: 1.6 }}>
+          The core program - platform, partners, tracking, playbooks - is yours after the build. Your team can run it independently from day one.
+        </p>
+      </div>
+    </section>
+  )
+}
 
 /* ═══════════════════════════════════════════════════════════════
-   E. PROTOCOL - "Sticky Stacking Archive"
+   E. PROTOCOL
    ═══════════════════════════════════════════════════════════════ */
-
-// Rotating geometric SVG
-function GeoAnimation() {
+function CircularAnim() {
   const ref = useRef(null)
   useEffect(() => {
-    let angle = 0
-    const id = setInterval(() => {
-      angle = (angle + 0.5) % 360
-      if (ref.current) ref.current.style.transform = `rotate(${angle}deg)`
-    }, 16)
-    return () => clearInterval(id)
+    gsap.to(ref.current, { rotation: 360, duration: 20, repeat: -1, ease: 'linear' })
   }, [])
   return (
-    <div ref={ref} style={{ width: 80, height: 80, opacity: 0.3 }}>
-      <svg viewBox="0 0 80 80" fill="none">
-        <circle cx="40" cy="40" r="36" stroke={T.clay} strokeWidth="1.5" strokeDasharray="4 4" />
-        <circle cx="40" cy="40" r="24" stroke={T.cream} strokeWidth="1" />
-        <circle cx="40" cy="40" r="12" stroke={T.clay} strokeWidth="2" />
-      </svg>
-    </div>
+    <svg ref={ref} width="120" height="120" viewBox="0 0 120 120" stroke={T.black} fill="none" strokeWidth="1" style={{ opacity: 0.15 }}>
+      <circle cx="60" cy="60" r="50" strokeDasharray="4 8" />
+      <rect x="25" y="25" width="70" height="70" />
+      <polygon points="60,10 110,110 10,110" />
+    </svg>
   )
 }
 
-// Scanning laser line
-function LaserAnimation() {
-  const ref = useRef(null)
-  useEffect(() => {
-    let y = 0
-    const id = setInterval(() => {
-      y = (y + 1) % 80
-      if (ref.current) ref.current.style.top = `${y}px`
-    }, 30)
-    return () => clearInterval(id)
-  }, [])
+function GridAnim() {
   return (
-    <div style={{ position: 'relative', width: 80, height: 80, overflow: 'hidden' }}>
-      <svg viewBox="0 0 80 80" width="80" height="80" style={{ opacity: 0.25 }}>
-        {[...Array(5)].map((_, r) => [...Array(5)].map((_, c) => (
-          <circle key={`${r}-${c}`} cx={8 + c * 16} cy={8 + r * 16} r="2" fill={T.cream} />
-        )))}
-      </svg>
-      <div ref={ref} style={{ position: 'absolute', left: 0, right: 0, height: '2px', background: T.clay, opacity: 0.8, boxShadow: `0 0 8px ${T.clay}` }} />
-    </div>
-  )
-}
-
-// EKG Waveform
-function WaveformAnimation() {
-  const [offset, setOffset] = useState(0)
-  useEffect(() => {
-    const id = setInterval(() => setOffset(o => (o + 2) % 200), 30)
-    return () => clearInterval(id)
-  }, [])
-  return (
-    <svg width="80" height="80" viewBox="0 0 80 80" style={{ opacity: 0.4 }}>
-      <path
-        d="M0 40 L10 40 L18 20 L26 60 L34 10 L42 70 L50 40 L65 40 L80 40"
-        stroke={T.clay} strokeWidth="2" fill="none"
-        strokeDasharray="120" strokeDashoffset={offset}
-        style={{ transition: 'stroke-dashoffset 0.03s linear' }}
-      />
+    <svg width="120" height="120" viewBox="0 0 120 120" fill={T.black} style={{ opacity: 0.15 }}>
+      {[...Array(8)].map((_, r) => [...Array(8)].map((_, c) => (
+        <rect key={`${r}-${c}`} x={c * 15 + 3} y={r * 15 + 3} width="9" height="9" />
+      )))}
     </svg>
   )
 }
@@ -641,33 +450,22 @@ function Protocol() {
         if (i === 0) return
         gsap.from(card, {
           scrollTrigger: {
-            trigger: card,
-            start: 'top 80%',
-            end: 'top 20%',
-            scrub: 0.5,
+            trigger: card, start: 'top 85%', end: 'top 20%', scrub: 0.5,
           },
           opacity: 0,
         })
-        // Scale + blur previous cards as new one enters
         ScrollTrigger.create({
-          trigger: card,
-          start: 'top 70%',
+          trigger: card, start: 'top 75%',
           onEnter: () => {
             if (cards[i - 1]) {
-              gsap.to(cards[i - 1], {
-                scale: 0.92, filter: 'blur(4px)', opacity: 0.4,
-                duration: 0.6, ease: 'power2.inOut',
-              })
+              gsap.to(cards[i - 1], { scale: 0.95, filter: 'blur(8px)', opacity: 0.3, duration: 0.6, ease: 'power2.inOut' })
             }
           },
           onLeaveBack: () => {
             if (cards[i - 1]) {
-              gsap.to(cards[i - 1], {
-                scale: 1, filter: 'blur(0px)', opacity: 1,
-                duration: 0.6, ease: 'power2.inOut',
-              })
+              gsap.to(cards[i - 1], { scale: 1, filter: 'blur(0px)', opacity: 1, duration: 0.6, ease: 'power2.inOut' })
             }
-          },
+          }
         })
       })
     }, containerRef)
@@ -675,374 +473,90 @@ function Protocol() {
   }, [])
 
   const steps = [
-    {
-      num: '01', title: 'Find the Leaks', sub: 'Week 1–2', anim: <GeoAnimation />,
-      desc: 'Mapping every step of your funnel. Finding where leads get stuck. Checking data reality. Identifying revenue-driving channels vs. \'busy\' dashboards.',
-      result: 'Result: Full clarity in 2 weeks.',
-    },
-    {
-      num: '02', title: 'Fix the Foundation', sub: 'Week 3–4', anim: <LaserAnimation />,
-      desc: 'Clear ownership. Defined handoffs. Pipeline stages that mean something. Reporting that reflects reality.',
-      result: '"80% of growth problems are plumbing problems."',
-    },
-    {
-      num: '03', title: 'Build the Machine', sub: 'Week 5+', anim: <WaveformAnimation />,
-      desc: 'Workflow automation. Revenue playbooks. Smart tooling with humans in the loop. Your team learns by building alongside me.',
-      result: null,
-    },
-    {
-      num: '04', title: 'Hand Over & Advise', sub: 'Ongoing', anim: <GeoAnimation />,
-      desc: 'Training your team to run every system. Documentation. Advisory for big decisions. The relief of knowing growth happens without you.',
-      result: null,
-    },
+    { num: '01', title: 'Phase 1: Diagnose (Week 1-2)', desc: 'I run a full diagnostic on your current setup. Audit tracking gaps, map competitive landscape, and identify ideal partner profiles.', anim: <CircularAnim /> },
+    { num: '02', title: 'Phase 2: Build (Week 3-8)', desc: 'I build the complete program. Platform setup, commission design, partner recruitment, creative assets, tracking, and fraud prevention.', anim: <GridAnim /> },
+    { num: '03', title: 'Phase 3: Transfer (Week 7-8)', desc: 'I train your team to run everything I built. Hands-on training, operations playbook, performance dashboards, and post-handoff support.', anim: <CircularAnim /> },
   ]
 
   return (
-    <section id="work" ref={containerRef} style={{ background: T.cream, padding: '8rem 6vw' }}>
-      <span className="font-data" style={{ color: T.clay, fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>How It Works</span>
-      <h2 style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: T.charcoal, marginTop: '0.75rem', marginBottom: '0.5rem' }}>
-        Diagnose. Fix. Build. Hand Over.
-      </h2>
-      <p style={{ color: 'rgba(26,26,26,0.5)', fontSize: '0.9rem', marginBottom: '3.5rem', fontStyle: 'italic' }}>Ship in weeks, not quarters.</p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-        {steps.map(({ num, title, sub, desc, result, anim }) => (
-          <div key={num} className="proto-card" style={{
-            background: num === '01' ? T.moss : T.cream,
-            border: `1px solid ${num === '01' ? 'transparent' : 'rgba(46,64,54,0.12)'}`,
-            borderRadius: '2rem', padding: 'clamp(2rem, 4vw, 3rem)',
+    <section ref={containerRef} style={{ padding: '8rem 6vw', background: T.paper }}>
+      <div style={{ maxWidth: '800px', marginBottom: '4rem' }}>
+        <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', color: T.black, textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 1rem' }}>
+          The Affiliate Architecture Method
+        </h2>
+        <p style={{ fontFamily: '"Space Mono"', fontSize: '0.9rem', color: 'rgba(17,17,17,0.7)', lineHeight: 1.6 }}>
+          I don't manage affiliate programs. I build them, train your team, and get out of the way. Three phases. Six to eight weeks. You own everything when I leave.
+        </p>
+      </div>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', maxWidth: '900px', margin: '0 auto' }}>
+        {steps.map((s, i) => (
+          <div key={s.num} className="proto-card" style={{
+            background: T.offwhite, border: `2px solid ${T.black}`, padding: 'clamp(2rem, 5vw, 4rem)',
+            position: 'sticky', top: `${6 + i * 2}rem`, willChange: 'transform, opacity, filter',
+            display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem'
           }}>
-            <div className="proto-card-inner">
-              <div>
-                <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', marginBottom: '0.5rem' }}>
-                  <span className="font-data" style={{ fontSize: '0.7rem', color: T.clay, letterSpacing: '0.15em' }}>{num}</span>
-                  <h3 style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 700, fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)', color: num === '01' ? T.cream : T.charcoal, margin: 0 }}>{title}</h3>
-                  {sub && <span className="font-data" style={{ fontSize: '0.65rem', color: num === '01' ? 'rgba(242,240,233,0.45)' : 'rgba(26,26,26,0.35)', letterSpacing: '0.1em' }}>{sub}</span>}
-                </div>
-                <p style={{ fontSize: '0.9rem', color: num === '01' ? 'rgba(242,240,233,0.7)' : 'rgba(26,26,26,0.6)', lineHeight: 1.7, margin: 0, maxWidth: '480px' }}>{desc}</p>
-                {result && <p style={{ fontSize: '0.8rem', color: num === '02' ? T.clay : (num === '01' ? T.clay : T.moss), fontWeight: 600, marginTop: '0.75rem', fontStyle: 'italic' }}>{result}</p>}
-              </div>
-              <div style={{ opacity: 0.7, flexShrink: 0 }}>{anim}</div>
+            <div style={{ flex: 1 }}>
+              <span className="font-data" style={{ color: T.signal, fontSize: '1.25rem', display: 'block', marginBottom: '1rem' }}>[{s.num}]</span>
+              <h3 style={{ fontSize: '1.75rem', fontWeight: 700, margin: '0 0 1rem', textTransform: 'uppercase' }}>{s.title}</h3>
+              <p style={{ fontSize: '1rem', color: 'rgba(17,17,17,0.7)', lineHeight: 1.6, maxWidth: '500px' }}>{s.desc}</p>
+            </div>
+            <div style={{ display: 'none', '@media (minWidth: 768px)': { display: 'block' } }}>
+              {s.anim}
             </div>
           </div>
         ))}
-      </div>
-      <div style={{ marginTop: '3rem', textAlign: 'center' }}>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0gzf2H3GezuYwA1xN3iu2bStrp5lWeXwkJO2oC_oU8OymykSe6oxOxCmN8UhPSY-5L0mSZUDda" target="_blank" rel="noreferrer"
-          className="btn-magnetic" style={{ background: T.moss, color: T.cream, padding: '0.875rem 2.25rem', borderRadius: '9999px', fontSize: '0.9rem', fontWeight: 700, textDecoration: 'none', letterSpacing: '0.04em', display: 'inline-block' }}>
-          <span className="btn-slide" style={{ background: T.charcoal }}></span>
-          <span className="btn-label">Book a Growth Diagnostic</span>
-        </a>
       </div>
     </section>
   )
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   TESTIMONIALS
+   F. PRICING / OFFERS
    ═══════════════════════════════════════════════════════════════ */
-function Testimonials() {
+function Offers() {
   const ref = useRef(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.testi-card', {
+      gsap.from('.offer-card', {
         scrollTrigger: { trigger: ref.current, start: 'top 75%' },
-        y: 40, opacity: 0, stagger: 0.15, duration: 0.9, ease: 'power3.out',
+        y: 40, opacity: 0, stagger: 0.15, duration: 0.8, ease: 'power3.out'
       })
     }, ref)
     return () => ctx.revert()
   }, [])
 
-  const testimonials = [
-    {
-      name: 'Eddie Wu',
-      role: 'CEO · Blaze.ai',
-      quote: "Marcel is a rare structured thinker that executes and leads with high precision. Scaling affiliates, referrals, and advocacy - Marcel exceeded our ambitious goals.",
-    },
-    {
-      name: 'Joe Girton',
-      role: 'Chief of Staff · Blaze.ai',
-      quote: "A true force multiplier for any team that wants to move fast without breaking things.",
-    },
-    {
-      name: 'Edward van den Bergh',
-      role: 'General Manager · Scaling Service & Manufacturing SMEs',
-      quote: "Marcel has been superb - creating a clear plan, providing regular updates on results, and the plan he is executing is already showing results. We are very satisfied with the professionalism of his work and would happily recommend him.",
-    },
-    {
-      name: 'Ania Sosin',
-      role: 'Urbanist · Interior Architect · Tutor',
-      quote: "After just a few minutes of discussing my project with Marcel, I knew I wanted to work with him. He asked insightful questions - not just about the technical aspects but also about the marketing strategy and how to authentically reflect my persona. I trust Marcel completely when it comes to design taste, language choices, and promotional advice.",
-    },
+  const tiers = [
+    { name: 'Affiliate Program Diagnostic', price: '$3k - $5k', desc: 'Current program audit/opportunity assessment, competitive analysis, partner mapping, commission recommendations, platform evaluation.', highlight: false },
+    { name: 'Full Affiliate Program Build', price: '$8k - $15k', desc: 'Everything in Diagnostic + Platform setup, recruitment, content assets, tracking/attribution, fraud prevention, team training.', highlight: true },
+    { name: 'Growth Retainer', price: '$2.5k / mo', desc: 'Monthly performance review, next-wave recruitment, commission adjustments, quarterly strategic reviews, and async access.', highlight: false },
   ]
 
   return (
-    <section ref={ref} style={{ background: T.moss, padding: '8rem 6vw' }}>
-      <span className="font-data" style={{ color: T.clay, fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>Social Proof</span>
-      <h2 style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 800, fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)', color: T.cream, marginTop: '0.75rem', marginBottom: '3rem' }}>
-        What Founders Say
-      </h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
-        {testimonials.map(({ name, role, quote }) => (
-          <div key={name} className="testi-card" style={{
-            background: 'rgba(242,240,233,0.06)', border: '1px solid rgba(242,240,233,0.12)',
-            borderRadius: '2rem', padding: '2rem', backdropFilter: 'blur(10px)',
+    <section ref={ref} style={{ padding: '8rem 6vw', background: T.offwhite }}>
+      <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', letterSpacing: '-0.02em', margin: '0 0 1rem' }}>How We Work Together</h2>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', maxWidth: '1100px', margin: '0 auto' }}>
+        {tiers.map((t) => (
+          <div key={t.name} className="offer-card" style={{
+            background: t.highlight ? T.black : T.paper,
+            color: t.highlight ? T.offwhite : T.black,
+            padding: '3rem 2rem', border: `2px solid ${T.black}`, display: 'flex', flexDirection: 'column'
           }}>
-            <p style={{ color: 'rgba(242,240,233,0.85)', fontSize: '0.95rem', lineHeight: 1.7, margin: '0 0 1.5rem', fontStyle: 'italic' }}>
-              "{quote}"
-            </p>
-            <div>
-              <div style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 700, color: T.cream, fontSize: '0.9rem' }}>{name}</div>
-              <div className="font-data" style={{ fontSize: '0.7rem', color: T.clay, marginTop: '0.2rem', letterSpacing: '0.05em' }}>{role}</div>
-            </div>
+            <h3 style={{ fontSize: '1.25rem', fontFamily: '"Space Mono"', margin: '0 0 1rem' }}>{t.name}</h3>
+            <div className="font-drama" style={{ fontSize: '2.5rem', margin: '0 0 1.5rem', color: t.highlight ? T.signal : T.black }}>{t.price}</div>
+            <p style={{ fontSize: '0.9rem', lineHeight: 1.6, opacity: 0.8, flex: 1, marginBottom: '2rem' }}>{t.desc}</p>
+            <a href={CTA_LINK} target="_blank" rel="noreferrer" className="btn-magnetic" style={{
+              background: t.highlight ? T.signal : T.black, color: T.offwhite, padding: '1rem', textAlign: 'center',
+              fontWeight: 700, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '0.8rem'
+            }}>
+              <span className="btn-slide" style={{ background: t.highlight ? T.paper : T.signal }}></span>
+              <span className="btn-label" style={{ color: t.highlight ? 'inherit' : '#fff' }}>Select Option</span>
+            </a>
           </div>
         ))}
-      </div>
-    </section>
-  )
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   F. MEMBERSHIP / PRICING → "Get Started" / FAQ
-   ═══════════════════════════════════════════════════════════════ */
-function FAQ() {
-  const [open, setOpen] = useState(null)
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.faq-item', {
-        scrollTrigger: { trigger: ref.current, start: 'top 80%' },
-        y: 25, opacity: 0, stagger: 0.1, duration: 0.7, ease: 'power3.out',
-      })
-    }, ref)
-    return () => ctx.revert()
-  }, [])
-
-  const faqs = [
-    { q: 'What does "Fractional" actually mean?', a: 'Part-time experienced growth operator. You get executive-level thinking without the full-time salary. I typically work with you 1-2 days a week - embedded in your operations, not emailing from the outside.' },
-    { q: 'What size companies do you work with?', a: '$1M to $20M revenue - post-product-market fit. This is the stage where growth creates chaos. You\'ve proven it works. Now the question is whether it can work without you in every room.' },
-    { q: 'How quickly can I see results?', a: 'Clarity in 2 weeks from the diagnostic. Fundamental fixes in 4 weeks. Meaningful operational improvements in 60-90 days.' },
-    { q: 'How is this different from hiring a consultant?', a: 'I build in your CRM and workflows - not just deliver decks. I sit with your team, configure the tools, train them to run what we build together. That\'s the difference between a consultant and an architect.' },
-    { q: 'What about team resistance to new processes?', a: 'I build with the team, not just drop processes on them. They learn by doing alongside me, so by the time I step back they already own it.' },
-    { q: 'What\'s the investment?', a: 'It starts with a diagnostic deep dive. From there we define what the engagement looks like based on what we find. No forever contracts.' },
-    { q: 'Do you work with clients outside Amsterdam?', a: 'Remote-first, async-first. I work regularly with companies in the US, EU, and Canada. Location has never been a blocker.' },
-  ]
-
-  return (
-    <section ref={ref} style={{ padding: '8rem 6vw', background: T.cream }}>
-      <div style={{ maxWidth: '700px', margin: '0 auto' }}>
-        <span className="font-data" style={{ color: T.clay, fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>Common Questions</span>
-        <h2 style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 800, fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)', color: T.charcoal, margin: '0.75rem 0 3rem' }}>
-          Let's Clear the Air
-        </h2>
-        {faqs.map(({ q, a }, i) => (
-          <div key={i} className="faq-item" style={{ borderBottom: '1px solid rgba(46,64,54,0.12)', paddingBottom: '1.25rem', marginBottom: '1.25rem' }}>
-            <button onClick={() => setOpen(open === i ? null : i)} style={{
-              background: 'none', border: 'none', cursor: 'pointer',
-              width: '100%', textAlign: 'left', padding: '0.5rem 0',
-              display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem',
-            }}>
-              <span style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 700, fontSize: '0.95rem', color: T.charcoal }}>{q}</span>
-              <ChevronDown size={16} style={{ color: T.clay, flexShrink: 0, transform: open === i ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }} />
-            </button>
-            {open === i && (
-              <p style={{ fontSize: '0.875rem', color: 'rgba(26,26,26,0.65)', lineHeight: 1.7, margin: '0.75rem 0 0', paddingRight: '2rem' }}>{a}</p>
-            )}
-          </div>
-        ))}
-      </div>
-    </section>
-  )
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   CTA SECTION
-   ═══════════════════════════════════════════════════════════════ */
-function CTA() {
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.cta-item', {
-        scrollTrigger: { trigger: ref.current, start: 'top 80%' },
-        y: 35, opacity: 0, stagger: 0.12, duration: 0.9, ease: 'power3.out',
-      })
-    }, ref)
-    return () => ctx.revert()
-  }, [])
-
-  return (
-    <section id="contact" ref={ref} style={{ background: T.moss, padding: '10rem 6vw', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
-      <div style={{
-        position: 'absolute', inset: 0, opacity: 0.05,
-        backgroundImage: `url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1200&auto=format&fit=crop&q=60')`,
-        backgroundSize: 'cover', backgroundPosition: 'center',
-      }} />
-      <div style={{ position: 'relative', zIndex: 1 }}>
-        <span className="cta-item font-data" style={{ color: T.clay, fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', display: 'block', marginBottom: '1.5rem' }}>Ready to Scale?</span>
-        <h2 className="cta-item" style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 3.75rem)', color: T.cream, maxWidth: '720px', margin: '0 auto 1rem', lineHeight: 1.1 }}>
-          You Already Know{' '}
-          <span className="font-drama" style={{ color: T.clay }}>Something Needs to Change.</span>
-        </h2>
-        <p className="cta-item" style={{ color: 'rgba(242,240,233,0.6)', fontSize: '1rem', maxWidth: '540px', margin: '0 auto 2.5rem', lineHeight: 1.7 }}>
-          The question isn't whether your growth systems need fixing. It's how much longer you want to be the one holding it all together.
-        </p>
-        <div className="cta-item" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a
-            href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0gzf2H3GezuYwA1xN3iu2bStrp5lWeXwkJO2oC_oU8OymykSe6oxOxCmN8UhPSY-5L0mSZUDda"
-            target="_blank" rel="noreferrer"
-            className="btn-magnetic" style={{
-              background: T.clay, color: T.cream, padding: '1rem 2.5rem',
-              borderRadius: '9999px', fontSize: '1rem', fontWeight: 700,
-              textDecoration: 'none', letterSpacing: '0.04em', display: 'inline-block',
-            }}>
-            <span className="btn-slide" style={{ background: '#b84a28' }}></span>
-            <span className="btn-label">Book a Conversation</span>
-          </a>
-        </div>
-        <p className="cta-item font-data" style={{ color: 'rgba(242,240,233,0.3)', fontSize: '0.7rem', marginTop: '1.5rem', letterSpacing: '0.1em' }}>
-          30 MINUTES · NO OBLIGATION · WE'LL FIGURE OUT IF IT'S A FIT
-        </p>
-      </div>
-    </section>
-  )
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   FOUNDER BOTTLENECK
-   ═══════════════════════════════════════════════════════════════ */
-function FounderBottleneck() {
-  const ref = useRef(null)
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.bottleneck-item', {
-        scrollTrigger: { trigger: ref.current, start: 'top 80%' },
-        y: 30, opacity: 0, stagger: 0.1, duration: 0.8, ease: 'power3.out',
-      })
-    }, ref)
-    return () => ctx.revert()
-  }, [])
-
-  const pains = [
-    { before: 'More leads', after: 'create more follow-up that nobody\'s doing.' },
-    { before: 'More customers', after: 'create more complexity your team can\'t manage.' },
-    { before: 'More revenue', after: 'creates more chaos that depends entirely on you.' },
-  ]
-
-  return (
-    <section ref={ref} style={{ background: T.charcoal, padding: '8rem 6vw', textAlign: 'center' }}>
-      <div style={{ maxWidth: '760px', margin: '0 auto' }}>
-        <span className="bottleneck-item font-data" style={{ color: T.clay, fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>The Problem</span>
-        <h2 className="bottleneck-item" style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 800, fontSize: 'clamp(2rem, 4.5vw, 3.25rem)', color: T.cream, margin: '0.75rem 0 2.5rem', lineHeight: 1.1 }}>
-          You Built the Traction.{' '}
-          <span className="font-drama" style={{ color: T.clay }}>Now It's Eating You Alive.</span>
-        </h2>
-
-        <p className="bottleneck-item" style={{ color: 'rgba(242,240,233,0.55)', fontSize: '1rem', lineHeight: 1.75, marginBottom: '2rem' }}>
-          You've hit a wall somewhere between $1M and $20M. The tactics that got you here won't get you there.
-        </p>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem', marginBottom: '2.5rem' }}>
-          {pains.map(({ before, after }) => (
-            <div key={before} className="bottleneck-item" style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start', padding: '1rem 1.5rem', background: 'rgba(242,240,233,0.04)', borderRadius: '1rem', border: '1px solid rgba(242,240,233,0.08)' }}>
-              <span style={{ color: T.clay, fontWeight: 700, whiteSpace: 'nowrap', fontSize: '0.95rem' }}>{before}</span>
-              <span style={{ color: 'rgba(242,240,233,0.5)', fontSize: '0.95rem', lineHeight: 1.5 }}>{after}</span>
-            </div>
-          ))}
-        </div>
-
-        <p className="bottleneck-item" style={{ color: 'rgba(242,240,233,0.5)', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: '1.5rem' }}>
-          Marketing blames sales. Sales blames marketing. Leads sit too long. Pipeline stages mean different things to different people. And you're stuck in the middle of every decision because nothing runs without you.
-        </p>
-        <p className="bottleneck-item" style={{ color: T.cream, fontSize: 'clamp(1rem, 1.8vw, 1.2rem)', lineHeight: 1.65, fontWeight: 600 }}>
-          The problem isn't that you need more people. The problem is everything runs through you and nothing is designed to stop.{' '}
-          <span style={{ color: T.clay }}>That's what I fix.</span>
-        </p>
-      </div>
-    </section>
-  )
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   IS THIS RIGHT FOR YOU?
-   ═══════════════════════════════════════════════════════════════ */
-function IsThisForYou() {
-  const ref = useRef(null)
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.fit-card', {
-        scrollTrigger: { trigger: ref.current, start: 'top 80%' },
-        y: 35, opacity: 0, stagger: 0.15, duration: 0.9, ease: 'power3.out',
-      })
-    }, ref)
-    return () => ctx.revert()
-  }, [])
-
-  const goodFit = [
-    'Founder-led company doing $1M–$20M',
-    'Operational chaos eating your time',
-    'Tried hiring for execution, but need architecture',
-    'Wants systems your team owns - without you in every room',
-  ]
-  const notFit = [
-    'Looking for a tactician (ads, emails, campaigns)',
-    'Want a quick fix, not a lasting foundation',
-    'Not ready to change how your operations work',
-    'Looking for a full-time embedded executive',
-  ]
-
-  return (
-    <section ref={ref} style={{ background: T.cream, padding: '8rem 6vw' }}>
-      <span className="font-data" style={{ color: T.clay, fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>Is This Right for You?</span>
-      <h2 style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 800, fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)', color: T.charcoal, margin: '0.75rem 0 3rem', lineHeight: 1.1 }}>
-        We're probably a fit if…
-      </h2>
-      <div className="about-grid">
-        <div className="fit-card" style={{ background: T.moss, borderRadius: '2rem', padding: '2.5rem' }}>
-          <div className="font-data" style={{ fontSize: '0.65rem', color: T.clay, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>✅  Good Fit</div>
-          {goodFit.map(item => (
-            <div key={item} style={{ display: 'flex', gap: '0.75rem', marginBottom: '1rem', alignItems: 'flex-start' }}>
-              <span style={{ color: T.clay, fontWeight: 700, lineHeight: 1.5, flexShrink: 0 }}>+</span>
-              <span style={{ color: 'rgba(242,240,233,0.8)', fontSize: '0.9rem', lineHeight: 1.6 }}>{item}</span>
-            </div>
-          ))}
-        </div>
-        <div className="fit-card" style={{ background: 'white', border: '1px solid rgba(46,64,54,0.1)', borderRadius: '2rem', padding: '2.5rem' }}>
-          <div className="font-data" style={{ fontSize: '0.65rem', color: 'rgba(26,26,26,0.4)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>❌  Not a Fit</div>
-          {notFit.map(item => (
-            <div key={item} style={{ display: 'flex', gap: '0.75rem', marginBottom: '1rem', alignItems: 'flex-start' }}>
-              <span style={{ color: 'rgba(26,26,26,0.3)', fontWeight: 700, lineHeight: 1.5, flexShrink: 0 }}>–</span>
-              <span style={{ color: 'rgba(26,26,26,0.5)', fontSize: '0.9rem', lineHeight: 1.6 }}>{item}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   SCALE STACK NEWSLETTER
-   ═══════════════════════════════════════════════════════════════ */
-function ScaleStack() {
-  return (
-    <section style={{ background: T.charcoal, padding: '6rem 6vw', textAlign: 'center' }}>
-      <div style={{ maxWidth: '540px', margin: '0 auto' }}>
-        <span className="font-data" style={{ color: T.clay, fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>Scale Stack</span>
-        <h2 style={{ fontFamily: '"Plus Jakarta Sans"', fontWeight: 800, fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)', color: T.cream, margin: '0.75rem 0 1rem', lineHeight: 1.15 }}>
-          One Idea Per Week That Makes Growth Less Chaotic.
-        </h2>
-        <p style={{ color: 'rgba(242,240,233,0.5)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '2.5rem' }}>
-          Short, practical breakdowns of systems and patterns. No inspirational fluff.
-        </p>
-        <a
-          href="#"
-          className="btn-magnetic"
-          style={{ background: T.clay, color: T.cream, padding: '0.875rem 2.25rem', borderRadius: '9999px', fontSize: '0.9rem', fontWeight: 700, textDecoration: 'none', letterSpacing: '0.04em', display: 'inline-block' }}>
-          <span className="btn-slide" style={{ background: T.moss }}></span>
-          <span className="btn-label">Subscribe Free</span>
-        </a>
       </div>
     </section>
   )
@@ -1053,202 +567,40 @@ function ScaleStack() {
    ═══════════════════════════════════════════════════════════════ */
 function Footer() {
   return (
-    <footer style={{ background: T.charcoal, borderRadius: '4rem 4rem 0 0', padding: '4rem 6vw 2.5rem' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem', marginBottom: '3rem' }}>
-        {/* Brand */}
+    <footer style={{
+      background: T.black, color: T.offwhite, padding: '4rem 6vw 2rem',
+      borderTopLeftRadius: '3rem', borderTopRightRadius: '3rem'
+    }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: '2rem', marginBottom: '4rem', maxWidth: '1200px', margin: '0 auto 4rem' }}>
         <div>
-          <div className="font-data" style={{ color: T.cream, fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.05em', marginBottom: '0.75rem' }}>Marcel Ruettgers</div>
-          <p style={{ color: 'rgba(242,240,233,0.45)', fontSize: '0.8rem', lineHeight: 1.6, maxWidth: '220px' }}>
-            Building growth infrastructure for founder-led companies.
-          </p>
-          <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.25rem' }}>
-            {[
-              { icon: <Linkedin size={15} />, href: 'https://linkedin.com/in/marcelruttgers' },
-              { icon: <Twitter size={15} />, href: 'https://twitter.com/ruttgers83' },
-            ].map(({ icon, href }) => (
-              <a key={href} href={href} target="_blank" rel="noreferrer" className="link-lift" style={{
-                color: 'rgba(242,240,233,0.45)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                width: 34, height: 34, borderRadius: '50%', border: '1px solid rgba(242,240,233,0.12)',
-                transition: 'all 0.25s ease',
-              }}>{icon}</a>
-            ))}
-          </div>
+          <h2 style={{ fontSize: '1.5rem', margin: '0 0 0.5rem', fontFamily: '"Space Mono"', fontWeight: 700 }}>{BRAND}_</h2>
+          <p style={{ color: 'rgba(245,243,238,0.5)', fontSize: '0.9rem', maxWidth: '300px' }}>High-performance affiliate systems for growing tech companies.</p>
         </div>
-
-        {/* Navigation */}
-        <div>
-          <div className="font-data" style={{ color: 'rgba(242,240,233,0.3)', fontSize: '0.65rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1rem' }}>Navigation</div>
-          {['About', 'Services', 'Work', 'Contact'].map(l => (
-            <a key={l} href={`#${l.toLowerCase()}`} className="link-lift" style={{ display: 'block', color: 'rgba(242,240,233,0.55)', fontSize: '0.85rem', textDecoration: 'none', marginBottom: '0.5rem' }}>{l}</a>
-          ))}
-        </div>
-
-        {/* Contact */}
-        <div>
-          <div className="font-data" style={{ color: 'rgba(242,240,233,0.3)', fontSize: '0.65rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1rem' }}>Get In Touch</div>
-          <a href="mailto:mr@marcelruettgers.com" className="link-lift" style={{ color: 'rgba(242,240,233,0.55)', fontSize: '0.85rem', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-            mr@marcelruettgers.com <ArrowUpRight size={12} />
-          </a>
-          <p style={{ color: 'rgba(242,240,233,0.35)', fontSize: '0.8rem', marginTop: '1rem' }}>Amsterdam, NL · Remote-first</p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', alignSelf: 'flex-start', background: 'rgba(255,255,255,0.05)', padding: '0.75rem 1.25rem', borderRadius: '9999px' }}>
+          <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#00FF00', animation: 'pulse-dot 2s infinite' }} />
+          <span className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: '#00FF00' }}>SYSTEM OPERATIONAL</span>
         </div>
       </div>
-
-      {/* Bottom bar */}
-      <div style={{ borderTop: '1px solid rgba(242,240,233,0.06)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-        {/* Status indicator */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#4CAF50', animation: 'pulse-dot 2s infinite', boxShadow: '0 0 0 2px rgba(76,175,80,0.3)' }} />
-          <span className="font-data" style={{ color: 'rgba(242,240,233,0.3)', fontSize: '0.65rem', letterSpacing: '0.15em' }}>SYSTEM OPERATIONAL</span>
+      <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1200px', margin: '0 auto', flexWrap: 'wrap', gap: '1rem' }}>
+        <span className="font-data" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)' }}>© {new Date().getFullYear()} {BRAND}. All rights reserved.</span>
+        <div style={{ display: 'flex', gap: '2rem' }}>
+          <a href="#" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>Privacy</a>
+          <a href="#" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>Terms</a>
         </div>
-        <p className="font-data" style={{ color: 'rgba(242,240,233,0.2)', fontSize: '0.65rem', letterSpacing: '0.1em', margin: 0 }}>
-          © 2026 MARCEL RUETTGERS
-        </p>
       </div>
     </footer>
   )
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   KEYFRAME ANIMATIONS (injected via style tag)
-   ═══════════════════════════════════════════════════════════════ */
-function GlobalStyles() {
-  return (
-    <style>{`
-      @keyframes pulse-dot {
-        0%, 100% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.5; transform: scale(0.8); }
-      }
-      @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-      }
-      @keyframes bounce {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(6px); }
-      }
-
-      /* ── Desktop: show nav, hide hamburger ── */
-      @media (min-width: 769px) {
-        .show-mobile { display: none !important; }
-      }
-
-      /* ── About section grid ── */
-      .about-grid {
-        display: grid;
-        grid-template-columns: clamp(220px, 30%, 340px) 1fr;
-        gap: clamp(3rem, 6vw, 6rem);
-        align-items: flex-start;
-      }
-
-      /* ── Stats bar grid ── */
-      .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 2rem;
-      }
-
-      /* ── Protocol card inner grid ── */
-      .proto-card-inner {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 2rem;
-        align-items: center;
-      }
-
-      /* ════════════════════════════════════════
-         MOBILE - ≤ 768px
-         ════════════════════════════════════════ */
-      @media (max-width: 768px) {
-        /* Section padding */
-        section { padding-top: 4rem !important; padding-bottom: 4rem !important; }
-
-        /* Hero - keep centered, just reduce padding */
-        #hero { padding: 0 5vw !important; }
-        #hero h1 span:first-child { font-size: clamp(1.1rem, 4.5vw, 1.5rem) !important; }
-        #hero .font-drama { font-size: clamp(2rem, 10vw, 3rem) !important; }
-        #hero p { font-size: 0.875rem !important; }
-
-        /* About grid -> single column */
-        .about-grid {
-          grid-template-columns: 1fr !important;
-          gap: 2rem !important;
-        }
-        .about-left {
-          position: static !important;
-          max-width: 240px;
-          margin: 0 auto;
-        }
-
-        /* Stats bar -> 2x2 grid */
-        .stats-grid {
-          grid-template-columns: repeat(2, 1fr) !important;
-          gap: 1.25rem !important;
-        }
-
-        /* Features heading */
-        #services h2 { font-size: 1.75rem !important; }
-
-        /* Features cards -> single column */
-        #services > div > div[style*="grid"] {
-          grid-template-columns: 1fr !important;
-        }
-
-        /* Protocol card inner -> stack anim under text */
-        .proto-card-inner {
-          grid-template-columns: 1fr !important;
-          gap: 1rem !important;
-        }
-
-        /* Testimonials -> single column */
-        section[style*="#2E4036"] > div[style*="grid"] {
-          grid-template-columns: 1fr !important;
-        }
-
-        /* TheDifference 3-col -> single col */
-        section[style*="#1A1A1A"] div[style*="auto-fit"] {
-          grid-template-columns: 1fr !important;
-        }
-
-        /* Footer grid -> single column */
-        footer > div:first-child {
-          grid-template-columns: 1fr !important;
-          gap: 2rem !important;
-        }
-      }
-
-      /* ── Small phones ≤ 480px ── */
-      @media (max-width: 480px) {
-        nav { width: calc(100% - 1.5rem) !important; padding: 0.5rem 1rem !important; }
-        .stat-item { min-width: 0; }
-        .faq-item p { padding-right: 0 !important; }
-      }
-
-    `}</style>
-  )
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   ROOT APP
-   ═══════════════════════════════════════════════════════════════ */
 export default function App() {
   return (
     <>
-      <GlobalStyles />
       <Navbar />
-      <main>
-        <Hero />
-        <FounderBottleneck />
-        <StatsBar />
-        <AboutSection />
-        <TheDifference />
-        <Protocol />
-        <Testimonials />
-        <IsThisForYou />
-        <Features />
-        <ScaleStack />
-        <FAQ />
-        <CTA />
-      </main>
+      <Hero />
+      <Features />
+      <Philosophy />
+      <Protocol />
+      <Offers />
       <Footer />
     </>
   )
