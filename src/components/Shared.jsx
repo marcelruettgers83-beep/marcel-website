@@ -85,8 +85,8 @@ export function Navbar() {
             }}
         >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', flexWrap: 'wrap' }}>
-                <Link to="/" style={{ fontFamily: '"Space Mono"', fontSize: '0.85rem', letterSpacing: '0.05em', color: scrolled ? T.black : T.paper, fontWeight: 700, textDecoration: 'none', transition: 'color 0.5s ease' }}>
-                    RD_
+                <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', transition: 'opacity 0.3s ease' }}>
+                    <img src="/favicon.png" alt="Ruettgers Digital" style={{ height: '28px', width: '28px', borderRadius: '4px', transition: 'filter 0.5s ease', filter: scrolled ? 'none' : 'brightness(1.2)' }} />
                 </Link>
 
                 {/* Desktop Links */}
@@ -166,7 +166,7 @@ export function Footer() {
         }}>
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: '2rem', marginBottom: '4rem', maxWidth: '1200px', margin: '0 auto 4rem' }}>
                 <div>
-                    <h2 style={{ fontSize: '1.5rem', margin: '0 0 0.5rem', fontFamily: '"Space Mono"', fontWeight: 700 }}>{BRAND}_</h2>
+                    <img src="/logo.png" alt="Ruettgers Digital" style={{ height: '32px', marginBottom: '0.5rem' }} />
                     <p style={{ color: 'rgba(245,243,238,0.5)', fontSize: '0.9rem', maxWidth: '300px' }}>Growth systems for founder-led companies.</p>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', alignSelf: 'flex-start', background: 'rgba(255,255,255,0.05)', padding: '0.75rem 1.25rem', borderRadius: '9999px' }}>
