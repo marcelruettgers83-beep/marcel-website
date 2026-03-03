@@ -23,7 +23,7 @@ function Hero() {
     }, [])
 
     return (
-        <section ref={elRef} id="hero" style={{
+        <section ref={elRef} id="hero" className="dot-grid" style={{
             minHeight: '100dvh', position: 'relative', overflow: 'hidden',
             display: 'flex', flexDirection: 'column', justifyContent: 'center',
             background: T.black, color: '#fff'
@@ -317,8 +317,8 @@ function FAQ() {
    ═══════════════════════════════════════════════════════════════ */
 function ClosingCTA() {
     return (
-        <section style={{ padding: '10rem 6vw', background: T.black, color: T.offwhite, textAlign: 'center' }}>
-            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <section className="dot-grid" style={{ padding: '10rem 6vw', background: T.black, color: T.offwhite, textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
                 <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2.5rem, 5vw, 4rem)', lineHeight: 1.1, margin: '0 0 2rem', textTransform: 'uppercase' }}>
                     Two Weeks From Now, You'll Know Exactly What's Broken.
                 </h2>

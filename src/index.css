@@ -102,5 +102,19 @@ body::before {
 ::-webkit-scrollbar-track { background: #E8E4DD; }
 ::-webkit-scrollbar-thumb { background: #111111; border-radius: 3px; }
 
+/* ─── Dot grid overlay for dark sections ─── */
+.dot-grid {
+  position: relative;
+}
+.dot-grid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: radial-gradient(circle, rgba(230, 59, 46, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
 /* ─── Selection color ─── */
 ::selection { background: #E63B2E; color: #F5F3EE; }
