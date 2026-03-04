@@ -18,6 +18,13 @@ export const CTA_LINK = "https://calendar.google.com/calendar/u/0/appointments/s
 export const CTA_TEXT = "Start With The X-Ray"
 export const CTA_TRAINING_TEXT = "Book a Training Call"
 export const CTA_AFFILIATE_TEXT = "Book an Affiliate Diagnostic"
+export const NEWSLETTER_URL = "https://marcelruettgers.substack.com"
+
+const SERVICES = [
+    { name: 'Growth Strategy', path: '/', desc: 'Full diagnostic and systems buildout for founder-led companies between $1M and $10M.', cta: 'The X-Ray' },
+    { name: 'Affiliate Programs', path: '/affiliates', desc: 'I build affiliate programs that work, train your team, and get out of the way.', cta: 'Affiliate Diagnostic' },
+    { name: 'AI Training', path: '/training', desc: 'Train your marketing team to build AI-powered operating systems.', cta: 'AI Training' },
+]
 
 const CTA_BY_ROUTE = {
     '/': CTA_TEXT,
@@ -233,6 +240,35 @@ export function FAQItem({ q, a }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   OTHER SERVICES (cross-navigation)
+   ═══════════════════════════════════════════════════════════════ */
+export function OtherServices({ current }) {
+    const others = SERVICES.filter(s => s.path !== current)
+    return (
+        <section style={{ padding: '8rem 6vw', background: T.offwhite }}>
+            <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+                <span className="font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>OTHER WAYS I HELP</span>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                    {others.map(s => (
+                        <Link to={s.path} key={s.path} className="card-lift" style={{
+                            background: '#FFFFFF', border: `2px solid ${T.black}`, padding: '2.5rem 2rem',
+                            borderRadius: '2rem', textDecoration: 'none', color: T.black,
+                            display: 'flex', flexDirection: 'column'
+                        }}>
+                            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, margin: '0 0 1rem', textTransform: 'uppercase' }}>{s.name}</h3>
+                            <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.7)', flex: 1, margin: '0 0 1.5rem' }}>{s.desc}</p>
+                            <span className="font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.05em', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                {s.cta} <ArrowRight size={16} />
+                            </span>
+                        </Link>
+                    ))}
+                </div>
+            </div>
+        </section>
+    )
+}
+
+/* ═══════════════════════════════════════════════════════════════
    FOOTER
    ═══════════════════════════════════════════════════════════════ */
 export function Footer() {
@@ -259,6 +295,8 @@ export function Footer() {
                     <Link to="/training" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>AI Training</Link>
                     <Link to="/about" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>About</Link>
                     <a href="mailto:hello@ruettgersdigital.com" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>Contact</a>
+                    <a href={NEWSLETTER_URL} target="_blank" rel="noreferrer" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>Newsletter</a>
+                    <a href="https://www.linkedin.com/in/marcelruettgers/" target="_blank" rel="noreferrer" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>LinkedIn</a>
                 </div>
             </div>
         </footer>

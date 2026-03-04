@@ -106,6 +106,15 @@ body::before {
 /* ─── Selection color ─── */
 ::selection { background: #d97757; color: #F5F3EE; }
 
+/* ─── Card lift (service cards) ─── */
+.card-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(17, 17, 17, 0.12);
+}
+
 /* ─── Mobile responsive padding ─── */
 @media (max-width: 767px) {
     section {

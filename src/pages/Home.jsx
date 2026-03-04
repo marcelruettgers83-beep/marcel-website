@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Check, X } from 'lucide-react'
-import { T, MagneticButton, CTA_LINK, CTA_TEXT, FAQItem } from '../components/Shared'
+import { T, MagneticButton, CTA_LINK, CTA_TEXT, FAQItem, OtherServices, NEWSLETTER_URL } from '../components/Shared'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -92,7 +92,7 @@ function TheProblem() {
         <section ref={ref} style={{ padding: '8rem 6vw', background: '#FFFFFF', color: T.black }}>
             <div style={{ maxWidth: '800px', margin: '0 auto' }}>
                 <span className="prob-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE PROBLEM</span>
-                <h2 className="prob-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3.5rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 2rem' }}>
+                <h2 className="prob-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 2rem' }}>
                     The Pattern I See at Every Company at This Stage.
                 </h2>
 
@@ -147,7 +147,7 @@ function HowIWork() {
         <section ref={containerRef} style={{ padding: '8rem 6vw', background: T.paper }}>
             <div style={{ maxWidth: '800px', marginBottom: '4rem' }}>
                 <span className="font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>HOW I WORK</span>
-                <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: T.black, textTransform: 'uppercase', lineHeight: 1, margin: '0 0 1.5rem' }}>
+                <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.black, textTransform: 'uppercase', lineHeight: 1, margin: '0 0 1.5rem' }}>
                     The X-Ray.
                 </h2>
                 <div style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.8)' }}>
@@ -162,7 +162,10 @@ function HowIWork() {
                         position: 'sticky', top: `${6 + i * 2}rem`, willChange: 'transform, opacity, filter',
                         borderRadius: '2rem'
                     }}>
-                        <span className="font-data" style={{ color: T.signal, fontSize: '0.85rem', display: 'block', marginBottom: '1rem', letterSpacing: '0.1em' }}>PHASE {s.n}</span>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+                            <div style={{ width: '2.5rem', height: '2.5rem', borderRadius: '50%', background: T.signal, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: '"Space Mono"', fontSize: '0.9rem', fontWeight: 700, flexShrink: 0 }}>{s.n}</div>
+                            <span className="font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em' }}>PHASE {s.n}</span>
+                        </div>
                         <h3 style={{ fontSize: '1.75rem', fontWeight: 700, margin: '0 0 1.5rem', textTransform: 'uppercase' }}>{s.title}</h3>
                         <p style={{ fontSize: '1.05rem', color: 'rgba(17,17,17,0.7)', lineHeight: 1.7, margin: 0 }}>
                             {s.desc}
@@ -365,13 +368,41 @@ function FAQ() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   7. CLOSING CTA
+   7. NEWSLETTER
+   ═══════════════════════════════════════════════════════════════ */
+function Newsletter() {
+    return (
+        <section style={{ padding: '8rem 6vw', background: '#FFFFFF' }}>
+            <div style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
+                <span className="font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE NEWSLETTER</span>
+                <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', color: T.black, textTransform: 'uppercase', margin: '0 0 1.5rem' }}>
+                    Weekly Systems Thinking for Growth Leaders.
+                </h2>
+                <p style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.7)', margin: '0 0 2.5rem' }}>
+                    One essay per week on growth, systems, and the decisions that compound. No hacks. No templates. Just clear thinking from 20 years of building what works.
+                </p>
+                <iframe
+                    src="https://marcelruettgers.substack.com/embed"
+                    width="100%"
+                    height="150"
+                    style={{ border: 'none', background: 'transparent', maxWidth: '480px' }}
+                    frameBorder="0"
+                    scrolling="no"
+                    title="Subscribe to newsletter"
+                />
+            </div>
+        </section>
+    )
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   8. CLOSING CTA
    ═══════════════════════════════════════════════════════════════ */
 function ClosingCTA() {
     return (
         <section style={{ padding: '10rem 6vw', color: T.offwhite, textAlign: 'center', position: 'relative', overflow: 'hidden', background: `radial-gradient(ellipse 70% 50% at 50% 40%, rgba(217,119,87,0.20) 0%, transparent 70%), linear-gradient(to bottom, #0e0e12 0%, #111111 100%)` }}>
             <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-                <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2.5rem, 5vw, 4rem)', lineHeight: 1.1, margin: '0 0 2rem', textTransform: 'uppercase' }}>
+                <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', lineHeight: 1.1, margin: '0 0 2rem', textTransform: 'uppercase' }}>
                     Two Weeks From Now, You'll Know Exactly What's Broken.
                 </h2>
                 <div style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(245,243,238,0.8)', margin: '0 auto 3rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -401,6 +432,8 @@ export default function Home() {
             <Proof />
             <IsThisRight />
             <FAQ />
+            <OtherServices current="/" />
+            <Newsletter />
             <ClosingCTA />
         </>
     )

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Check, X } from 'lucide-react'
-import { T, MagneticButton, CTA_LINK, CTA_TRAINING_TEXT } from '../components/Shared'
+import { T, MagneticButton, CTA_LINK, CTA_TRAINING_TEXT, OtherServices } from '../components/Shared'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -92,7 +92,7 @@ function TheProblem() {
         <section ref={ref} style={{ padding: '8rem 6vw', background: '#FFFFFF', color: T.black }}>
             <div style={{ maxWidth: '800px', margin: '0 auto' }}>
                 <span className="train-prob-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE PROBLEM</span>
-                <h2 className="train-prob-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3.5rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 2rem' }}>
+                <h2 className="train-prob-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 2rem' }}>
                     You Bought the Tools. Nobody Built the System.
                 </h2>
 
@@ -134,7 +134,7 @@ function WhatYouLearn() {
         <section ref={ref} style={{ padding: '8rem 6vw', background: T.paper }}>
             <div style={{ maxWidth: '800px', margin: '0 auto' }}>
                 <span className="train-learn-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>WHAT YOU LEARN</span>
-                <h2 className="train-learn-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: T.black, textTransform: 'uppercase', lineHeight: 1, margin: '0 0 2rem' }}>
+                <h2 className="train-learn-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.black, textTransform: 'uppercase', lineHeight: 1, margin: '0 0 2rem' }}>
                     One Person. Twelve Campaigns. Zero Busywork.
                 </h2>
 
@@ -183,7 +183,7 @@ function HowItWorks() {
         <section ref={ref} style={{ padding: '8rem 6vw', background: T.offwhite }}>
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <span className="train-how-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>HOW IT WORKS</span>
-                <h2 className="train-how-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: T.black, textTransform: 'uppercase', lineHeight: 1, margin: '0 0 1.5rem' }}>
+                <h2 className="train-how-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.black, textTransform: 'uppercase', lineHeight: 1, margin: '0 0 1.5rem' }}>
                     Two Formats. Both Hands-On.
                 </h2>
 
@@ -302,7 +302,7 @@ function WhyMe() {
             <div style={{ maxWidth: '800px', margin: '0 auto' }}>
                 <span className="train-why-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>WHY ME</span>
                 <div className="train-why-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)' }}>
-                    <p>I built the system I'm teaching you. I use Claude Code every day to run growth operations, build campaigns, pull data, and manage workflows across multiple clients. Before this, I spent 20 years building growth systems across enterprise operations and high-growth startups. The method works because I run it myself. Not last year. This morning.</p>
+                    <p>I built the system I'm teaching you. I use AI every day to run growth operations, build campaigns, pull data, and manage workflows across multiple clients. Before this, I spent 20 years building growth systems across enterprise operations and high-growth startups. The method works because I run it myself. Not last year. This morning.</p>
                 </div>
             </div>
         </section>
@@ -316,7 +316,7 @@ function ClosingCTA() {
     return (
         <section style={{ padding: '10rem 6vw', color: T.offwhite, textAlign: 'center', position: 'relative', overflow: 'hidden', background: `radial-gradient(ellipse 70% 50% at 50% 40%, rgba(217,119,87,0.20) 0%, transparent 70%), linear-gradient(to bottom, #0e0e12 0%, #111111 100%)` }}>
             <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-                <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2.5rem, 5vw, 4rem)', lineHeight: 1.1, margin: '0 0 2rem', textTransform: 'uppercase' }}>
+                <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', lineHeight: 1.1, margin: '0 0 2rem', textTransform: 'uppercase' }}>
                     The Teams That Figure This Out First Win the Next 18 Months.
                 </h2>
                 <div style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(245,243,238,0.8)', margin: '0 auto 3rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -345,6 +345,7 @@ export default function Training() {
             <HowItWorks />
             <WhoThisIsFor />
             <WhyMe />
+            <OtherServices current="/training" />
             <ClosingCTA />
         </>
     )
