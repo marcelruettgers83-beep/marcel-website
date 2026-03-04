@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Check, X } from 'lucide-react'
+import { Check, X, Repeat, Clock, Wrench } from 'lucide-react'
 import { T, MagneticButton, CTA_LINK, CTA_TRAINING_TEXT, OtherServices } from '../components/Shared'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -73,7 +73,7 @@ function Hero() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   2. THE PROBLEM
+   2. THE PROBLEM (intro + icon cards)
    ═══════════════════════════════════════════════════════════════ */
 function TheProblem() {
     const ref = useRef(null)
@@ -88,18 +88,56 @@ function TheProblem() {
         return () => ctx.revert()
     }, [])
 
+    const problems = [
+        {
+            icon: <Repeat size={28} />,
+            title: 'Same Work, Fancier Tools.',
+            desc: "Your team uses GPT, Claude, and Midjourney the same way they used the last generation of tools. One task at a time, copied and pasted between eight browser tabs."
+        },
+        {
+            icon: <Clock size={28} />,
+            title: 'Manual Everything.',
+            desc: "Building campaigns. Pulling reports. Managing ad spend. Qualifying leads. Your best people spend their days on work a well-built system handles in minutes."
+        },
+        {
+            icon: <Wrench size={28} />,
+            title: 'Adoption Without Architecture.',
+            desc: "Everyone has the tools. Nobody wired them together. The adoption happened. The architecture didn't. That's the gap."
+        }
+    ]
+
     return (
         <section ref={ref} style={{ padding: '8rem 6vw', background: '#FFFFFF', color: T.black }}>
-            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <span className="train-prob-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE PROBLEM</span>
-                <h2 className="train-prob-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 2rem' }}>
+                <h2 className="train-prob-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 1.5rem' }}>
                     You Bought the Tools. Nobody Built the System.
                 </h2>
 
-                <div className="train-prob-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                    <p>Your team has GPT, Claude, Midjourney, half a dozen automation tools. They use them the same way they used the last generation of tools. One task at a time, one person at a time, copied and pasted between eight browser tabs.</p>
-                    <p>The actual work still happens manually. Building campaigns. Pulling reports. Managing ad spend. Qualifying leads. Writing and testing creative at scale. Your best people spend their days on work that a well-built system handles in minutes.</p>
-                    <p>I've seen this in every marketing team I've worked with in the last two years. The adoption happened. The architecture didn't. Everyone has the tools. Nobody wired them together.</p>
+                <div className="train-prob-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', marginBottom: '3rem', maxWidth: '800px' }}>
+                    <p>I've seen this in every marketing team I've worked with in the last two years. Half a dozen AI tools, zero orchestration. The actual work still happens manually.</p>
+                </div>
+
+                <div className="train-prob-fade" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
+                    {problems.map((p, i) => (
+                        <div key={i} style={{
+                            background: T.offwhite, borderRadius: '1.5rem', padding: '2rem',
+                        }}>
+                            <div style={{
+                                width: '3.5rem', height: '3.5rem', borderRadius: '50%',
+                                background: 'rgba(217,119,87,0.12)', color: T.signal,
+                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                marginBottom: '1.25rem'
+                            }}>
+                                {p.icon}
+                            </div>
+                            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, margin: '0 0 0.75rem' }}>{p.title}</h3>
+                            <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.7)', margin: 0 }}>{p.desc}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="train-prob-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)' }}>
                     <p><strong>That's the gap I close.</strong></p>
                 </div>
             </div>
@@ -164,7 +202,33 @@ function WhatYouLearn() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   4. HOW IT WORKS
+   4. PROOF (stat callouts)
+   ═══════════════════════════════════════════════════════════════ */
+function Proof() {
+    return (
+        <section style={{ padding: '8rem 6vw', background: '#e1ddd6', color: T.black }}>
+            <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', textAlign: 'center' }}>
+                    <div>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.signal, marginBottom: '0.5rem' }}>4h &rarr; 12min</div>
+                        <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>CAMPAIGN BUILD TIME REDUCTION</p>
+                    </div>
+                    <div>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.signal, marginBottom: '0.5rem' }}>12x</div>
+                        <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>CAMPAIGN OUTPUT PER PERSON</p>
+                    </div>
+                    <div>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.signal, marginBottom: '0.5rem' }}>1 Week</div>
+                        <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>TO FIRST AUTOMATED WORKFLOWS</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   5. HOW IT WORKS
    ═══════════════════════════════════════════════════════════════ */
 function HowItWorks() {
     const ref = useRef(null)
@@ -227,7 +291,7 @@ function HowItWorks() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   5. WHO THIS IS FOR
+   6. WHO THIS IS FOR
    ═══════════════════════════════════════════════════════════════ */
 function WhoThisIsFor() {
     const ref = useRef(null)
@@ -282,7 +346,7 @@ function WhoThisIsFor() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   6. WHY ME
+   7. WHY ME (expanded)
    ═══════════════════════════════════════════════════════════════ */
 function WhyMe() {
     const ref = useRef(null)
@@ -299,10 +363,40 @@ function WhyMe() {
 
     return (
         <section ref={ref} style={{ padding: '8rem 6vw', background: T.paper }}>
-            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <span className="train-why-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>WHY ME</span>
-                <div className="train-why-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)' }}>
-                    <p>I built the system I'm teaching you. I use AI every day to run growth operations, build campaigns, pull data, and manage workflows across multiple clients. Before this, I spent 20 years building growth systems across enterprise operations and high-growth startups. The method works because I run it myself. Not last year. This morning.</p>
+                <h2 className="train-why-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 2rem' }}>
+                    I Built the System I'm Teaching You.
+                </h2>
+
+                <div className="train-why-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', marginBottom: '3rem', maxWidth: '800px' }}>
+                    <p>I spent 15 years building growth systems across enterprise operations at IKEA and high-growth startups. Then I used that experience at Blaze.ai, where AI-powered workflows helped drive 800% customer growth in 9 months.</p>
+                    <p style={{ marginTop: '1.5rem' }}>I use AI every day to run growth operations, build campaigns, pull data, and manage workflows across multiple clients. The method works because I run it myself. Not last year. This morning.</p>
+                </div>
+
+                <div className="train-why-fade" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
+                    <div style={{ background: T.black, color: T.offwhite, padding: '2rem', borderRadius: '1.5rem', textAlign: 'center' }}>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', color: T.signal, marginBottom: '0.5rem' }}>20 Years</div>
+                        <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(245,243,238,0.6)', margin: 0 }}>ENTERPRISE + STARTUP SYSTEMS</p>
+                    </div>
+                    <div style={{ background: T.black, color: T.offwhite, padding: '2rem', borderRadius: '1.5rem', textAlign: 'center' }}>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', color: T.signal, marginBottom: '0.5rem' }}>800%</div>
+                        <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(245,243,238,0.6)', margin: 0 }}>GROWTH USING THESE METHODS</p>
+                    </div>
+                    <div style={{ background: T.black, color: T.offwhite, padding: '2rem', borderRadius: '1.5rem', textAlign: 'center' }}>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', color: T.signal, marginBottom: '0.5rem' }}>Daily</div>
+                        <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(245,243,238,0.6)', margin: 0 }}>AI WORKFLOW PRACTITIONER</p>
+                    </div>
+                </div>
+
+                <div className="train-why-fade" style={{ background: T.offwhite, padding: '2.5rem', borderRadius: '1.5rem' }}>
+                    <p className="font-drama" style={{ fontSize: '1.25rem', lineHeight: 1.6, color: T.black, marginBottom: '1.5rem' }}>
+                        "A true force multiplier for any team that wants to move fast without breaking things."
+                    </p>
+                    <div className="font-data" style={{ fontSize: '0.8rem', letterSpacing: '0.05em', color: T.signal }}>
+                        JOE GIRTON — CHIEF OF STAFF, BLAZE.AI
+                    </div>
+                    <div style={{ fontSize: '0.8rem', color: 'rgba(17,17,17,0.5)', marginTop: '0.25rem' }}>AI content platform</div>
                 </div>
             </div>
         </section>
@@ -310,7 +404,7 @@ function WhyMe() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   7. CLOSING CTA
+   8. CLOSING CTA
    ═══════════════════════════════════════════════════════════════ */
 function ClosingCTA() {
     return (
@@ -342,6 +436,7 @@ export default function Training() {
             <Hero />
             <TheProblem />
             <WhatYouLearn />
+            <Proof />
             <HowItWorks />
             <WhoThisIsFor />
             <WhyMe />

@@ -385,7 +385,7 @@ function Newsletter() {
                     src="https://marcelruettgers.substack.com/embed"
                     width="100%"
                     height="150"
-                    style={{ border: 'none', background: 'transparent', maxWidth: '480px' }}
+                    style={{ border: 'none', background: 'transparent', maxWidth: '480px', display: 'block', margin: '0 auto' }}
                     frameBorder="0"
                     scrolling="no"
                     title="Subscribe to newsletter"

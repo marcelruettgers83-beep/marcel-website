@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Check, X } from 'lucide-react'
+import { Check, X, Users, DollarSign, FolderOpen } from 'lucide-react'
 import { T, MagneticButton, CTA_LINK, OtherServices } from '../components/Shared'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -63,7 +63,7 @@ function Hero() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   2. THE PROBLEM
+   2. THE PROBLEM (icon cards)
    ═══════════════════════════════════════════════════════════════ */
 function TheProblem() {
     const ref = useRef(null)
@@ -78,38 +78,56 @@ function TheProblem() {
         return () => ctx.revert()
     }, [])
 
+    const problems = [
+        {
+            icon: <Users size={28} />,
+            title: 'Wrong Partners.',
+            desc: "Most companies recruit anyone with a pulse. They end up with coupon sites cannibalizing existing customers and content creators who have zero overlap with their actual audience."
+        },
+        {
+            icon: <DollarSign size={28} />,
+            title: 'Wrong Incentives.',
+            desc: "A flat 20% commission sounds generous. But if your product has a 90-day sales cycle and you're only tracking last-click, your best affiliates are subsidizing your worst ones."
+        },
+        {
+            icon: <FolderOpen size={28} />,
+            title: 'No Systems.',
+            desc: "The program lives in someone's side project folder. No onboarding flow. No content assets. No performance reviews. No one owns it."
+        }
+    ]
+
     return (
         <section ref={ref} style={{ padding: '8rem 6vw', background: '#FFFFFF', color: T.black }}>
-            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <span className="aff-prob-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE PROBLEM</span>
-                <h2 className="aff-prob-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 2rem' }}>
+                <h2 className="aff-prob-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 1.5rem' }}>
                     Three Ways Companies Botch Their Affiliate Program.
                 </h2>
 
-                <div className="aff-prob-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                    <p>The pattern is always the same. Someone on the team signs up for a platform, sets a commission rate based on whatever competitors are doing, recruits a handful of partners, and waits.</p>
-                    <p>Six months later, the program has generated enough revenue to cover maybe one month of the platform fee. The partners either went inactive or are sending junk traffic. Nobody knows what's working because tracking was set up wrong from the start.</p>
-                    <p>Here's why it keeps happening.</p>
+                <div className="aff-prob-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', marginBottom: '3rem' }}>
+                    <p>The pattern is always the same. Someone on the team signs up for a platform, sets a commission rate based on whatever competitors are doing, recruits a handful of partners, and waits. Six months later, the program has generated enough revenue to cover maybe one month of the platform fee.</p>
                 </div>
 
-                <div className="aff-prob-fade" style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '2rem' }}>
-                    <div>
-                        <h3 style={{ fontSize: '1.2rem', fontWeight: 700, margin: '0 0 0.75rem' }}>Wrong partners.</h3>
-                        <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', margin: 0 }}>Most companies recruit anyone with a pulse. They end up with coupon sites cannibalizing existing customers and content creators who have zero overlap with their actual audience.</p>
-                    </div>
-
-                    <div>
-                        <h3 style={{ fontSize: '1.2rem', fontWeight: 700, margin: '0 0 0.75rem' }}>Wrong incentives.</h3>
-                        <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', margin: 0 }}>A flat 20% commission sounds generous. But if your product has a 90-day sales cycle and you're only tracking last-click, your best affiliates are subsidizing your worst ones.</p>
-                    </div>
-
-                    <div>
-                        <h3 style={{ fontSize: '1.2rem', fontWeight: 700, margin: '0 0 0.75rem' }}>No systems.</h3>
-                        <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', margin: 0 }}>The program lives in someone's side project folder. No onboarding flow. No content assets. No performance reviews. No one owns it.</p>
-                    </div>
+                <div className="aff-prob-fade" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
+                    {problems.map((p, i) => (
+                        <div key={i} style={{
+                            background: T.offwhite, borderRadius: '1.5rem', padding: '2rem',
+                        }}>
+                            <div style={{
+                                width: '3.5rem', height: '3.5rem', borderRadius: '50%',
+                                background: 'rgba(217,119,87,0.12)', color: T.signal,
+                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                marginBottom: '1.25rem'
+                            }}>
+                                {p.icon}
+                            </div>
+                            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, margin: '0 0 0.75rem' }}>{p.title}</h3>
+                            <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.7)', margin: 0 }}>{p.desc}</p>
+                        </div>
+                    ))}
                 </div>
 
-                <div className="aff-prob-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', marginTop: '2rem' }}>
+                <div className="aff-prob-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)' }}>
                     <p><strong>The program doesn't fail because affiliate marketing doesn't work. It fails because nobody built the machine.</strong></p>
                 </div>
             </div>
@@ -206,7 +224,33 @@ function TheMethod() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   4. WHY NOT AN AGENCY
+   4. PROOF (stat callouts)
+   ═══════════════════════════════════════════════════════════════ */
+function Proof() {
+    return (
+        <section style={{ padding: '8rem 6vw', background: '#e1ddd6', color: T.black }}>
+            <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', textAlign: 'center' }}>
+                    <div>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.signal, marginBottom: '0.5rem' }}>800%</div>
+                        <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>CUSTOMER GROWTH IN 9 MONTHS</p>
+                    </div>
+                    <div>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.signal, marginBottom: '0.5rem' }}>6-8 Weeks</div>
+                        <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>FROM DIAGNOSTIC TO FULL HANDOVER</p>
+                    </div>
+                    <div>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.signal, marginBottom: '0.5rem' }}>30 Days</div>
+                        <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>POST-HANDOFF SUPPORT INCLUDED</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   5. WHY NOT AN AGENCY (side-by-side comparison)
    ═══════════════════════════════════════════════════════════════ */
 function WhyNotAgency() {
     const ref = useRef(null)
@@ -221,18 +265,58 @@ function WhyNotAgency() {
         return () => ctx.revert()
     }, [])
 
+    const agencyItems = [
+        '$5K-$25K/month ongoing retainer',
+        'Incentivized to keep you dependent',
+        'Generic partner recruitment',
+        'Black-box reporting',
+        'You never own the program'
+    ]
+
+    const myItems = [
+        'One-time build, you own everything',
+        'Designed to make you self-sufficient',
+        'Partners matched to your actual ICP',
+        'Transparent dashboards your team runs',
+        'Advisory retainer only if you want it'
+    ]
+
     return (
         <section ref={ref} style={{ padding: '8rem 6vw', background: '#FFFFFF', color: T.black }}>
-            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <span className="aff-agency-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE DIFFERENCE</span>
                 <h2 className="aff-agency-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 2rem' }}>
                     Agencies Need You Dependent. I Build You Out of That.
                 </h2>
 
-                <div className="aff-agency-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                    <p>Here's the structural difference. Affiliate agencies charge $5,000 to $25,000 per month to manage your program. Their business model requires you to stay dependent. The moment your team can run it themselves, they lose a client. They have zero incentive to make you self-sufficient.</p>
-                    <p>I build the program so your team owns it. Platform, partners, tracking, playbooks. Yours after the build. Your team runs the day-to-day from week one.</p>
-                    <p>Advisory retainer if you want strategic guidance after. A fraction of agency cost. But the point is: <strong>you own it.</strong></p>
+                <div className="aff-agency-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', marginBottom: '3rem' }}>
+                    <p>Affiliate agencies charge $5,000 to $25,000 per month to manage your program. Their business model requires you to stay dependent. I build the program so your team owns it.</p>
+                </div>
+
+                <div className="aff-agency-fade" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                    <div style={{ background: 'rgba(17,17,17,0.04)', borderRadius: '1.5rem', padding: '2rem' }}>
+                        <h3 className="font-data" style={{ fontSize: '0.85rem', letterSpacing: '0.1em', color: 'rgba(17,17,17,0.5)', margin: '0 0 1.5rem' }}>TYPICAL AGENCY</h3>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                            {agencyItems.map((item, i) => (
+                                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                                    <X size={18} style={{ color: '#991B1B', flexShrink: 0, marginTop: '0.2rem' }} />
+                                    <span style={{ fontSize: '1rem', lineHeight: 1.6, color: 'rgba(17,17,17,0.7)' }}>{item}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div style={{ background: T.offwhite, borderRadius: '1.5rem', padding: '2rem', border: `2px solid ${T.signal}` }}>
+                        <h3 className="font-data" style={{ fontSize: '0.85rem', letterSpacing: '0.1em', color: T.signal, margin: '0 0 1.5rem' }}>MY APPROACH</h3>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                            {myItems.map((item, i) => (
+                                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                                    <Check size={18} style={{ color: '#166534', flexShrink: 0, marginTop: '0.2rem' }} />
+                                    <span style={{ fontSize: '1rem', lineHeight: 1.6, color: 'rgba(17,17,17,0.8)' }}>{item}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -240,7 +324,7 @@ function WhyNotAgency() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   5. WHO THIS IS FOR
+   6. WHO THIS IS FOR
    ═══════════════════════════════════════════════════════════════ */
 function WhoThisIsFor() {
     const ref = useRef(null)
@@ -295,7 +379,7 @@ function WhoThisIsFor() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   6. WHY ME
+   7. WHY ME (expanded with 2-col grid)
    ═══════════════════════════════════════════════════════════════ */
 function WhyMe() {
     const ref = useRef(null)
@@ -312,21 +396,36 @@ function WhyMe() {
 
     return (
         <section ref={ref} style={{ padding: '8rem 6vw', background: T.paper }}>
-            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <span className="aff-why-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>WHY ME</span>
-                <div className="aff-why-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                    <p>In my most recent role, I designed the affiliate and partner program that helped drive 800% customer growth in 9 months. Before that, I spent 15 years in enterprise operations building systems that survive after the person who built them leaves. I know what a well-built affiliate program looks like because I've built them. Not because I've read the playbook.</p>
-                    <p>I use AI to compress the research, partner outreach, and content creation that takes agencies weeks of billable hours. That's why the timeline is 6-8 weeks instead of 6 months.</p>
+                <div className="aff-why-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', marginBottom: '3rem', maxWidth: '800px' }}>
+                    <p>In my most recent role, I designed the affiliate and partner program that helped drive 800% customer growth in 9 months. Before that, I spent 15 years in enterprise operations building systems that survive after the person who built them leaves.</p>
+                    <p style={{ marginTop: '1.5rem' }}>I use AI to compress the research, partner outreach, and content creation that takes agencies weeks of billable hours. That's why the timeline is 6-8 weeks instead of 6 months.</p>
                 </div>
 
-                <div className="aff-why-fade" style={{ marginTop: '3rem', background: T.offwhite, padding: '2rem', borderRadius: '1rem' }}>
-                    <p className="font-drama" style={{ fontSize: '1.2rem', lineHeight: 1.6, color: T.black, marginBottom: '1rem' }}>
-                        "Marcel exceeded our ambitious goals. He is a rare structured thinker that executes and leads with high precision."
-                    </p>
-                    <div className="font-data" style={{ fontSize: '0.8rem', letterSpacing: '0.05em', color: T.signal }}>
-                        EDDIE WU — COO, BLAZE.AI
+                <div className="aff-why-fade" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                    {/* Testimonial */}
+                    <div style={{ background: T.offwhite, padding: '2.5rem', borderRadius: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                        <p className="font-drama" style={{ fontSize: '1.25rem', lineHeight: 1.6, color: T.black, marginBottom: '1.5rem' }}>
+                            "Marcel exceeded our ambitious goals. He is a rare structured thinker that executes and leads with high precision."
+                        </p>
+                        <div className="font-data" style={{ fontSize: '0.8rem', letterSpacing: '0.05em', color: T.signal }}>
+                            EDDIE WU — COO, BLAZE.AI
+                        </div>
+                        <div style={{ fontSize: '0.8rem', color: 'rgba(17,17,17,0.5)', marginTop: '0.25rem' }}>AI content platform</div>
                     </div>
-                    <div style={{ fontSize: '0.8rem', color: 'rgba(17,17,17,0.5)', marginTop: '0.25rem' }}>AI content platform</div>
+
+                    {/* Stat cards stacked */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                        <div style={{ background: T.black, color: T.offwhite, padding: '2rem', borderRadius: '1.5rem', textAlign: 'center', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                            <div className="font-drama" style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', color: T.signal, marginBottom: '0.5rem' }}>300 &rarr; 2,700</div>
+                            <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(245,243,238,0.6)', margin: 0 }}>CUSTOMERS/MONTH AT BLAZE.AI</p>
+                        </div>
+                        <div style={{ background: T.black, color: T.offwhite, padding: '2rem', borderRadius: '1.5rem', textAlign: 'center', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                            <div className="font-drama" style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', color: T.signal, marginBottom: '0.5rem' }}>20 Years</div>
+                            <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(245,243,238,0.6)', margin: 0 }}>ENTERPRISE OPS + HIGH-GROWTH STARTUPS</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -334,7 +433,7 @@ function WhyMe() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   7. CLOSING CTA
+   8. CLOSING CTA
    ═══════════════════════════════════════════════════════════════ */
 function ClosingCTA() {
     return (
@@ -365,6 +464,7 @@ export default function Affiliates() {
             <Hero />
             <TheProblem />
             <TheMethod />
+            <Proof />
             <WhyNotAgency />
             <WhoThisIsFor />
             <WhyMe />

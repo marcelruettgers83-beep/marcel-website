@@ -112,7 +112,7 @@ export function Navbar() {
                     </Link>
 
                     {/* Desktop Links */}
-                    <div style={{ gap: '2rem', alignItems: 'center' }} className="hidden md:flex">
+                    <div style={{ gap: '2rem', alignItems: 'center' }} className="desktop-nav">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.path}
@@ -133,7 +133,7 @@ export function Navbar() {
                     </div>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                        <a href={CTA_LINK} target="_blank" rel="noreferrer" className="btn-magnetic hidden md:inline-block"
+                        <a href={CTA_LINK} target="_blank" rel="noreferrer" className="btn-magnetic desktop-cta"
                             style={{ background: T.signal, color: T.offwhite, padding: '0.5rem 1.25rem', borderRadius: '9999px', fontSize: '0.8rem', fontWeight: 700, textDecoration: 'none', letterSpacing: '0.04em' }}>
                             <span className="btn-slide" style={{ background: T.black }}></span>
                             <span className="btn-label">{ctaText}</span>
@@ -141,12 +141,11 @@ export function Navbar() {
 
                         <button
                             onClick={() => setMenuOpen(!menuOpen)}
-                            className="md:hidden"
+                            className="hamburger-btn"
                             style={{
                                 background: 'none', border: 'none',
                                 color: menuOpen ? T.offwhite : (scrolled ? T.black : T.paper),
                                 cursor: 'pointer', padding: '0.25rem',
-                                display: 'flex', alignItems: 'center',
                             }}
                             aria-label="Toggle menu"
                         >
@@ -158,11 +157,11 @@ export function Navbar() {
 
             {/* Mobile menu overlay */}
             <div
-                className="md:hidden"
+                className="mobile-overlay"
                 style={{
                     position: 'fixed', inset: 0, zIndex: 999,
                     background: T.black,
-                    display: 'flex', flexDirection: 'column',
+                    flexDirection: 'column',
                     justifyContent: 'center', alignItems: 'center',
                     gap: '2rem', padding: '2rem',
                     transition: 'opacity 0.3s ease, visibility 0.3s ease',
@@ -283,13 +282,13 @@ export function Footer() {
                     <p style={{ color: 'rgba(245,243,238,0.5)', fontSize: '0.9rem', maxWidth: '300px' }}>Growth systems for founder-led companies.</p>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', alignSelf: 'flex-start', background: 'rgba(255,255,255,0.05)', padding: '0.75rem 1.25rem', borderRadius: '9999px' }}>
-                    <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#00FF00', animation: 'pulse-dot 2s infinite' }} />
-                    <span className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: '#00FF00' }}>SYSTEM OPERATIONAL</span>
+                    <div style={{ width: 8, height: 8, borderRadius: '50%', background: T.signal, animation: 'pulse-dot 2s infinite' }} />
+                    <span className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: T.signal }}>SYSTEM OPERATIONAL</span>
                 </div>
             </div>
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1200px', margin: '0 auto', flexWrap: 'wrap', gap: '1rem' }}>
                 <span className="font-data" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)' }}>© {new Date().getFullYear()} {BRAND}.</span>
-                <div style={{ display: 'flex', gap: '1rem 2rem', flexWrap: 'wrap' }}>
+                <div className="footer-links" style={{ display: 'flex', gap: '1rem 2rem', flexWrap: 'wrap' }}>
                     <Link to="/" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>Growth Strategy</Link>
                     <Link to="/affiliates" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>Affiliate Programs</Link>
                     <Link to="/training" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>AI Training</Link>
@@ -297,6 +296,7 @@ export function Footer() {
                     <a href="mailto:hello@ruettgersdigital.com" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>Contact</a>
                     <a href={NEWSLETTER_URL} target="_blank" rel="noreferrer" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>Newsletter</a>
                     <a href="https://www.linkedin.com/in/marcelruettgers/" target="_blank" rel="noreferrer" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>LinkedIn</a>
+                    <span className="font-data" style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.75rem' }}>Privacy Policy</span>
                 </div>
             </div>
         </footer>
