@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { ArrowRight, Plus, Minus } from 'lucide-react'
+import { ArrowRight, Plus, Minus, Menu, X } from 'lucide-react'
 import { gsap } from 'gsap'
 
 /* ═══════════════════════════════════════════════════════════════
@@ -8,7 +8,7 @@ import { gsap } from 'gsap'
    ═══════════════════════════════════════════════════════════════ */
 export const T = {
     paper: '#E8E4DD',
-    signal: '#E63B2E',
+    signal: '#d97757',
     offwhite: '#F5F3EE',
     black: '#111111',
 }
@@ -55,14 +55,28 @@ export function MagneticButton({ href, label, dark = false }) {
    ═══════════════════════════════════════════════════════════════ */
 export function Navbar() {
     const [scrolled, setScrolled] = useState(false)
+    const [menuOpen, setMenuOpen] = useState(false)
     const location = useLocation()
     const ctaText = CTA_BY_ROUTE[location.pathname] || CTA_TEXT
+
+    useEffect(() => {
+        setMenuOpen(false)
+    }, [location.pathname])
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 60)
         window.addEventListener('scroll', onScroll)
         return () => window.removeEventListener('scroll', onScroll)
     }, [])
+
+    useEffect(() => {
+        if (menuOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = ''
+        }
+        return () => { document.body.style.overflow = '' }
+    }, [menuOpen])
 
     const navLinks = [
         { label: 'Growth Strategy', path: '/' },
@@ -72,51 +86,114 @@ export function Navbar() {
     ]
 
     return (
-        <nav
-            style={{
-                position: 'fixed', top: '1.25rem', left: '50%', transform: 'translateX(-50%)',
-                zIndex: 1000, width: 'calc(100% - 2.5rem)', maxWidth: '1000px',
-                transition: 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                background: scrolled ? 'rgba(245,243,238,0.75)' : 'transparent',
-                backdropFilter: scrolled ? 'blur(20px)' : 'none',
-                border: scrolled ? `1px solid rgba(17,17,17,0.15)` : '1px solid transparent',
-                borderRadius: '9999px',
-                padding: '0.6rem 1.5rem',
-            }}
-        >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', flexWrap: 'wrap' }}>
-                <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', transition: 'opacity 0.3s ease' }}>
-                    <img src="/favicon.png" alt="Ruettgers Digital" style={{ height: '28px', width: '28px', borderRadius: '4px', transition: 'filter 0.5s ease', filter: scrolled ? 'none' : 'brightness(1.2)' }} />
-                </Link>
+        <>
+            <nav
+                style={{
+                    position: 'fixed', top: '1.25rem', left: '50%', transform: 'translateX(-50%)',
+                    zIndex: 1000, width: 'calc(100% - 2.5rem)', maxWidth: '1000px',
+                    transition: 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                    background: menuOpen ? 'transparent' : (scrolled ? 'rgba(245,243,238,0.75)' : 'transparent'),
+                    backdropFilter: (!menuOpen && scrolled) ? 'blur(20px)' : 'none',
+                    border: (!menuOpen && scrolled) ? `1px solid rgba(17,17,17,0.15)` : '1px solid transparent',
+                    borderRadius: '9999px',
+                    padding: '0.6rem 1.5rem',
+                }}
+            >
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
+                    <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', transition: 'opacity 0.3s ease' }}>
+                        <img src="/favicon.png" alt="Ruettgers Digital" style={{ height: '28px', width: '28px', borderRadius: '4px', transition: 'filter 0.5s ease', filter: (scrolled && !menuOpen) ? 'none' : 'brightness(1.2)' }} />
+                    </Link>
 
-                {/* Desktop Links */}
-                <div style={{ display: 'none', '@media (minWidth: 768px)': { display: 'flex' }, gap: '2rem', alignItems: 'center' }} className="hidden md:flex">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.path}
-                            to={link.path}
+                    {/* Desktop Links */}
+                    <div style={{ gap: '2rem', alignItems: 'center' }} className="hidden md:flex">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.path}
+                                to={link.path}
+                                style={{
+                                    fontSize: '0.85rem',
+                                    fontWeight: 600,
+                                    color: location.pathname === link.path ? T.signal : (scrolled ? T.black : T.paper),
+                                    textDecoration: 'none',
+                                    opacity: location.pathname === link.path ? 1 : 0.8,
+                                    transition: 'all 0.3s ease'
+                                }}
+                                className="hover:opacity-100"
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                        <a href={CTA_LINK} target="_blank" rel="noreferrer" className="btn-magnetic hidden md:inline-block"
+                            style={{ background: T.signal, color: T.offwhite, padding: '0.5rem 1.25rem', borderRadius: '9999px', fontSize: '0.8rem', fontWeight: 700, textDecoration: 'none', letterSpacing: '0.04em' }}>
+                            <span className="btn-slide" style={{ background: T.black }}></span>
+                            <span className="btn-label">{ctaText}</span>
+                        </a>
+
+                        <button
+                            onClick={() => setMenuOpen(!menuOpen)}
+                            className="md:hidden"
                             style={{
-                                fontSize: '0.85rem',
-                                fontWeight: 600,
-                                color: location.pathname === link.path ? T.signal : (scrolled ? T.black : T.paper),
-                                textDecoration: 'none',
-                                opacity: location.pathname === link.path ? 1 : 0.8,
-                                transition: 'all 0.3s ease'
+                                background: 'none', border: 'none',
+                                color: menuOpen ? T.offwhite : (scrolled ? T.black : T.paper),
+                                cursor: 'pointer', padding: '0.25rem',
+                                display: 'flex', alignItems: 'center',
                             }}
-                            className="hover:opacity-100"
+                            aria-label="Toggle menu"
                         >
-                            {link.label}
-                        </Link>
-                    ))}
+                            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
+                    </div>
                 </div>
+            </nav>
 
-                <a href={CTA_LINK} target="_blank" rel="noreferrer" className="btn-magnetic"
-                    style={{ background: T.signal, color: T.offwhite, padding: '0.5rem 1.25rem', borderRadius: '9999px', fontSize: '0.8rem', fontWeight: 700, textDecoration: 'none', letterSpacing: '0.04em', display: 'inline-block' }}>
-                    <span className="btn-slide" style={{ background: T.black }}></span>
-                    <span className="btn-label">{ctaText}</span>
+            {/* Mobile menu overlay */}
+            <div
+                className="md:hidden"
+                style={{
+                    position: 'fixed', inset: 0, zIndex: 999,
+                    background: T.black,
+                    display: 'flex', flexDirection: 'column',
+                    justifyContent: 'center', alignItems: 'center',
+                    gap: '2rem', padding: '2rem',
+                    transition: 'opacity 0.3s ease, visibility 0.3s ease',
+                    opacity: menuOpen ? 1 : 0,
+                    visibility: menuOpen ? 'visible' : 'hidden',
+                }}
+            >
+                {navLinks.map(link => (
+                    <Link
+                        key={link.path}
+                        to={link.path}
+                        onClick={() => setMenuOpen(false)}
+                        style={{
+                            fontSize: '1.5rem', fontWeight: 700,
+                            color: location.pathname === link.path ? T.signal : T.offwhite,
+                            textDecoration: 'none',
+                            fontFamily: '"Space Grotesk"',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.05em',
+                            transition: 'color 0.3s ease'
+                        }}
+                    >
+                        {link.label}
+                    </Link>
+                ))}
+                <a href={CTA_LINK} target="_blank" rel="noreferrer"
+                    onClick={() => setMenuOpen(false)}
+                    style={{
+                        background: T.signal, color: '#fff',
+                        padding: '1rem 2rem', borderRadius: '9999px',
+                        fontSize: '1rem', fontWeight: 700,
+                        textDecoration: 'none', letterSpacing: '0.04em',
+                        marginTop: '1rem'
+                    }}>
+                    {ctaText}
                 </a>
             </div>
-        </nav>
+        </>
     )
 }
 
@@ -176,7 +253,7 @@ export function Footer() {
             </div>
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1200px', margin: '0 auto', flexWrap: 'wrap', gap: '1rem' }}>
                 <span className="font-data" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)' }}>© {new Date().getFullYear()} {BRAND}.</span>
-                <div style={{ display: 'flex', gap: '2rem' }}>
+                <div style={{ display: 'flex', gap: '1rem 2rem', flexWrap: 'wrap' }}>
                     <Link to="/" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>Growth Strategy</Link>
                     <Link to="/affiliates" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>Affiliate Programs</Link>
                     <Link to="/training" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>AI Training</Link>

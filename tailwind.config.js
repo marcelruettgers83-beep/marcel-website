@@ -8,7 +8,7 @@ export default {
     extend: {
       colors: {
         paper: '#E8E4DD',
-        signal: '#E63B2E',
+        signal: '#d97757',
         offwhite: '#F5F3EE',
         black: '#111111',
       },
