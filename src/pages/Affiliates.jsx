@@ -315,6 +315,16 @@ function WhyMe() {
                     <p>In my most recent role, I designed the affiliate and partner program that helped drive 800% customer growth in 9 months. Before that, I spent 15 years in enterprise operations building systems that survive after the person who built them leaves. I know what a well-built affiliate program looks like because I've built them. Not because I've read the playbook.</p>
                     <p>I use AI to compress the research, partner outreach, and content creation that takes agencies weeks of billable hours. That's why the timeline is 6-8 weeks instead of 6 months.</p>
                 </div>
+
+                <div className="aff-why-fade" style={{ marginTop: '3rem', background: T.offwhite, padding: '2rem', borderRadius: '1rem' }}>
+                    <p className="font-drama" style={{ fontSize: '1.2rem', lineHeight: 1.6, color: T.black, marginBottom: '1rem' }}>
+                        "Marcel exceeded our ambitious goals. He is a rare structured thinker that executes and leads with high precision."
+                    </p>
+                    <div className="font-data" style={{ fontSize: '0.8rem', letterSpacing: '0.05em', color: T.signal }}>
+                        EDDIE WU — COO, BLAZE.AI
+                    </div>
+                    <div style={{ fontSize: '0.8rem', color: 'rgba(17,17,17,0.5)', marginTop: '0.25rem' }}>AI content platform</div>
+                </div>
             </div>
         </section>
     )

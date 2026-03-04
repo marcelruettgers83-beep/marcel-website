@@ -100,7 +100,7 @@ function TheProblem() {
                     <p>You have traction. Revenue is real. But growth keeps getting harder, not easier.</p>
                     <p>Leads come in and sit too long. Deals stall in a pipeline where "qualified" means something different to everyone. Marketing and sales blame each other. Your CRM says one thing; your bank account says another.</p>
                     <p>And you're still in every decision. Not because you want to be - because nothing runs without you.</p>
-                    <p>I've seen this pattern from the inside - 20 years across enterprise operations and high-growth startups. The architecture problem is always the same. It isn't talent. It isn't budget. <strong>It's that everything runs through you - and nothing is designed to stop.</strong></p>
+                    <p>I've seen this pattern from the inside - 20 years across enterprise operations and high-growth startups. The problem is always the same. It isn't talent. It isn't budget. <strong>It's that everything runs through you - and nothing is designed to stop.</strong></p>
                 </div>
             </div>
         </section>
@@ -138,9 +138,9 @@ function HowIWork() {
 
     const phases = [
         { n: '1', title: 'Diagnose (Week 1-2)', desc: "I map your entire go-to-market end-to-end. You get a diagnostic report with clear answers, not caveats." },
-        { n: '2', title: 'Fix the Foundation (Week 3-4)', desc: "Before building anything new, I fix what's broken. Data, handoffs, pipeline definitions, reporting. 80% of growth problems are plumbing problems. I fix the plumbing first." },
+        { n: '2', title: 'Fix the Foundation (Week 3-4)', desc: "Before building anything new, I fix what's broken. Data, handoffs, pipeline definitions, reporting. In my experience, 80% of growth problems are plumbing problems. I fix the plumbing first." },
         { n: '3', title: 'Build (Week 5+)', desc: "Workflows, playbooks, automation - designed for your team's actual capacity. Not theoretical capacity. Not what the org chart says. What your people can actually run when I'm gone. Your team builds alongside me. That's not optional. I've watched enough handoffs fail to know: systems the team didn't help build die the week you leave them alone." },
-        { n: '4', title: 'Hand Over', desc: "I train your team to run everything without me. Then I step into advisory - available for the decisions that matter, gone for everything else. The best outcome is the one where you don't need me anymore." }
+        { n: '4', title: 'Hand Over', desc: "I train your team to run everything without me. Then I step into advisory - available for the decisions that matter, gone for everything else. That's when the shift happens: growth stops being something you push and starts being something your system produces. The best outcome is the one where you don't need me anymore." }
     ]
 
     return (
@@ -184,33 +184,55 @@ function HowIWork() {
    ═══════════════════════════════════════════════════════════════ */
 function Proof() {
     return (
-        <section style={{ padding: '8rem 6vw', background: '#e1ddd6', color: T.black }}> {/* subtle background shift */}
-            <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+        <section style={{ padding: '8rem 6vw', background: '#e1ddd6', color: T.black }}>
+            <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
 
-                <div>
-                    <p className="font-drama" style={{ fontSize: '1.35rem', lineHeight: 1.6, color: T.black, marginBottom: '2rem' }}>
-                        "Marcel exceeded our ambitious goals. He is a rare structured thinker that executes and leads with high precision."
-                    </p>
-                    <div className="font-data" style={{ fontSize: '0.85rem', letterSpacing: '0.05em', color: T.signal }}>
-                        EDDIE WU — BLAZE.AI
+                {/* Results in Numbers */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', marginBottom: '4rem', textAlign: 'center' }}>
+                    <div>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.signal, marginBottom: '0.5rem' }}>800%</div>
+                        <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>CUSTOMER GROWTH IN 9 MONTHS</p>
+                    </div>
+                    <div>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.signal, marginBottom: '0.5rem' }}>2 Weeks</div>
+                        <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>FROM DIAGNOSTIC TO FULL CLARITY</p>
+                    </div>
+                    <div>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.signal, marginBottom: '0.5rem' }}>20 Years</div>
+                        <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>ENTERPRISE OPS + HIGH-GROWTH STARTUPS</p>
                     </div>
                 </div>
 
-                <div>
-                    <p className="font-drama" style={{ fontSize: '1.35rem', lineHeight: 1.6, color: T.black, marginBottom: '2rem' }}>
-                        "A true force multiplier for any team that wants to move fast without breaking things."
-                    </p>
-                    <div className="font-data" style={{ fontSize: '0.85rem', letterSpacing: '0.05em', color: T.signal }}>
-                        JOE GIRTON — CHIEF OF STAFF, BLAZE.AI
+                {/* Testimonials */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+                    <div>
+                        <p className="font-drama" style={{ fontSize: '1.35rem', lineHeight: 1.6, color: T.black, marginBottom: '2rem' }}>
+                            "Marcel exceeded our ambitious goals. He is a rare structured thinker that executes and leads with high precision."
+                        </p>
+                        <div className="font-data" style={{ fontSize: '0.85rem', letterSpacing: '0.05em', color: T.signal }}>
+                            EDDIE WU — COO, BLAZE.AI
+                        </div>
+                        <div style={{ fontSize: '0.8rem', color: 'rgba(17,17,17,0.5)', marginTop: '0.25rem' }}>AI content platform</div>
                     </div>
-                </div>
 
-                <div>
-                    <p className="font-drama" style={{ fontSize: '1.35rem', lineHeight: 1.6, color: T.black, marginBottom: '2rem' }}>
-                        "He created a clear plan, provided regular updates on results, and the plan he is executing is already showing results."
-                    </p>
-                    <div className="font-data" style={{ fontSize: '0.85rem', letterSpacing: '0.05em', color: T.signal }}>
-                        EDWARD VAN DEN BERGH — CEO, THE GREAT OUTDOORS
+                    <div>
+                        <p className="font-drama" style={{ fontSize: '1.35rem', lineHeight: 1.6, color: T.black, marginBottom: '2rem' }}>
+                            "A true force multiplier for any team that wants to move fast without breaking things."
+                        </p>
+                        <div className="font-data" style={{ fontSize: '0.85rem', letterSpacing: '0.05em', color: T.signal }}>
+                            JOE GIRTON — CHIEF OF STAFF, BLAZE.AI
+                        </div>
+                        <div style={{ fontSize: '0.8rem', color: 'rgba(17,17,17,0.5)', marginTop: '0.25rem' }}>AI content platform</div>
+                    </div>
+
+                    <div>
+                        <p className="font-drama" style={{ fontSize: '1.35rem', lineHeight: 1.6, color: T.black, marginBottom: '2rem' }}>
+                            "He created a clear plan, provided regular updates on results, and the plan he is executing is already showing results."
+                        </p>
+                        <div className="font-data" style={{ fontSize: '0.85rem', letterSpacing: '0.05em', color: T.signal }}>
+                            EDWARD VAN DEN BERGH — CEO, THE GREAT OUTDOORS
+                        </div>
+                        <div style={{ fontSize: '0.8rem', color: 'rgba(17,17,17,0.5)', marginTop: '0.25rem' }}>Outdoor adventure company</div>
                     </div>
                 </div>
 
@@ -356,6 +378,7 @@ function ClosingCTA() {
                     <p>Right now you're making growth decisions based on incomplete data and gut feel. You know it. Your team knows it.</p>
                     <p>Two weeks from now, you won't have to. The X-Ray gives you the full picture - what's broken, what's actually working, and what to fix first. That clarity alone is worth more than most consulting engagements you've paid for.</p>
                     <p>If we're the right fit, we keep going. If not, you still walk away with the diagnostic. No ambiguity either way.</p>
+                    <p style={{ fontStyle: 'italic', color: 'rgba(245,243,238,0.6)' }}>It starts with a 30-minute call. If we're the right fit, the diagnostic runs over two weeks. You'll know exactly what to fix and in what order.</p>
                 </div>
 
                 <p className="font-data" style={{ color: T.signal, fontSize: '0.85rem', marginBottom: '2rem', letterSpacing: '0.1em' }}>30 MINUTES. NO PITCH DECK.</p>

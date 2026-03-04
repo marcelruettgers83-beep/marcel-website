@@ -60,7 +60,7 @@ function Hero() {
                 </h1>
 
                 <p className="train-hero-item" style={{ color: 'rgba(232,228,221,0.8)', fontSize: 'clamp(1rem, 1.25vw, 1.25rem)', maxWidth: '750px', lineHeight: 1.7, margin: '0 0 3rem', fontFamily: '"Space Mono"' }}>
-                    I train marketing teams and agencies to use Claude Code as their operating layer. One person does the work of five without the overhead of five. Not a course. Not a webinar. Hands-on training in your actual workflows, with your actual tools.
+                    I train marketing teams and agencies to build AI-powered operating systems. One person does the work of five without the overhead of five. Not a course. Not a webinar. Hands-on training in your actual workflows, with your actual tools.
                 </p>
 
                 <div className="train-hero-item" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
@@ -135,12 +135,12 @@ function WhatYouLearn() {
             <div style={{ maxWidth: '800px', margin: '0 auto' }}>
                 <span className="train-learn-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>WHAT YOU LEARN</span>
                 <h2 className="train-learn-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: T.black, textTransform: 'uppercase', lineHeight: 1, margin: '0 0 2rem' }}>
-                    From Operator to Orchestrator.
+                    One Person. Twelve Campaigns. Zero Busywork.
                 </h2>
 
                 <div className="train-learn-fade" style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.8)', marginBottom: '3rem' }}>
                     <p>Right now, your team works like musicians playing solo. One person writes copy. Another pulls analytics. Someone else builds the campaign in the ad platform. Each task is linear, manual, and bottlenecked on whoever's doing it.</p>
-                    <p style={{ marginTop: '1.5rem' }}>After this training, they work like a conductor. One person orchestrating the whole operation from a single interface.</p>
+                    <p style={{ marginTop: '1.5rem' }}>After this training, they work like a conductor. One person orchestrating the whole operation from a single interface. What used to take four hours to build - one campaign, fully loaded - takes twelve minutes.</p>
                 </div>
 
                 <div className="train-learn-fade" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '3rem' }}>
