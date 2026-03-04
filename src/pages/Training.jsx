@@ -333,6 +333,10 @@ function ClosingCTA() {
 }
 
 export default function Training() {
+    useEffect(() => {
+        document.title = 'AI Training for Marketing Teams | Ruettgers Digital'
+    }, [])
+
     return (
         <>
             <Hero />

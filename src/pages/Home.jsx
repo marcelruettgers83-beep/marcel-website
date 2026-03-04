@@ -220,13 +220,13 @@ function Proof() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   5. IS THIS RIGHT FOR YOU? & PRICING
+   5. IS THIS RIGHT FOR YOU? & HOW WE WORK TOGETHER
    ═══════════════════════════════════════════════════════════════ */
 function IsThisRight() {
-    const tiers = [
-        { name: 'The X-Ray', price: 'EUR 5,000 to EUR 10,000', desc: 'Two weeks. You get the full diagnosis and a roadmap that tells you exactly what to fix and in what order. Not a fluff document - an operating plan. Most people start here because it answers the question they\'ve been guessing at for months.', highlight: false },
-        { name: 'Strategy Buildout', price: 'EUR 10,000 to EUR 20,000', desc: 'Full systems design, implementation, and team training.', highlight: true },
-        { name: 'Advisory Retainer', price: 'EUR 2,000 to EUR 3,000 / mo', desc: 'For when the buildout is done and you want strategic access without the full engagement.', highlight: false },
+    const engagements = [
+        { name: 'The X-Ray', timeline: '2 WEEKS', desc: "A full diagnostic of your go-to-market. You get a clear report showing exactly what's broken and a prioritized roadmap to fix it. Most people start here because it answers the question they've been guessing at for months.", highlight: false },
+        { name: 'Strategy Buildout', timeline: '4-8 WEEKS', desc: "Full systems design, implementation, and team training. I build the fix with your team so they own it when I leave. Workflows, playbooks, automation - designed for your team's actual capacity.", highlight: true },
+        { name: 'Advisory Retainer', timeline: 'ONGOING', desc: 'For when the buildout is done and you want strategic access without the full engagement. Available for the decisions that matter, gone for everything else.', highlight: false },
     ]
 
     return (
@@ -256,31 +256,32 @@ function IsThisRight() {
                     </div>
                 </div>
 
-                {/* What It Costs */}
+                {/* How We Work Together */}
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', color: T.black, textTransform: 'uppercase', margin: '0 0 1rem' }}>
-                        What It Costs.
+                        How We Work Together.
                     </h2>
-                    <p style={{ fontFamily: '"Space Mono"', fontSize: '1.1rem', color: 'rgba(17,17,17,0.6)' }}>I'll be straight.</p>
+                    <p style={{ fontFamily: '"Space Mono"', fontSize: '1.1rem', color: 'rgba(17,17,17,0.6)' }}>Three ways to engage, depending on where you are.</p>
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
-                    {tiers.map((t) => (
+                    {engagements.map((t) => (
                         <div key={t.name} style={{
                             background: t.highlight ? T.black : T.paper,
                             color: t.highlight ? T.offwhite : T.black,
                             padding: '3rem 2rem', borderRadius: '1rem', display: 'flex', flexDirection: 'column'
                         }}>
-                            <h3 style={{ fontSize: '1.25rem', fontFamily: '"Space Mono"', margin: '0 0 1rem', fontWeight: 700 }}>{t.name}</h3>
-                            <div className="font-drama" style={{ fontSize: '2.5rem', margin: '0 0 1.5rem', color: t.highlight ? T.signal : T.black }}>{t.price}</div>
+                            <h3 style={{ fontSize: '1.25rem', fontFamily: '"Space Mono"', margin: '0 0 0.75rem', fontWeight: 700 }}>{t.name}</h3>
+                            <div className="font-data" style={{ fontSize: '0.8rem', margin: '0 0 1.5rem', color: T.signal, letterSpacing: '0.1em' }}>{t.timeline}</div>
                             <p style={{ fontSize: '0.95rem', lineHeight: 1.7, opacity: 0.8, flex: 1, margin: 0 }}>{t.desc}</p>
                         </div>
                     ))}
                 </div>
 
-                <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-                    <p className="font-data" style={{ color: 'rgba(17,17,17,0.6)', fontSize: '0.9rem', letterSpacing: '0.05em' }}>
-                        If The X-Ray shows your systems aren't the problem, I'll tell you. You walk away with the diagnostic regardless.
+                <div style={{ textAlign: 'center', marginTop: '4rem' }}>
+                    <MagneticButton href={CTA_LINK} label="Book a Call" />
+                    <p className="font-data" style={{ color: 'rgba(17,17,17,0.5)', fontSize: '0.85rem', letterSpacing: '0.05em', marginTop: '1.5rem' }}>
+                        Or <a href="mailto:hello@ruettgersdigital.com" style={{ color: T.signal, textDecoration: 'underline' }}>send me an email</a> if you'd prefer to start there.
                     </p>
                 </div>
 
@@ -295,8 +296,37 @@ function IsThisRight() {
 function FAQ() {
     const faqs = [
         { q: "We've tried consultants before. How are you different?", a: "Yeah, I hear this a lot. Here's what usually happened: someone gave you a strategy deck, maybe a few workshops, then moved on. The deck is sitting in a Google Drive folder right now. Nothing changed.\nI don't do that. I'm in your CRM, in your workflows, building the thing with your team - because strategy that doesn't work in practice isn't strategy. It's a PDF." },
-        { q: "Why not just hire a full-time Head of Growth?", a: "A senior growth leader costs $150K to $200K a year - plus three to six months to find, hire, and onboard them. And if your systems are broken, you're hiring someone into a mess. They'll spend their first six months diagnosing problems I can find in two weeks.\nI come in, fix the architecture, and build the infrastructure. Then you hire into a working system - or you don't, because the systems run without a dedicated person. Either way, you're in a better position." }
+        { q: "Why not just hire a full-time Head of Growth?", a: "A senior growth leader costs $150K to $200K a year - plus three to six months to find, hire, and onboard them. And if your systems are broken, you're hiring someone into a mess. They'll spend their first six months diagnosing problems I can find in two weeks.\nI come in, fix the architecture, and build the infrastructure. Then you hire into a working system - or you don't, because the systems run without a dedicated person. Either way, you're in a better position." },
+        { q: "How long until we see results?", a: "The diagnostic takes two weeks. You'll have full clarity on what's broken and what to fix first.\nAfter that, most companies see quick wins within the first month of implementation - usually in pipeline visibility, lead response time, and reporting accuracy. The full system buildout runs four to eight weeks depending on complexity. But the real shift happens earlier: once your team stops guessing and starts operating from a clear plan, the drag disappears fast." },
+        { q: "What does the diagnostic actually include?", a: "A full audit of your go-to-market, end to end. I map your pipeline stages, lead flow, handoff points, CRM data quality, marketing-to-sales alignment, reporting accuracy, and conversion bottlenecks.\nYou get a written report with specific findings - not a deck with buzzwords - and a prioritized action plan your team can execute against. If your systems aren't the problem, I'll tell you. You walk away with the diagnostic regardless." },
+        { q: "Do you work with remote or distributed teams?", a: "Yes. Most of my clients are remote or hybrid. I work async by default - structured updates, shared dashboards, documented decisions. The diagnostic and buildout work just as well over video as they do in person. I've done this across time zones from Amsterdam to San Francisco." },
+        { q: "What if our team pushes back on changes?", a: "This is exactly why I build with your team, not for them. When people help design the system, they actually run it.\nI've seen enough top-down implementations die on arrival. The playbooks, workflows, and dashboards your team builds alongside me are the ones they'll use after I leave. Adoption isn't a compliance problem - it's a design problem. We solve it from day one." },
+        { q: "Can you work with our existing tools and tech stack?", a: "Yes. I work with whatever you have - HubSpot, Salesforce, Pipedrive, custom setups. The problem is almost never the tools. It's how they're connected and whether anyone is using them consistently.\nI fix the architecture, not the vendor. If a tool genuinely isn't fit for purpose, I'll tell you. But most of the time, the stack you have is fine. It just needs to be wired together properly." }
     ]
+
+    useEffect(() => {
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+                "@type": "Question",
+                "name": f.q,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": f.a.replace(/\n/g, ' ')
+                }
+            }))
+        }
+        const script = document.createElement('script')
+        script.type = 'application/ld+json'
+        script.id = 'faq-schema'
+        script.textContent = JSON.stringify(schema)
+        document.head.appendChild(script)
+        return () => {
+            const el = document.getElementById('faq-schema')
+            if (el) el.remove()
+        }
+    }, [])
 
     return (
         <section style={{ padding: '8rem 6vw', background: T.offwhite }}>
@@ -336,6 +366,10 @@ function ClosingCTA() {
 }
 
 export default function Home() {
+    useEffect(() => {
+        document.title = 'Growth Systems for Founder-Led Companies | Ruettgers Digital'
+    }, [])
+
     return (
         <>
             <Hero />

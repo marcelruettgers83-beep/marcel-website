@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export default function About() {
+    useEffect(() => {
+        document.title = 'About Marcel Ruettgers | Ruettgers Digital'
+    }, [])
+
     return (
         <div style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8rem 6vw' }}>
             <div style={{ textAlign: 'center' }}>

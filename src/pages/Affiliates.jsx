@@ -343,6 +343,10 @@ function ClosingCTA() {
 }
 
 export default function Affiliates() {
+    useEffect(() => {
+        document.title = 'Affiliate Program Architecture | Ruettgers Digital'
+    }, [])
+
     return (
         <>
             <Hero />
