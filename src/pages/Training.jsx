@@ -46,7 +46,7 @@ function Hero() {
                         marginBottom: '0.2rem',
                         textTransform: 'uppercase',
                     }}>
-                        Your Team Has AI Tools.
+                        Your Team Uses AI.
                     </span>
                     <span className="train-hero-item font-drama" style={{
                         display: 'block',
@@ -56,7 +56,7 @@ function Hero() {
                         letterSpacing: '-0.02em',
                         marginLeft: '-0.05em',
                     }}>
-                        They Don't Have a System.
+                        They Don't Build With It.
                     </span>
                 </h1>
 
@@ -112,7 +112,7 @@ function TheProblem() {
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <span className="train-prob-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE PROBLEM</span>
                 <h2 className="train-prob-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 1.5rem' }}>
-                    You Bought the Tools. Nobody Built the System.
+                    Adoption Happened. Architecture Didn't.
                 </h2>
 
                 <div className="train-prob-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', marginBottom: '3rem', maxWidth: '800px' }}>
@@ -251,6 +251,9 @@ function HowItWorks() {
                 <h2 className="train-how-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.black, textTransform: 'uppercase', lineHeight: 1, margin: '0 0 1.5rem' }}>
                     Two Formats. Both Hands-On.
                 </h2>
+                <p className="train-how-fade" style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.8)', marginBottom: '1rem', maxWidth: '800px' }}>
+                    Whether I'm building a marketing team's AI stack or a company's go-to-market engine, the Growth Architecture Method is the same: understand, design, build with your team, hand over.
+                </p>
 
                 <div className="train-how-fade" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', marginTop: '3rem' }}>
                     {/* Live Workshops */}
@@ -430,7 +433,7 @@ function ClosingCTA() {
 export default function Training() {
     useSEO({
         title: 'AI Training for Marketing Teams | Ruettgers Digital',
-        description: "Hands-on AI training for marketing teams and agencies. Build AI-powered operating systems in your actual workflows, with your actual tools.",
+        description: "Your team uses AI but doesn't build with it. Hands-on training to turn individual tools into an AI-powered operating system your team runs.",
         canonical: 'https://ruettgersdigital.com/training',
         ogImage: 'https://ruettgersdigital.com/og-image.jpg',
         schema: {

@@ -32,10 +32,10 @@ export const CTA_AI_TEXT = "Book an AI Systems Audit"
 export const NEWSLETTER_URL = "https://marcelruettgers.substack.com"
 
 const SERVICES = [
-    { name: 'Growth Strategy', path: '/', desc: 'Full diagnostic and systems buildout for founder-led companies between $1M and $10M.', cta: 'The X-Ray' },
-    { name: 'Affiliate Programs', path: '/affiliates', desc: 'I build affiliate programs that work, train your team, and get out of the way.', cta: 'Affiliate Diagnostic' },
-    { name: 'AI Training', path: '/training', desc: 'Train your marketing team to build AI-powered operating systems.', cta: 'AI Training' },
-    { name: 'AI Systems', path: '/ai-systems', desc: 'AI-powered growth systems that actually work. Speed-to-lead, outbound, CRM automation — built with your team.', cta: 'AI Systems Audit' },
+    { name: 'Growth Engine', path: '/', desc: 'Pipeline architecture, lead flow, marketing-to-sales alignment, CRM. The diagnostic finds the bottleneck. The buildout fixes it. Your team owns it.', cta: 'Start With The X-Ray' },
+    { name: 'AI Revenue Systems', path: '/ai-systems', desc: 'Speed-to-lead, outbound automation, CRM workflows. AI wired into your actual revenue process, built with your team, handed over.', cta: 'AI Systems Audit' },
+    { name: 'Affiliate & Partner Channel', path: '/affiliates', desc: 'Built from your ICP. Structured around your unit economics. Trained and transferred in 6-8 weeks. No ongoing agency fees.', cta: 'Affiliate Diagnostic' },
+    { name: 'AI Training', path: '/training', desc: 'Your team learns to build and operate AI-powered workflows in their actual tools. Hands-on, not theory.', cta: 'AI Training' },
 ]
 
 const CTA_BY_ROUTE = {
@@ -99,10 +99,10 @@ export function Navbar() {
     }, [menuOpen])
 
     const navLinks = [
-        { label: 'Growth Strategy', path: '/' },
-        { label: 'Affiliate Programs', path: '/affiliates' },
-        { label: 'AI Training', path: '/training' },
+        { label: 'How I Work', path: '/' },
         { label: 'AI Systems', path: '/ai-systems' },
+        { label: 'Affiliates', path: '/affiliates' },
+        { label: 'AI Training', path: '/training' },
         { label: 'About', path: '/about' }
     ]
 
@@ -263,7 +263,7 @@ export function OtherServices({ current }) {
     return (
         <section style={{ padding: '8rem 6vw', background: T.offwhite }}>
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-                <span className="font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>OTHER WAYS I HELP</span>
+                <span className="font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE SAME METHOD, APPLIED ELSEWHERE</span>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                     {others.map(s => (
                         <Link to={s.path} key={s.path} className="card-lift" style={{
@@ -307,10 +307,10 @@ export function Footer() {
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1200px', margin: '0 auto', flexWrap: 'wrap', gap: '1rem' }}>
                 <span className="font-data" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)' }}>© {new Date().getFullYear()} {BRAND}.</span>
                 <div className="footer-links" style={{ display: 'flex', gap: '1rem 2rem', flexWrap: 'wrap' }}>
-                    <Link to="/" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Growth Strategy</Link>
-                    <Link to="/affiliates" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Affiliate Programs</Link>
-                    <Link to="/training" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>AI Training</Link>
+                    <Link to="/" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>How I Work</Link>
                     <Link to="/ai-systems" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>AI Systems</Link>
+                    <Link to="/affiliates" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Affiliates</Link>
+                    <Link to="/training" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>AI Training</Link>
                     <Link to="/about" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>About</Link>
                     <a href="mailto:hello@ruettgersdigital.com" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Contact</a>
                     <a href={NEWSLETTER_URL} target="_blank" rel="noreferrer" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Newsletter</a>

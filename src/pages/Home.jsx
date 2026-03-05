@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Check, X } from 'lucide-react'
+import { Check, X, ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { T, MagneticButton, CTA_LINK, CTA_TEXT, CTA_XRAY_TEXT, FAQItem, OtherServices, NEWSLETTER_URL } from '../components/Shared'
 import { useSEO } from '../hooks/useSEO'
 
@@ -152,7 +153,7 @@ function HowIWork() {
                     The X-Ray.
                 </h2>
                 <div style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.8)' }}>
-                    <p>Every engagement starts with a diagnostic. Before I touch anything in your business, I need to see the whole picture - not what your dashboard says, but what's actually happening.</p>
+                    <p>Every engagement follows the same model: diagnose, build with your team, hand it over. I call it the Growth Architecture Method. Before I touch anything in your business, I need to see the whole picture - not what your dashboard says, but what's actually happening.</p>
                 </div>
             </div>
 
@@ -178,6 +179,85 @@ function HowIWork() {
             <div style={{ textAlign: 'center', marginTop: '6rem' }}>
                 <MagneticButton href={CTA_LINK} label={CTA_XRAY_TEXT} dark={true} />
                 <p className="font-data" style={{ marginTop: '1.5rem', color: 'rgba(17,17,17,0.5)', fontSize: '0.8rem', letterSpacing: '0.05em' }}>TWO WEEKS TO FULL CLARITY ON WHAT'S BROKEN AND WHAT TO FIX FIRST.</p>
+            </div>
+        </section>
+    )
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   3b. THREE DOMAINS (bridge section)
+   ═══════════════════════════════════════════════════════════════ */
+function ThreeDomains() {
+    const ref = useRef(null)
+
+    useEffect(() => {
+        let ctx = gsap.context(() => {
+            gsap.from('.domains-fade', {
+                scrollTrigger: { trigger: ref.current, start: 'top 80%' },
+                y: 30, opacity: 0, duration: 1, stagger: 0.15, ease: 'power3.out'
+            })
+        }, ref)
+        return () => ctx.revert()
+    }, [])
+
+    const domains = [
+        {
+            name: 'Growth Engine',
+            desc: 'Pipeline architecture, lead flow, marketing-to-sales alignment, CRM. The diagnostic finds the bottleneck. The buildout fixes it. Your team owns it.',
+            cta: 'Start With The X-Ray',
+            path: null,
+        },
+        {
+            name: 'AI Revenue Systems',
+            desc: "Speed-to-lead, outbound automation, CRM workflows. AI wired into your actual revenue process - built with your team, handed over to run.",
+            cta: 'AI Systems Audit',
+            path: '/ai-systems',
+        },
+        {
+            name: 'Affiliate & Partner Channel',
+            desc: 'Built from your ICP. Structured around your unit economics. Trained and transferred in 6-8 weeks. No ongoing agency fees.',
+            cta: 'Affiliate Diagnostic',
+            path: '/affiliates',
+        },
+    ]
+
+    return (
+        <section ref={ref} style={{ padding: '8rem 6vw', background: '#FFFFFF' }}>
+            <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+                <span className="domains-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THREE DOMAINS. ONE METHOD.</span>
+                <h2 className="domains-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 1.5rem', color: T.black }}>
+                    Every Engagement Starts With a Diagnostic. What I Build Depends on Where the Bottleneck Lives.
+                </h2>
+                <p className="domains-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.7)', marginBottom: '3rem', maxWidth: '800px' }}>
+                    Most companies at this stage have traction but their growth architecture is fractured across disconnected systems. I fix the architecture - whether that means your go-to-market engine, your AI infrastructure, or your partner channel.
+                </p>
+
+                <div className="domains-fade" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+                    {domains.map(d => {
+                        const inner = (
+                            <>
+                                <div style={{ position: 'absolute', top: 0, left: '2rem', width: '3rem', height: '3px', background: T.signal, borderRadius: '0 0 2px 2px' }} />
+                                <h3 style={{ fontSize: '1.5rem', fontWeight: 700, margin: '0 0 1rem', textTransform: 'uppercase', color: T.black }}>{d.name}</h3>
+                                <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.7)', flex: 1, margin: '0 0 1.5rem' }}>{d.desc}</p>
+                                <span className="font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.05em', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                    {d.cta} <ArrowRight size={16} />
+                                </span>
+                            </>
+                        )
+
+                        const style = {
+                            background: T.offwhite, border: `2px solid ${T.black}`, padding: '2.5rem 2rem',
+                            borderRadius: '2rem', textDecoration: 'none', color: T.black,
+                            display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden'
+                        }
+
+                        return d.path ? (
+                            <Link to={d.path} key={d.name} className="card-lift" style={style}>{inner}</Link>
+                        ) : (
+                            <a href={CTA_LINK} target="_blank" rel="noreferrer" key={d.name} className="card-lift" style={style}>{inner}</a>
+                        )
+                    })}
+                </div>
             </div>
         </section>
     )
@@ -433,6 +513,7 @@ export default function Home() {
             <Hero />
             <TheProblem />
             <HowIWork />
+            <ThreeDomains />
             <Proof />
             <IsThisRight />
             <FAQ />

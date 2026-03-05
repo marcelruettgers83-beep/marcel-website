@@ -165,9 +165,12 @@ function Approach() {
         <section ref={ref} style={{ padding: '8rem 6vw', background: T.paper, color: T.black }}>
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <span className="about-approach-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>HOW I THINK</span>
-                <h2 className="about-approach-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 3rem' }}>
+                <h2 className="about-approach-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 1.5rem' }}>
                     Four Beliefs That Shape How I Work.
                 </h2>
+                <p className="about-approach-fade" style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.7)', marginBottom: '3rem', maxWidth: '800px' }}>
+                    These shape the Growth Architecture Method - the same approach I apply whether I'm fixing a go-to-market engine, building AI revenue systems, or architecting an affiliate channel.
+                </p>
 
                 <div className="about-approach-fade" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
                     {beliefs.map((b, i) => (

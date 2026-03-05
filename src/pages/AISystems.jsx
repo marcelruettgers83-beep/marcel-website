@@ -213,7 +213,7 @@ function TheMethod() {
                     Implementation That Actually Sticks.
                 </h2>
                 <div style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.8)' }}>
-                    <p>Every engagement starts with understanding where AI creates real leverage and where it doesn't. Not every process needs automation. The ones that do need it built right - with your team, in your tools, designed for your actual capacity.</p>
+                    <p>This follows the same Growth Architecture Method I use across all engagements - applied here to your AI revenue infrastructure. Every engagement starts with understanding where AI creates real leverage and where it doesn't. Not every process needs automation. The ones that do need it built right - with your team, in your tools, designed for your actual capacity.</p>
                 </div>
             </div>
 
