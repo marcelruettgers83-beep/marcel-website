@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Check, X } from 'lucide-react'
-import { T, MagneticButton, CTA_LINK, CTA_TEXT, FAQItem, OtherServices, NEWSLETTER_URL } from '../components/Shared'
+import { T, MagneticButton, CTA_LINK, CTA_TEXT, CTA_XRAY_TEXT, FAQItem, OtherServices, NEWSLETTER_URL } from '../components/Shared'
 import { useSEO } from '../hooks/useSEO'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -176,7 +176,7 @@ function HowIWork() {
             </div>
 
             <div style={{ textAlign: 'center', marginTop: '6rem' }}>
-                <MagneticButton href={CTA_LINK} label={CTA_TEXT} dark={true} />
+                <MagneticButton href={CTA_LINK} label={CTA_XRAY_TEXT} dark={true} />
                 <p className="font-data" style={{ marginTop: '1.5rem', color: 'rgba(17,17,17,0.5)', fontSize: '0.8rem', letterSpacing: '0.05em' }}>TWO WEEKS TO FULL CLARITY ON WHAT'S BROKEN AND WHAT TO FIX FIRST.</p>
             </div>
         </section>
@@ -414,7 +414,7 @@ function ClosingCTA() {
                 </div>
 
                 <p className="font-data" style={{ color: T.signal, fontSize: '0.85rem', marginBottom: '2rem', letterSpacing: '0.1em' }}>30 MINUTES. NO PITCH DECK.</p>
-                <MagneticButton href={CTA_LINK} label={CTA_TEXT} />
+                <MagneticButton href={CTA_LINK} label={CTA_XRAY_TEXT} />
             </div>
         </section>
     )

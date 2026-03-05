@@ -4,6 +4,15 @@ import { ArrowRight, Plus, Minus, Menu, X } from 'lucide-react'
 import { gsap } from 'gsap'
 
 /* ═══════════════════════════════════════════════════════════════
+   SCROLL TO TOP
+   ═══════════════════════════════════════════════════════════════ */
+export function ScrollToTop() {
+    const { pathname } = useLocation()
+    useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+    return null
+}
+
+/* ═══════════════════════════════════════════════════════════════
    DESIGN TOKENS - Preset C: Brutalist Signal
    ═══════════════════════════════════════════════════════════════ */
 export const T = {
@@ -15,15 +24,18 @@ export const T = {
 
 export const BRAND = "Ruettgers Digital"
 export const CTA_LINK = "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0gzf2H3GezuYwA1xN3iu2bStrp5lWeXwkJO2oC_oU8OymykSe6oxOxCmN8UhPSY-5L0mSZUDda"
-export const CTA_TEXT = "Start With The X-Ray"
+export const CTA_TEXT = "Find What's Broken"
+export const CTA_XRAY_TEXT = "Start With The X-Ray"
 export const CTA_TRAINING_TEXT = "Book a Training Call"
 export const CTA_AFFILIATE_TEXT = "Book an Affiliate Diagnostic"
+export const CTA_AI_TEXT = "Book an AI Systems Audit"
 export const NEWSLETTER_URL = "https://marcelruettgers.substack.com"
 
 const SERVICES = [
     { name: 'Growth Strategy', path: '/', desc: 'Full diagnostic and systems buildout for founder-led companies between $1M and $10M.', cta: 'The X-Ray' },
     { name: 'Affiliate Programs', path: '/affiliates', desc: 'I build affiliate programs that work, train your team, and get out of the way.', cta: 'Affiliate Diagnostic' },
     { name: 'AI Training', path: '/training', desc: 'Train your marketing team to build AI-powered operating systems.', cta: 'AI Training' },
+    { name: 'AI Systems', path: '/ai-systems', desc: 'AI-powered growth systems that actually work. Speed-to-lead, outbound, CRM automation — built with your team.', cta: 'AI Systems Audit' },
 ]
 
 const CTA_BY_ROUTE = {
@@ -31,6 +43,7 @@ const CTA_BY_ROUTE = {
     '/about': CTA_TEXT,
     '/training': CTA_TRAINING_TEXT,
     '/affiliates': CTA_AFFILIATE_TEXT,
+    '/ai-systems': CTA_AI_TEXT,
 }
 
 export function MagneticButton({ href, label, dark = false }) {
@@ -89,6 +102,7 @@ export function Navbar() {
         { label: 'Growth Strategy', path: '/' },
         { label: 'Affiliate Programs', path: '/affiliates' },
         { label: 'AI Training', path: '/training' },
+        { label: 'AI Systems', path: '/ai-systems' },
         { label: 'About', path: '/about' }
     ]
 
@@ -296,6 +310,7 @@ export function Footer() {
                     <Link to="/" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Growth Strategy</Link>
                     <Link to="/affiliates" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Affiliate Programs</Link>
                     <Link to="/training" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>AI Training</Link>
+                    <Link to="/ai-systems" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>AI Systems</Link>
                     <Link to="/about" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>About</Link>
                     <a href="mailto:hello@ruettgersdigital.com" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Contact</a>
                     <a href={NEWSLETTER_URL} target="_blank" rel="noreferrer" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Newsletter</a>
