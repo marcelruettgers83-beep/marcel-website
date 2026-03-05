@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Check, X } from 'lucide-react'
 import { T, MagneticButton, CTA_LINK, CTA_TEXT, FAQItem, OtherServices, NEWSLETTER_URL } from '../components/Shared'
+import { useSEO } from '../hooks/useSEO'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -59,7 +60,7 @@ function Hero() {
                     </span>
                 </h1>
 
-                <p className="hero-item" style={{ color: 'rgba(232,228,221,0.8)', fontSize: 'clamp(1rem, 1.25vw, 1.25rem)', maxWidth: '750px', lineHeight: 1.7, margin: '0 0 3rem', fontFamily: '"Space Mono"' }}>
+                <p className="hero-item" style={{ color: 'rgba(232,228,221,0.9)', fontSize: 'clamp(1rem, 1.25vw, 1.25rem)', maxWidth: '750px', lineHeight: 1.7, margin: '0 0 3rem', fontFamily: '"Space Mono"' }}>
                     I build growth systems for founder-led companies between $1M and $10M - so you stop being the bottleneck. I diagnose what's broken in your go-to-market, build the fix with your team, and hand it over so it runs without me.
                 </p>
 
@@ -372,7 +373,7 @@ function FAQ() {
    ═══════════════════════════════════════════════════════════════ */
 function Newsletter() {
     return (
-        <section style={{ padding: '8rem 6vw', background: '#FFFFFF' }}>
+        <section style={{ padding: '8rem 6vw', background: T.paper }}>
             <div style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
                 <span className="font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE NEWSLETTER</span>
                 <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', color: T.black, textTransform: 'uppercase', margin: '0 0 1.5rem' }}>
@@ -420,9 +421,12 @@ function ClosingCTA() {
 }
 
 export default function Home() {
-    useEffect(() => {
-        document.title = 'Growth Systems for Founder-Led Companies | Ruettgers Digital'
-    }, [])
+    useSEO({
+        title: 'Growth Systems for Founder-Led Companies | Ruettgers Digital',
+        description: "I build growth systems for founder-led companies between $1M and $10M. Diagnose what's broken, build the fix, hand it over.",
+        canonical: 'https://ruettgersdigital.com/',
+        ogImage: 'https://ruettgersdigital.com/og-image.jpg',
+    })
 
     return (
         <>

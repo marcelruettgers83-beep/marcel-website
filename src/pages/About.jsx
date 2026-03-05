@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight, Linkedin } from 'lucide-react'
 import { T, MagneticButton, CTA_LINK, CTA_TEXT, OtherServices } from '../components/Shared'
+import { useSEO } from '../hooks/useSEO'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -40,7 +41,7 @@ function Hero() {
                 <div className="about-hero-grid" style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                    gap: '4rem',
+                    gap: 'clamp(2rem, 4vw, 4rem)',
                     alignItems: 'center',
                 }}>
                     <div>
@@ -66,7 +67,7 @@ function Hero() {
                             </span>
                         </h1>
 
-                        <p className="about-hero-item" style={{ color: 'rgba(232,228,221,0.8)', fontSize: 'clamp(1rem, 1.25vw, 1.15rem)', maxWidth: '550px', lineHeight: 1.7, margin: '0 0 2.5rem', fontFamily: '"Space Mono"' }}>
+                        <p className="about-hero-item" style={{ color: 'rgba(232,228,221,0.9)', fontSize: 'clamp(1rem, 1.25vw, 1.15rem)', maxWidth: '550px', lineHeight: 1.7, margin: '0 0 2.5rem', fontFamily: '"Space Mono"' }}>
                             I help founder-led companies go from putting out fires to knowing exactly what to do next - by connecting the dots across marketing, sales, and ops into one growth system that actually works.
                         </p>
 
@@ -81,8 +82,13 @@ function Hero() {
 
                     <div className="about-hero-item" style={{ display: 'flex', justifyContent: 'center' }}>
                         <img
-                            src="/marcel-portrait.jpg"
+                            src="/marcel-portrait-800.jpg"
+                            srcSet="/marcel-portrait-400.jpg 400w, /marcel-portrait-800.jpg 800w"
+                            sizes="(max-width: 768px) 400px, 800px"
                             alt="Marcel Ruettgers"
+                            loading="lazy"
+                            width={400}
+                            height={533}
                             style={{
                                 width: '100%', maxWidth: '400px',
                                 borderRadius: '2rem',
@@ -212,13 +218,21 @@ function ClosingCTA() {
 }
 
 export default function About() {
-    useEffect(() => {
-        document.title = 'About Marcel Ruettgers | Ruettgers Digital'
-        const meta = document.querySelector('meta[name="description"]')
-        if (meta) {
-            meta.setAttribute('content', 'Marcel Ruettgers - Strategic Growth Advisor & Architect. 20 years building growth systems across enterprise operations and high-growth startups.')
+    useSEO({
+        title: 'About Marcel Ruettgers | Ruettgers Digital',
+        description: 'Marcel Ruettgers - Strategic Growth Advisor & Architect. 20 years building growth systems across enterprise operations and high-growth startups.',
+        canonical: 'https://ruettgersdigital.com/about',
+        ogImage: 'https://ruettgersdigital.com/og-image.jpg',
+        schema: {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Marcel Ruettgers",
+            "jobTitle": "Strategic Growth Advisor & Architect",
+            "worksFor": { "@type": "ProfessionalService", "name": "Ruettgers Digital", "url": "https://ruettgersdigital.com" },
+            "url": "https://ruettgersdigital.com/about",
+            "sameAs": ["https://www.linkedin.com/in/marcelruettgers/"]
         }
-    }, [])
+    })
 
     return (
         <>

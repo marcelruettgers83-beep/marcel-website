@@ -108,7 +108,7 @@ export function Navbar() {
             >
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
                     <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', transition: 'opacity 0.3s ease' }}>
-                        <img src="/favicon.png" alt="Ruettgers Digital" style={{ height: '28px', width: '28px', borderRadius: '4px', transition: 'filter 0.5s ease', filter: (scrolled && !menuOpen) ? 'none' : 'brightness(1.2)' }} />
+                        <img src="/favicon.svg" alt="Ruettgers Digital" style={{ height: '28px', width: '28px', borderRadius: '4px', transition: 'filter 0.5s ease', filter: (scrolled && !menuOpen) ? 'none' : 'brightness(1.2)' }} />
                     </Link>
 
                     {/* Desktop Links */}
@@ -209,6 +209,7 @@ export function Navbar() {
 export function FAQItem({ q, a }) {
     const [open, setOpen] = useState(false)
     const contentRef = useRef(null)
+    const faqId = `faq-${q.replace(/[^a-zA-Z0-9]/g, '').slice(0, 20)}`
 
     useEffect(() => {
         if (open) {
@@ -222,6 +223,8 @@ export function FAQItem({ q, a }) {
         <div style={{ borderBottom: `1px solid rgba(17,17,17,0.1)`, padding: '1.5rem 0' }}>
             <button
                 onClick={() => setOpen(!open)}
+                aria-expanded={open}
+                aria-controls={faqId}
                 style={{ width: '100%', background: 'none', border: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', padding: 0, color: T.black, textAlign: 'left' }}
             >
                 <h4 style={{ fontSize: '1.2rem', fontWeight: 700, margin: 0, paddingRight: '2rem', lineHeight: 1.4 }}>{q}</h4>
@@ -229,7 +232,7 @@ export function FAQItem({ q, a }) {
                     {open ? <Minus size={20} /> : <Plus size={20} />}
                 </div>
             </button>
-            <div ref={contentRef} style={{ height: 0, overflow: 'hidden', opacity: 0 }}>
+            <div ref={contentRef} id={faqId} role="region" style={{ height: 0, overflow: 'hidden', opacity: 0 }}>
                 <div style={{ paddingTop: '1.5rem', paddingBottom: '0.5rem', fontSize: '1.05rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.8)' }}>
                     {a.split('\n').map((line, i) => <p key={i} style={{ margin: '0 0 1rem' }}>{line}</p>)}
                 </div>
@@ -252,8 +255,9 @@ export function OtherServices({ current }) {
                         <Link to={s.path} key={s.path} className="card-lift" style={{
                             background: '#FFFFFF', border: `2px solid ${T.black}`, padding: '2.5rem 2rem',
                             borderRadius: '2rem', textDecoration: 'none', color: T.black,
-                            display: 'flex', flexDirection: 'column'
+                            display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden'
                         }}>
+                            <div style={{ position: 'absolute', top: 0, left: '2rem', width: '3rem', height: '3px', background: T.signal, borderRadius: '0 0 2px 2px' }} />
                             <h3 style={{ fontSize: '1.5rem', fontWeight: 700, margin: '0 0 1rem', textTransform: 'uppercase' }}>{s.name}</h3>
                             <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.7)', flex: 1, margin: '0 0 1.5rem' }}>{s.desc}</p>
                             <span className="font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.05em', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -289,14 +293,14 @@ export function Footer() {
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1200px', margin: '0 auto', flexWrap: 'wrap', gap: '1rem' }}>
                 <span className="font-data" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)' }}>© {new Date().getFullYear()} {BRAND}.</span>
                 <div className="footer-links" style={{ display: 'flex', gap: '1rem 2rem', flexWrap: 'wrap' }}>
-                    <Link to="/" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>Growth Strategy</Link>
-                    <Link to="/affiliates" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>Affiliate Programs</Link>
-                    <Link to="/training" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>AI Training</Link>
-                    <Link to="/about" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>About</Link>
-                    <a href="mailto:hello@ruettgersdigital.com" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>Contact</a>
-                    <a href={NEWSLETTER_URL} target="_blank" rel="noreferrer" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>Newsletter</a>
-                    <a href="https://www.linkedin.com/in/marcelruettgers/" target="_blank" rel="noreferrer" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>LinkedIn</a>
-                    <span className="font-data" style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.75rem' }}>Privacy Policy</span>
+                    <Link to="/" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Growth Strategy</Link>
+                    <Link to="/affiliates" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Affiliate Programs</Link>
+                    <Link to="/training" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>AI Training</Link>
+                    <Link to="/about" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>About</Link>
+                    <a href="mailto:hello@ruettgersdigital.com" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Contact</a>
+                    <a href={NEWSLETTER_URL} target="_blank" rel="noreferrer" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Newsletter</a>
+                    <a href="https://www.linkedin.com/in/marcelruettgers/" target="_blank" rel="noreferrer" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>LinkedIn</a>
+                    <a href="mailto:hello@ruettgersdigital.com?subject=Privacy%20Policy%20Request" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>Privacy Policy</a>
                 </div>
             </div>
         </footer>

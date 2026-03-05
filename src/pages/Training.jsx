@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Check, X, Repeat, Clock, Wrench } from 'lucide-react'
 import { T, MagneticButton, CTA_LINK, CTA_TRAINING_TEXT, OtherServices } from '../components/Shared'
+import { useSEO } from '../hooks/useSEO'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -59,7 +60,7 @@ function Hero() {
                     </span>
                 </h1>
 
-                <p className="train-hero-item" style={{ color: 'rgba(232,228,221,0.8)', fontSize: 'clamp(1rem, 1.25vw, 1.25rem)', maxWidth: '750px', lineHeight: 1.7, margin: '0 0 3rem', fontFamily: '"Space Mono"' }}>
+                <p className="train-hero-item" style={{ color: 'rgba(232,228,221,0.9)', fontSize: 'clamp(1rem, 1.25vw, 1.25rem)', maxWidth: '750px', lineHeight: 1.7, margin: '0 0 3rem', fontFamily: '"Space Mono"' }}>
                     I train marketing teams and agencies to build AI-powered operating systems. One person does the work of five without the overhead of five. Not a course. Not a webinar. Hands-on training in your actual workflows, with your actual tools.
                 </p>
 
@@ -427,9 +428,20 @@ function ClosingCTA() {
 }
 
 export default function Training() {
-    useEffect(() => {
-        document.title = 'AI Training for Marketing Teams | Ruettgers Digital'
-    }, [])
+    useSEO({
+        title: 'AI Training for Marketing Teams | Ruettgers Digital',
+        description: "Hands-on AI training for marketing teams and agencies. Build AI-powered operating systems in your actual workflows, with your actual tools.",
+        canonical: 'https://ruettgersdigital.com/training',
+        ogImage: 'https://ruettgersdigital.com/og-image.jpg',
+        schema: {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "AI Training for Marketing Teams",
+            "provider": { "@type": "ProfessionalService", "name": "Ruettgers Digital", "url": "https://ruettgersdigital.com" },
+            "description": "Train your marketing team to build AI-powered operating systems.",
+            "areaServed": ["Europe", "North America"]
+        }
+    })
 
     return (
         <>

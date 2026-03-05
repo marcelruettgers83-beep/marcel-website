@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Check, X, Users, DollarSign, FolderOpen } from 'lucide-react'
 import { T, MagneticButton, CTA_LINK, OtherServices } from '../components/Shared'
+import { useSEO } from '../hooks/useSEO'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -49,7 +50,7 @@ function Hero() {
                     </span>
                 </h1>
 
-                <p className="aff-hero-item" style={{ color: 'rgba(232,228,221,0.8)', fontSize: 'clamp(1rem, 1.25vw, 1.25rem)', maxWidth: '750px', lineHeight: 1.7, margin: '0 0 3rem', fontFamily: '"Space Mono"' }}>
+                <p className="aff-hero-item" style={{ color: 'rgba(232,228,221,0.9)', fontSize: 'clamp(1rem, 1.25vw, 1.25rem)', maxWidth: '750px', lineHeight: 1.7, margin: '0 0 3rem', fontFamily: '"Space Mono"' }}>
                     I build affiliate and partner programs that actually work. Then I hand them to your team to run. No agency retainer. No 12-month contract. A system that pays for itself.
                 </p>
 
@@ -455,9 +456,20 @@ function ClosingCTA() {
 }
 
 export default function Affiliates() {
-    useEffect(() => {
-        document.title = 'Affiliate Program Architecture | Ruettgers Digital'
-    }, [])
+    useSEO({
+        title: 'Affiliate Program Architecture | Ruettgers Digital',
+        description: "I build affiliate and partner programs that actually work. Then I hand them to your team to run. No agency retainer. A system that pays for itself.",
+        canonical: 'https://ruettgersdigital.com/affiliates',
+        ogImage: 'https://ruettgersdigital.com/og-image.jpg',
+        schema: {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Affiliate Program Architecture",
+            "provider": { "@type": "ProfessionalService", "name": "Ruettgers Digital", "url": "https://ruettgersdigital.com" },
+            "description": "Build affiliate programs that work, train your team, and hand it over.",
+            "areaServed": ["Europe", "North America"]
+        }
+    })
 
     return (
         <>
