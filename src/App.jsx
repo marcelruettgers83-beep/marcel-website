@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Navbar, Footer, T, ScrollToTop } from './components/Shared'
 import Home from './pages/Home'
+import GrowthSystems from './pages/GrowthSystems'
 import Affiliates from './pages/Affiliates'
 import Training from './pages/Training'
 import AISystems from './pages/AISystems'
@@ -17,6 +18,7 @@ export default function App() {
         <main style={{ flex: 1 }}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/growth-systems" element={<GrowthSystems />} />
             <Route path="/affiliates" element={<Affiliates />} />
             <Route path="/training" element={<Training />} />
             <Route path="/ai-systems" element={<AISystems />} />

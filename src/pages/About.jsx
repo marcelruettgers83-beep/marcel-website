@@ -63,12 +63,12 @@ function Hero() {
                                 color: 'rgba(232,228,221,0.7)',
                                 marginTop: '0.5rem',
                             }}>
-                                Strategic Growth Advisor & Architect
+                                AI Implementation & Growth Systems Architect
                             </span>
                         </h1>
 
                         <p className="about-hero-item" style={{ color: 'rgba(232,228,221,0.9)', fontSize: 'clamp(1rem, 1.25vw, 1.15rem)', maxWidth: '550px', lineHeight: 1.7, margin: '0 0 2.5rem', fontFamily: '"Space Mono"' }}>
-                            I help founder-led companies go from putting out fires to knowing exactly what to do next - by connecting the dots across marketing, sales, and ops into one growth system that actually works.
+                            I close the gap between what AI can do and what your company uses it for. I audit workflows, find where AI creates real value, build the system with your team, and hand it over.
                         </p>
 
                         <div className="about-hero-item" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
@@ -125,11 +125,11 @@ function Story() {
                 <span className="about-story-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE SHORT VERSION</span>
 
                 <div className="about-story-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                    <p>I spent 15 years in enterprise operations - most of it at IKEA, leading sales operations and growth initiatives across markets. I learned how systems work at scale: how to build processes that survive after the person who built them leaves, how to get alignment across large organizations, and how to turn messy data into clear decisions.</p>
+                    <p>I spent 15 years in enterprise operations at IKEA, leading sales operations and growth initiatives across markets. I learned how systems work at scale: how to build processes that survive after the person who built them leaves, how to get alignment across large organizations, and how to turn messy data into clear decisions.</p>
 
-                    <p>Then I went to the other end of the spectrum. At Blaze.ai, a high-growth AI startup, I built the growth engine that scaled the company from 300 to 2,700 customers per month in 9 months. Affiliate programs, partner channels, marketing automation, revenue operations - all wired together into one system.</p>
+                    <p>Then I went to the other end of the spectrum. At Blaze.ai, a high-growth AI startup, I built the AI-powered growth engine that scaled the company from 300 to 2,700 customers per month in 9 months. Affiliate programs, partner channels, marketing automation, revenue operations. All wired together into one system, with AI doing the middle work.</p>
 
-                    <p>Now I do both. I take the pattern recognition from enterprise and the execution speed from startups and apply it to founder-led companies between $1M and $10M who've hit the wall where growth gets harder instead of easier. I diagnose what's broken, build the fix with their team, and hand it over so it runs without me.</p>
+                    <p>Now I help companies close the gap between what AI can do and what they actually use it for. Anthropic's data shows a 65-point gap. 95% of AI pilots fail. Not because the technology doesn't work. Because nobody builds the system around it. I audit workflows, find where AI creates real value, build it with the team, and hand it over. I call it The Gap Method.</p>
 
                     <p>I work from Amsterdam. I'm async by default. I care more about clarity than flash, and I'd rather build something that works quietly for years than something that looks impressive for a month.</p>
                 </div>
@@ -169,7 +169,7 @@ function Approach() {
                     Four Beliefs That Shape How I Work.
                 </h2>
                 <p className="about-approach-fade" style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.7)', marginBottom: '3rem', maxWidth: '800px' }}>
-                    These shape the Growth Architecture Method - the same approach I apply whether I'm fixing a go-to-market engine, building AI revenue systems, or architecting an affiliate channel.
+                    These shape The Gap Method and every engagement I take on, whether it's AI implementation, growth systems, or partner channels.
                 </p>
 
                 <div className="about-approach-fade" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
@@ -222,8 +222,8 @@ function ClosingCTA() {
 
 export default function About() {
     useSEO({
-        title: 'Marcel Ruettgers - Growth Advisor, Amsterdam | Ruettgers Digital',
-        description: 'Marcel Ruettgers is a Strategic Growth Advisor based in Amsterdam. 20 years building growth systems across enterprise operations (IKEA) and high-growth startups (Blaze.ai).',
+        title: 'Marcel Ruettgers - AI Implementation & Growth Systems | Ruettgers Digital',
+        description: 'Marcel Ruettgers helps companies close the AI adoption gap. 20 years building systems across enterprise operations (IKEA) and high-growth startups (Blaze.ai). Based in Amsterdam.',
         canonical: 'https://www.ruettgersdigital.com/about',
         ogImage: 'https://www.ruettgersdigital.com/og-image.jpg',
         breadcrumbs: [
@@ -234,13 +234,13 @@ export default function About() {
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Marcel Ruettgers",
-            "jobTitle": "Strategic Growth Advisor & Architect",
+            "jobTitle": "AI Implementation & Growth Systems Architect",
             "worksFor": { "@type": "ProfessionalService", "name": "Ruettgers Digital", "url": "https://www.ruettgersdigital.com" },
             "url": "https://www.ruettgersdigital.com/about",
             "image": "https://www.ruettgersdigital.com/marcel-portrait-800.jpg",
             "address": { "@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL" },
             "alumniOf": { "@type": "Organization", "name": "IKEA" },
-            "knowsAbout": ["Growth Strategy", "Revenue Operations", "Go-to-Market Systems", "AI Systems Implementation", "Affiliate Marketing", "Sales Operations"],
+            "knowsAbout": ["AI Implementation", "AI Adoption Strategy", "The Gap Method", "Growth Strategy", "Revenue Operations", "Go-to-Market Systems", "Affiliate Marketing", "Sales Operations"],
             "sameAs": [
                 "https://www.linkedin.com/in/marcelruettgers/",
                 "https://marcelruettgers.substack.com"

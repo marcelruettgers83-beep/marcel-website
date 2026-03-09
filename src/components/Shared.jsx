@@ -24,26 +24,25 @@ export const T = {
 
 export const BRAND = "Ruettgers Digital"
 export const CTA_LINK = "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0gzf2H3GezuYwA1xN3iu2bStrp5lWeXwkJO2oC_oU8OymykSe6oxOxCmN8UhPSY-5L0mSZUDda"
-export const CTA_TEXT = "Find What's Broken"
-export const CTA_XRAY_TEXT = "Start With The X-Ray"
+export const CTA_TEXT = "Book an AI Audit"
+export const CTA_XRAY_TEXT = "Start With The Audit"
 export const CTA_TRAINING_TEXT = "Book a Training Call"
 export const CTA_AFFILIATE_TEXT = "Book an Affiliate Diagnostic"
-export const CTA_AI_TEXT = "Book an AI Systems Audit"
+export const CTA_AI_TEXT = "Book an AI Audit"
+export const CTA_GROWTH_TEXT = "Start With The X-Ray"
 export const NEWSLETTER_URL = "https://marcelruettgers.substack.com"
 
 const SERVICES = [
-    { name: 'Growth Engine', path: '/', desc: 'Pipeline architecture, lead flow, marketing-to-sales alignment, CRM. The diagnostic finds the bottleneck. The buildout fixes it. Your team owns it.', cta: 'Start With The X-Ray' },
-    { name: 'AI Revenue Systems', path: '/ai-systems', desc: 'Speed-to-lead, outbound automation, CRM workflows. AI wired into your actual revenue process, built with your team, handed over.', cta: 'AI Systems Audit' },
+    { name: 'AI Implementation', path: '/', desc: 'I close the gap between what AI can do and what your company uses it for. Audit, build, train, hand over. Your team runs it.', cta: 'Book an AI Audit' },
+    { name: 'Growth Systems', path: '/growth-systems', desc: 'Pipeline architecture, lead flow, marketing-to-sales alignment, CRM. The diagnostic finds the bottleneck. The buildout fixes it. Your team owns it.', cta: 'Growth Diagnostic' },
     { name: 'Affiliate & Partner Channel', path: '/affiliates', desc: 'Built from your ICP. Structured around your unit economics. Trained and transferred in 6-8 weeks. No ongoing agency fees.', cta: 'Affiliate Diagnostic' },
-    { name: 'AI Training', path: '/training', desc: 'Your team learns to build and operate AI-powered workflows in their actual tools. Hands-on, not theory.', cta: 'AI Training' },
 ]
 
 const CTA_BY_ROUTE = {
     '/': CTA_TEXT,
     '/about': CTA_TEXT,
-    '/training': CTA_TRAINING_TEXT,
+    '/growth-systems': CTA_GROWTH_TEXT,
     '/affiliates': CTA_AFFILIATE_TEXT,
-    '/ai-systems': CTA_AI_TEXT,
 }
 
 export function MagneticButton({ href, label, dark = false }) {
@@ -99,10 +98,9 @@ export function Navbar() {
     }, [menuOpen])
 
     const navLinks = [
-        { label: 'How I Work', path: '/' },
-        { label: 'AI Systems', path: '/ai-systems' },
+        { label: 'The Gap Method', path: '/' },
+        { label: 'Growth Systems', path: '/growth-systems' },
         { label: 'Affiliates', path: '/affiliates' },
-        { label: 'AI Training', path: '/training' },
         { label: 'About', path: '/about' }
     ]
 
@@ -297,7 +295,7 @@ export function Footer() {
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: '2rem', marginBottom: '4rem', maxWidth: '1200px', margin: '0 auto 4rem' }}>
                 <div>
                     <img src="/logo.png" alt="Ruettgers Digital" style={{ height: '32px', marginBottom: '0.5rem' }} />
-                    <p style={{ color: 'rgba(245,243,238,0.5)', fontSize: '0.9rem', maxWidth: '300px' }}>Growth systems for founder-led companies.</p>
+                    <p style={{ color: 'rgba(245,243,238,0.5)', fontSize: '0.9rem', maxWidth: '300px' }}>Closing the gap between AI capability and AI adoption.</p>
                     <p style={{ color: 'rgba(245,243,238,0.35)', fontSize: '0.8rem', marginTop: '0.25rem' }}>Amsterdam, Netherlands</p>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', alignSelf: 'flex-start', background: 'rgba(255,255,255,0.05)', padding: '0.75rem 1.25rem', borderRadius: '9999px' }}>
@@ -308,10 +306,9 @@ export function Footer() {
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1200px', margin: '0 auto', flexWrap: 'wrap', gap: '1rem' }}>
                 <span className="font-data" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)' }}>© {new Date().getFullYear()} {BRAND}. Amsterdam, NL.</span>
                 <div className="footer-links" style={{ display: 'flex', gap: '1rem 2rem', flexWrap: 'wrap' }}>
-                    <Link to="/" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>How I Work</Link>
-                    <Link to="/ai-systems" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>AI Systems</Link>
+                    <Link to="/" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>The Gap Method</Link>
+                    <Link to="/growth-systems" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Growth Systems</Link>
                     <Link to="/affiliates" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Affiliates</Link>
-                    <Link to="/training" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>AI Training</Link>
                     <Link to="/about" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>About</Link>
                     <a href="mailto:marcel@ruettgersdigital.com" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Contact</a>
                     <a href={NEWSLETTER_URL} target="_blank" rel="noreferrer" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Newsletter</a>
