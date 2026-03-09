@@ -434,11 +434,11 @@ export default function Training() {
     useSEO({
         title: 'AI Training for Marketing Teams & Agencies | Ruettgers Digital',
         description: "Your team uses AI but doesn't build with it. Hands-on training to turn individual tools into an AI-powered operating system your team runs.",
-        canonical: 'https://ruettgersdigital.com/training',
-        ogImage: 'https://ruettgersdigital.com/og-image.jpg',
+        canonical: 'https://www.ruettgersdigital.com/training',
+        ogImage: 'https://www.ruettgersdigital.com/og-image.jpg',
         breadcrumbs: [
-            { name: 'Home', url: 'https://ruettgersdigital.com/' },
-            { name: 'AI Training', url: 'https://ruettgersdigital.com/training' }
+            { name: 'Home', url: 'https://www.ruettgersdigital.com/' },
+            { name: 'AI Training', url: 'https://www.ruettgersdigital.com/training' }
         ],
         schema: {
             "@context": "https://schema.org",
@@ -447,7 +447,7 @@ export default function Training() {
             "provider": {
                 "@type": "ProfessionalService",
                 "name": "Ruettgers Digital",
-                "url": "https://ruettgersdigital.com",
+                "url": "https://www.ruettgersdigital.com",
                 "address": { "@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL" }
             },
             "description": "Hands-on AI training for marketing teams and agencies. Build AI-powered operating systems in your actual tools.",

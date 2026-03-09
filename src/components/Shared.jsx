@@ -313,10 +313,10 @@ export function Footer() {
                     <Link to="/affiliates" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Affiliates</Link>
                     <Link to="/training" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>AI Training</Link>
                     <Link to="/about" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>About</Link>
-                    <a href="mailto:hello@ruettgersdigital.com" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Contact</a>
+                    <a href="mailto:marcel@ruettgersdigital.com" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Contact</a>
                     <a href={NEWSLETTER_URL} target="_blank" rel="noreferrer" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Newsletter</a>
                     <a href="https://www.linkedin.com/in/marcelruettgers/" target="_blank" rel="noreferrer" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>LinkedIn</a>
-                    <a href="mailto:hello@ruettgersdigital.com?subject=Privacy%20Policy%20Request" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>Privacy Policy</a>
+                    <a href="mailto:marcel@ruettgersdigital.com?subject=Privacy%20Policy%20Request" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none' }}>Privacy Policy</a>
                 </div>
             </div>
         </footer>

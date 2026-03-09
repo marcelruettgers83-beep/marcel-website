@@ -459,11 +459,11 @@ export default function Affiliates() {
     useSEO({
         title: 'Affiliate Program Architecture & Buildout | Ruettgers Digital',
         description: "I build affiliate and partner programs that actually work. Then I hand them to your team to run. No agency retainer. A system that pays for itself.",
-        canonical: 'https://ruettgersdigital.com/affiliates',
-        ogImage: 'https://ruettgersdigital.com/og-image.jpg',
+        canonical: 'https://www.ruettgersdigital.com/affiliates',
+        ogImage: 'https://www.ruettgersdigital.com/og-image.jpg',
         breadcrumbs: [
-            { name: 'Home', url: 'https://ruettgersdigital.com/' },
-            { name: 'Affiliates', url: 'https://ruettgersdigital.com/affiliates' }
+            { name: 'Home', url: 'https://www.ruettgersdigital.com/' },
+            { name: 'Affiliates', url: 'https://www.ruettgersdigital.com/affiliates' }
         ],
         schema: {
             "@context": "https://schema.org",
@@ -472,7 +472,7 @@ export default function Affiliates() {
             "provider": {
                 "@type": "ProfessionalService",
                 "name": "Ruettgers Digital",
-                "url": "https://ruettgersdigital.com",
+                "url": "https://www.ruettgersdigital.com",
                 "address": { "@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL" }
             },
             "description": "Build affiliate programs that work, train your team, and hand it over. No ongoing agency fees.",

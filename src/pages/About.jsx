@@ -213,7 +213,7 @@ function ClosingCTA() {
                 <p className="font-data" style={{ color: T.signal, fontSize: '0.85rem', marginBottom: '2rem', letterSpacing: '0.1em' }}>30 MINUTES. NO PITCH DECK.</p>
                 <MagneticButton href={CTA_LINK} label={CTA_TEXT} />
                 <p className="font-data" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.85rem', letterSpacing: '0.05em', marginTop: '1.5rem' }}>
-                    Or <a href="mailto:hello@ruettgersdigital.com" style={{ color: T.signal, textDecoration: 'underline' }}>send me an email</a> if you'd prefer to start there.
+                    Or <a href="mailto:marcel@ruettgersdigital.com" style={{ color: T.signal, textDecoration: 'underline' }}>send me an email</a> if you'd prefer to start there.
                 </p>
             </div>
         </section>
@@ -224,20 +224,20 @@ export default function About() {
     useSEO({
         title: 'Marcel Ruettgers - Growth Advisor, Amsterdam | Ruettgers Digital',
         description: 'Marcel Ruettgers is a Strategic Growth Advisor based in Amsterdam. 20 years building growth systems across enterprise operations (IKEA) and high-growth startups (Blaze.ai).',
-        canonical: 'https://ruettgersdigital.com/about',
-        ogImage: 'https://ruettgersdigital.com/og-image.jpg',
+        canonical: 'https://www.ruettgersdigital.com/about',
+        ogImage: 'https://www.ruettgersdigital.com/og-image.jpg',
         breadcrumbs: [
-            { name: 'Home', url: 'https://ruettgersdigital.com/' },
-            { name: 'About', url: 'https://ruettgersdigital.com/about' }
+            { name: 'Home', url: 'https://www.ruettgersdigital.com/' },
+            { name: 'About', url: 'https://www.ruettgersdigital.com/about' }
         ],
         schema: {
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Marcel Ruettgers",
             "jobTitle": "Strategic Growth Advisor & Architect",
-            "worksFor": { "@type": "ProfessionalService", "name": "Ruettgers Digital", "url": "https://ruettgersdigital.com" },
-            "url": "https://ruettgersdigital.com/about",
-            "image": "https://ruettgersdigital.com/marcel-portrait-800.jpg",
+            "worksFor": { "@type": "ProfessionalService", "name": "Ruettgers Digital", "url": "https://www.ruettgersdigital.com" },
+            "url": "https://www.ruettgersdigital.com/about",
+            "image": "https://www.ruettgersdigital.com/marcel-portrait-800.jpg",
             "address": { "@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL" },
             "alumniOf": { "@type": "Organization", "name": "IKEA" },
             "knowsAbout": ["Growth Strategy", "Revenue Operations", "Go-to-Market Systems", "AI Systems Implementation", "Affiliate Marketing", "Sales Operations"],

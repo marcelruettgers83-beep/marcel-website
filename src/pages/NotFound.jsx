@@ -6,7 +6,7 @@ export default function NotFound() {
     useSEO({
         title: 'Page Not Found | Ruettgers Digital',
         description: 'The page you are looking for does not exist.',
-        canonical: 'https://ruettgersdigital.com/404',
+        canonical: 'https://www.ruettgersdigital.com/404',
         noindex: true,
     })
 

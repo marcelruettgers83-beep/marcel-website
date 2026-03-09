@@ -272,7 +272,7 @@ function Proof() {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
             "name": "Ruettgers Digital",
-            "url": "https://ruettgersdigital.com",
+            "url": "https://www.ruettgersdigital.com",
             "review": [
                 {
                     "@type": "Review",
@@ -431,7 +431,7 @@ function IsThisRight() {
                 <div style={{ textAlign: 'center', marginTop: '4rem' }}>
                     <MagneticButton href={CTA_LINK} label="Book a Call" />
                     <p className="font-data" style={{ color: 'rgba(17,17,17,0.5)', fontSize: '0.85rem', letterSpacing: '0.05em', marginTop: '1.5rem' }}>
-                        Or <a href="mailto:hello@ruettgersdigital.com" style={{ color: T.signal, textDecoration: 'underline' }}>send me an email</a> if you'd prefer to start there.
+                        Or <a href="mailto:marcel@ruettgersdigital.com" style={{ color: T.signal, textDecoration: 'underline' }}>send me an email</a> if you'd prefer to start there.
                     </p>
                 </div>
 
@@ -552,10 +552,10 @@ export default function Home() {
     useSEO({
         title: 'Growth Systems Consultant for $1M-$10M Companies | Ruettgers Digital',
         description: "I build growth systems for founder-led companies between $1M and $10M. Diagnose what's broken, build the fix, hand it over. Based in Amsterdam, serving EU and US.",
-        canonical: 'https://ruettgersdigital.com/',
-        ogImage: 'https://ruettgersdigital.com/og-image.jpg',
+        canonical: 'https://www.ruettgersdigital.com/',
+        ogImage: 'https://www.ruettgersdigital.com/og-image.jpg',
         breadcrumbs: [
-            { name: 'Home', url: 'https://ruettgersdigital.com/' }
+            { name: 'Home', url: 'https://www.ruettgersdigital.com/' }
         ],
     })
 

@@ -19,4 +19,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://ruettgersdigital.com/sitemap.xml
+Sitemap: https://www.ruettgersdigital.com/sitemap.xml
