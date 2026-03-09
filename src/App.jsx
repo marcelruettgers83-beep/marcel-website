@@ -5,6 +5,7 @@ import Affiliates from './pages/Affiliates'
 import Training from './pages/Training'
 import AISystems from './pages/AISystems'
 import About from './pages/About'
+import NotFound from './pages/NotFound'
 import './index.css'
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
             <Route path="/training" element={<Training />} />
             <Route path="/ai-systems" element={<AISystems />} />
             <Route path="/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

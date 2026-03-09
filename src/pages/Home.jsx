@@ -267,6 +267,50 @@ function ThreeDomains() {
    4. PROOF
    ═══════════════════════════════════════════════════════════════ */
 function Proof() {
+    useEffect(() => {
+        const reviewSchema = {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "Ruettgers Digital",
+            "url": "https://ruettgersdigital.com",
+            "review": [
+                {
+                    "@type": "Review",
+                    "author": { "@type": "Person", "name": "Eddie Wu" },
+                    "reviewBody": "Marcel exceeded our ambitious goals. He is a rare structured thinker that executes and leads with high precision.",
+                    "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 }
+                },
+                {
+                    "@type": "Review",
+                    "author": { "@type": "Person", "name": "Joe Girton" },
+                    "reviewBody": "A true force multiplier for any team that wants to move fast without breaking things.",
+                    "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 }
+                },
+                {
+                    "@type": "Review",
+                    "author": { "@type": "Person", "name": "Edward van den Bergh" },
+                    "reviewBody": "He created a clear plan, provided regular updates on results, and the plan he is executing is already showing results.",
+                    "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 }
+                }
+            ],
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 5,
+                "reviewCount": 3,
+                "bestRating": 5
+            }
+        }
+        const script = document.createElement('script')
+        script.type = 'application/ld+json'
+        script.id = 'review-schema'
+        script.textContent = JSON.stringify(reviewSchema)
+        document.head.appendChild(script)
+        return () => {
+            const el = document.getElementById('review-schema')
+            if (el) el.remove()
+        }
+    }, [])
+
     return (
         <section style={{ padding: '8rem 6vw', background: '#e1ddd6', color: T.black }}>
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
@@ -407,7 +451,11 @@ function FAQ() {
         { q: "What does the diagnostic actually include?", a: "A full audit of your go-to-market, end to end. I map your pipeline stages, lead flow, handoff points, CRM data quality, marketing-to-sales alignment, reporting accuracy, and conversion bottlenecks.\nYou get a written report with specific findings - not a deck with buzzwords - and a prioritized action plan your team can execute against. If your systems aren't the problem, I'll tell you. You walk away with the diagnostic regardless." },
         { q: "Do you work with remote or distributed teams?", a: "Yes. Most of my clients are remote or hybrid. I work async by default - structured updates, shared dashboards, documented decisions. The diagnostic and buildout work just as well over video as they do in person. I've done this across time zones from Amsterdam to San Francisco." },
         { q: "What if our team pushes back on changes?", a: "This is exactly why I build with your team, not for them. When people help design the system, they actually run it.\nI've seen enough top-down implementations die on arrival. The playbooks, workflows, and dashboards your team builds alongside me are the ones they'll use after I leave. Adoption isn't a compliance problem - it's a design problem. We solve it from day one." },
-        { q: "Can you work with our existing tools and tech stack?", a: "Yes. I work with whatever you have - HubSpot, Salesforce, Pipedrive, custom setups. The problem is almost never the tools. It's how they're connected and whether anyone is using them consistently.\nI fix the architecture, not the vendor. If a tool genuinely isn't fit for purpose, I'll tell you. But most of the time, the stack you have is fine. It just needs to be wired together properly." }
+        { q: "Can you work with our existing tools and tech stack?", a: "Yes. I work with whatever you have - HubSpot, Salesforce, Pipedrive, custom setups. The problem is almost never the tools. It's how they're connected and whether anyone is using them consistently.\nI fix the architecture, not the vendor. If a tool genuinely isn't fit for purpose, I'll tell you. But most of the time, the stack you have is fine. It just needs to be wired together properly." },
+        { q: "What does a fractional head of growth do?", a: "A fractional head of growth does everything a full-time growth leader would do, but on a project or part-time basis. I come in, diagnose your go-to-market bottlenecks, build the systems and processes to fix them, train your team to run everything, and then step back into an advisory role. You get senior growth leadership without the $150K-$200K salary, the three-month hiring process, or the risk of a bad full-time hire. Most engagements run 8 to 12 weeks for the active buildout, then shift to a light-touch retainer." },
+        { q: "How much does a growth consultant cost?", a: "It depends on the scope. A growth diagnostic (what I call The X-Ray) is a standalone two-week engagement. A full strategy buildout runs four to eight weeks. Advisory retainers are ongoing and light-touch. I price based on the engagement, not hourly. The diagnostic alone pays for itself because it shows you exactly where revenue is leaking and what to fix first. Most companies I work with are between $1M and $10M in revenue - the investment is a fraction of what a misdiagnosed growth problem costs you over six months of guessing." },
+        { q: "What is a growth diagnostic?", a: "A growth diagnostic is a structured audit of your entire go-to-market operation. I map your pipeline stages, lead flow, handoff points between marketing and sales, CRM data quality, reporting accuracy, and conversion bottlenecks. The output is a written report with specific findings and a prioritized action plan. Think of it as an X-ray for your business growth system. It takes two weeks, and you walk away knowing exactly what's broken and what to fix first, regardless of whether you continue working with me." },
+        { q: "When should a startup hire a growth consultant?", a: "The right time is after you've found product-market fit but before you've scaled past the point where broken systems compound. For most companies, that's somewhere between $1M and $10M in revenue. You have traction, revenue is real, but growth keeps getting harder instead of easier. Leads sit too long, pipeline stages mean different things to different people, and the founder is still the bottleneck on too many decisions. If that sounds familiar, you're in the right window. If you're pre-revenue, the honest advice is to sell first and systematize second." }
     ]
 
     useEffect(() => {
@@ -502,10 +550,13 @@ function ClosingCTA() {
 
 export default function Home() {
     useSEO({
-        title: 'Growth Systems for Founder-Led Companies | Ruettgers Digital',
-        description: "I build growth systems for founder-led companies between $1M and $10M. Diagnose what's broken, build the fix, hand it over.",
+        title: 'Growth Systems Consultant for $1M-$10M Companies | Ruettgers Digital',
+        description: "I build growth systems for founder-led companies between $1M and $10M. Diagnose what's broken, build the fix, hand it over. Based in Amsterdam, serving EU and US.",
         canonical: 'https://ruettgersdigital.com/',
         ogImage: 'https://ruettgersdigital.com/og-image.jpg',
+        breadcrumbs: [
+            { name: 'Home', url: 'https://ruettgersdigital.com/' }
+        ],
     })
 
     return (

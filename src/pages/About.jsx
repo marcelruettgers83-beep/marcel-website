@@ -85,7 +85,7 @@ function Hero() {
                             src="/marcel-portrait-800.jpg"
                             srcSet="/marcel-portrait-400.jpg 400w, /marcel-portrait-800.jpg 800w"
                             sizes="(max-width: 768px) 400px, 800px"
-                            alt="Marcel Ruettgers"
+                            alt="Marcel Ruettgers - Strategic Growth Advisor in Amsterdam"
                             loading="lazy"
                             width={400}
                             height={533}
@@ -222,10 +222,14 @@ function ClosingCTA() {
 
 export default function About() {
     useSEO({
-        title: 'About Marcel Ruettgers | Ruettgers Digital',
-        description: 'Marcel Ruettgers - Strategic Growth Advisor & Architect. 20 years building growth systems across enterprise operations and high-growth startups.',
+        title: 'Marcel Ruettgers - Growth Advisor, Amsterdam | Ruettgers Digital',
+        description: 'Marcel Ruettgers is a Strategic Growth Advisor based in Amsterdam. 20 years building growth systems across enterprise operations (IKEA) and high-growth startups (Blaze.ai).',
         canonical: 'https://ruettgersdigital.com/about',
         ogImage: 'https://ruettgersdigital.com/og-image.jpg',
+        breadcrumbs: [
+            { name: 'Home', url: 'https://ruettgersdigital.com/' },
+            { name: 'About', url: 'https://ruettgersdigital.com/about' }
+        ],
         schema: {
             "@context": "https://schema.org",
             "@type": "Person",
@@ -233,7 +237,14 @@ export default function About() {
             "jobTitle": "Strategic Growth Advisor & Architect",
             "worksFor": { "@type": "ProfessionalService", "name": "Ruettgers Digital", "url": "https://ruettgersdigital.com" },
             "url": "https://ruettgersdigital.com/about",
-            "sameAs": ["https://www.linkedin.com/in/marcelruettgers/"]
+            "image": "https://ruettgersdigital.com/marcel-portrait-800.jpg",
+            "address": { "@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL" },
+            "alumniOf": { "@type": "Organization", "name": "IKEA" },
+            "knowsAbout": ["Growth Strategy", "Revenue Operations", "Go-to-Market Systems", "AI Systems Implementation", "Affiliate Marketing", "Sales Operations"],
+            "sameAs": [
+                "https://www.linkedin.com/in/marcelruettgers/",
+                "https://marcelruettgers.substack.com"
+            ]
         }
     })
 

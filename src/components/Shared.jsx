@@ -298,6 +298,7 @@ export function Footer() {
                 <div>
                     <img src="/logo.png" alt="Ruettgers Digital" style={{ height: '32px', marginBottom: '0.5rem' }} />
                     <p style={{ color: 'rgba(245,243,238,0.5)', fontSize: '0.9rem', maxWidth: '300px' }}>Growth systems for founder-led companies.</p>
+                    <p style={{ color: 'rgba(245,243,238,0.35)', fontSize: '0.8rem', marginTop: '0.25rem' }}>Amsterdam, Netherlands</p>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', alignSelf: 'flex-start', background: 'rgba(255,255,255,0.05)', padding: '0.75rem 1.25rem', borderRadius: '9999px' }}>
                     <div style={{ width: 8, height: 8, borderRadius: '50%', background: T.signal, animation: 'pulse-dot 2s infinite' }} />
@@ -305,7 +306,7 @@ export function Footer() {
                 </div>
             </div>
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1200px', margin: '0 auto', flexWrap: 'wrap', gap: '1rem' }}>
-                <span className="font-data" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)' }}>© {new Date().getFullYear()} {BRAND}.</span>
+                <span className="font-data" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)' }}>© {new Date().getFullYear()} {BRAND}. Amsterdam, NL.</span>
                 <div className="footer-links" style={{ display: 'flex', gap: '1rem 2rem', flexWrap: 'wrap' }}>
                     <Link to="/" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>How I Work</Link>
                     <Link to="/ai-systems" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>AI Systems</Link>

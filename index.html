@@ -26,18 +26,71 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": ["ProfessionalService", "LocalBusiness"],
     "name": "Ruettgers Digital",
     "url": "https://ruettgersdigital.com",
     "description": "Growth systems for founder-led companies between $1M and $10M. Diagnose what's broken, build the fix, hand it over.",
     "founder": {
       "@type": "Person",
       "name": "Marcel Ruettgers",
-      "jobTitle": "Strategic Growth Advisor"
+      "jobTitle": "Strategic Growth Advisor & Architect",
+      "sameAs": [
+        "https://www.linkedin.com/in/marcelruettgers/",
+        "https://marcelruettgers.substack.com"
+      ]
     },
-    "areaServed": ["Europe", "North America"],
-    "knowsAbout": ["Growth Strategy", "Revenue Operations", "Go-to-Market Systems", "Affiliate Programs", "AI Training for Marketing Teams"],
-    "email": "hello@ruettgersdigital.com"
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Amsterdam",
+      "addressCountry": "NL"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 52.3676,
+      "longitude": 4.9041
+    },
+    "areaServed": [
+      {"@type": "Continent", "name": "Europe"},
+      {"@type": "Continent", "name": "North America"}
+    ],
+    "knowsAbout": ["Growth Strategy", "Revenue Operations", "Go-to-Market Systems", "Affiliate Programs", "AI Systems Implementation", "AI Training for Marketing Teams"],
+    "email": "hello@ruettgersdigital.com",
+    "openingHours": "Mo-Fr 09:00-17:30",
+    "priceRange": "$$",
+    "sameAs": [
+      "https://www.linkedin.com/in/marcelruettgers/",
+      "https://marcelruettgers.substack.com"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Growth Advisory Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Growth Diagnostic (The X-Ray)",
+            "description": "A 2-week full audit of your go-to-market systems, pipeline, lead flow, CRM, and marketing-to-sales alignment."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Strategy Buildout",
+            "description": "4-8 week systems design, implementation, and team training. Workflows, playbooks, and automation designed for your team."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Advisory Retainer",
+            "description": "Ongoing strategic access after buildout. Available for the decisions that matter."
+          }
+        }
+      ]
+    }
   }
   </script>
 

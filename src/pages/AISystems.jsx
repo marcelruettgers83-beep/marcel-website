@@ -476,17 +476,29 @@ function ClosingCTA() {
 
 export default function AISystems() {
     useSEO({
-        title: 'AI Systems for Revenue Teams | Ruettgers Digital',
-        description: "AI-powered growth systems that actually work. Speed-to-lead, CRM automation, outbound agents — built with your team, handed over to run.",
+        title: 'AI Systems Audit & Implementation for Revenue Teams | Ruettgers Digital',
+        description: "AI-powered growth systems that actually work. Speed-to-lead, CRM automation, outbound agents. Built with your team, handed over to run. Based in Amsterdam.",
         canonical: 'https://ruettgersdigital.com/ai-systems',
         ogImage: 'https://ruettgersdigital.com/og-image.jpg',
+        breadcrumbs: [
+            { name: 'Home', url: 'https://ruettgersdigital.com/' },
+            { name: 'AI Systems', url: 'https://ruettgersdigital.com/ai-systems' }
+        ],
         schema: {
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "AI Systems Implementation",
-            "provider": { "@type": "ProfessionalService", "name": "Ruettgers Digital", "url": "https://ruettgersdigital.com" },
-            "description": "AI-powered growth systems implementation for revenue teams. Speed-to-lead, outbound agents, CRM automation — built with your team, handed over to run.",
-            "areaServed": ["Europe", "North America"]
+            "name": "AI Systems Audit & Implementation",
+            "provider": {
+                "@type": "ProfessionalService",
+                "name": "Ruettgers Digital",
+                "url": "https://ruettgersdigital.com",
+                "address": { "@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL" }
+            },
+            "description": "AI-powered growth systems implementation for revenue teams. Speed-to-lead, outbound agents, CRM automation. Built with your team, handed over to run.",
+            "areaServed": [
+                {"@type": "Continent", "name": "Europe"},
+                {"@type": "Continent", "name": "North America"}
+            ]
         }
     })
 
