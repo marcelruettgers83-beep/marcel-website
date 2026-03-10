@@ -27,7 +27,7 @@ function Hero() {
 
     return (
         <section ref={elRef} id="hero" style={{
-            minHeight: '100dvh', position: 'relative', overflow: 'hidden',
+            minHeight: '90dvh', position: 'relative', overflow: 'hidden',
             display: 'flex', flexDirection: 'column', justifyContent: 'center',
             background: T.black, color: '#fff'
         }}>
@@ -40,9 +40,9 @@ function Hero() {
                 <h1 style={{ margin: '0 0 2.5rem', lineHeight: 1.05 }}>
                     <span className="aff-hero-item font-drama" style={{
                         display: 'block',
-                        fontSize: 'clamp(3.5rem, 8vw, 7rem)',
+                        fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)',
                         color: T.offwhite,
-                        lineHeight: 0.9,
+                        lineHeight: 0.95,
                         letterSpacing: '-0.02em',
                         marginLeft: '-0.05em',
                     }}>
@@ -50,7 +50,7 @@ function Hero() {
                     </span>
                 </h1>
 
-                <p className="aff-hero-item" style={{ color: 'rgba(232,228,221,0.9)', fontSize: 'clamp(1rem, 1.25vw, 1.25rem)', maxWidth: '750px', lineHeight: 1.7, margin: '0 0 3rem', fontFamily: '"Space Mono"' }}>
+                <p className="aff-hero-item" style={{ color: 'rgba(232,228,221,0.9)', fontSize: 'clamp(1rem, 1.25vw, 1.25rem)', maxWidth: '750px', lineHeight: 1.7, margin: '0 0 2.5rem', fontFamily: '"Space Mono"' }}>
                     I build affiliate and partner programs that actually work. Then I hand them to your team to run. No agency retainer. No 12-month contract. A system that pays for itself. Most affiliate clients find their way here through a growth diagnostic. When the X-Ray finds that affiliate is the highest-leverage channel, this is what we build.
                 </p>
 
@@ -98,7 +98,7 @@ function TheProblem() {
     ]
 
     return (
-        <section ref={ref} style={{ padding: '8rem 6vw', background: '#FFFFFF', color: T.black }}>
+        <section ref={ref} style={{ padding: '5rem 6vw', background: '#FFFFFF', color: T.black }}>
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <span className="aff-prob-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE PROBLEM</span>
                 <h2 className="aff-prob-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 1.5rem' }}>
@@ -181,10 +181,10 @@ function TheMethod() {
     ]
 
     return (
-        <section ref={containerRef} style={{ padding: '8rem 6vw', background: T.paper }}>
-            <div style={{ maxWidth: '800px', marginBottom: '4rem' }}>
+        <section ref={containerRef} style={{ padding: '5rem 6vw', background: T.paper }}>
+            <div style={{ maxWidth: '800px', marginBottom: '3rem' }}>
                 <span className="font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE METHOD</span>
-                <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.black, textTransform: 'uppercase', lineHeight: 1, margin: '0 0 1.5rem' }}>
+                <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', color: T.black, textTransform: 'uppercase', lineHeight: 1, margin: '0 0 1.5rem' }}>
                     The Affiliate Architecture Method.
                 </h2>
                 <div style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.8)' }}>
@@ -229,19 +229,19 @@ function TheMethod() {
    ═══════════════════════════════════════════════════════════════ */
 function Proof() {
     return (
-        <section style={{ padding: '8rem 6vw', background: '#e1ddd6', color: T.black }}>
+        <section style={{ padding: '5rem 6vw', background: '#e1ddd6', color: T.black }}>
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', textAlign: 'center' }}>
                     <div>
-                        <div className="font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.signal, marginBottom: '0.5rem' }}>800%</div>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', color: T.signal, marginBottom: '0.5rem' }}>800%</div>
                         <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>CUSTOMER GROWTH IN 9 MONTHS</p>
                     </div>
                     <div>
-                        <div className="font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.signal, marginBottom: '0.5rem' }}>6-8 Weeks</div>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', color: T.signal, marginBottom: '0.5rem' }}>6-8 Weeks</div>
                         <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>FROM DIAGNOSTIC TO FULL HANDOVER</p>
                     </div>
                     <div>
-                        <div className="font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.signal, marginBottom: '0.5rem' }}>30 Days</div>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', color: T.signal, marginBottom: '0.5rem' }}>30 Days</div>
                         <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>POST-HANDOFF SUPPORT INCLUDED</p>
                     </div>
                 </div>
@@ -283,7 +283,7 @@ function WhyNotAgency() {
     ]
 
     return (
-        <section ref={ref} style={{ padding: '8rem 6vw', background: '#FFFFFF', color: T.black }}>
+        <section ref={ref} style={{ padding: '5rem 6vw', background: '#FFFFFF', color: T.black }}>
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <span className="aff-agency-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE DIFFERENCE</span>
                 <h2 className="aff-agency-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 2rem' }}>
@@ -341,7 +341,7 @@ function WhoThisIsFor() {
     }, [])
 
     return (
-        <section ref={ref} style={{ padding: '8rem 6vw', background: T.offwhite }}>
+        <section ref={ref} style={{ padding: '5rem 6vw', background: T.offwhite }}>
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <div className="aff-who-fade" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
                     <div>
@@ -396,7 +396,7 @@ function WhyMe() {
     }, [])
 
     return (
-        <section ref={ref} style={{ padding: '8rem 6vw', background: T.paper }}>
+        <section ref={ref} style={{ padding: '5rem 6vw', background: T.paper }}>
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <span className="aff-why-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>WHY ME</span>
                 <div className="aff-why-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', marginBottom: '3rem', maxWidth: '800px' }}>
@@ -438,9 +438,9 @@ function WhyMe() {
    ═══════════════════════════════════════════════════════════════ */
 function ClosingCTA() {
     return (
-        <section style={{ padding: '10rem 6vw', color: T.offwhite, textAlign: 'center', position: 'relative', overflow: 'hidden', background: `radial-gradient(ellipse 70% 50% at 50% 40%, rgba(217,119,87,0.20) 0%, transparent 70%), linear-gradient(to bottom, #0e0e12 0%, #111111 100%)` }}>
+        <section style={{ padding: '6rem 6vw', color: T.offwhite, textAlign: 'center', position: 'relative', overflow: 'hidden', background: `radial-gradient(ellipse 70% 50% at 50% 40%, rgba(217,119,87,0.20) 0%, transparent 70%), linear-gradient(to bottom, #0e0e12 0%, #111111 100%)` }}>
             <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-                <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', lineHeight: 1.1, margin: '0 0 2rem', textTransform: 'uppercase' }}>
+                <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, margin: '0 0 2rem', textTransform: 'uppercase' }}>
                     Right Now, Your Affiliate Channel Is Either Costing You Money or Making Someone Else's.
                 </h2>
                 <div style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(245,243,238,0.8)', margin: '0 auto 3rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>

@@ -26,7 +26,7 @@ function Hero() {
 
     return (
         <section ref={elRef} id="hero" style={{
-            minHeight: '100dvh', position: 'relative', overflow: 'hidden',
+            minHeight: '90dvh', position: 'relative', overflow: 'hidden',
             display: 'flex', flexDirection: 'column', justifyContent: 'center',
             background: T.black, color: '#fff'
         }}>
@@ -41,7 +41,7 @@ function Hero() {
                         display: 'block',
                         fontFamily: '"Space Grotesk"',
                         fontWeight: 700,
-                        fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+                        fontSize: 'clamp(1.75rem, 3.5vw, 3rem)',
                         color: T.paper,
                         letterSpacing: '-0.02em',
                         marginBottom: '0.2rem',
@@ -51,16 +51,16 @@ function Hero() {
                     </span>
                     <span className="hero-item font-drama" style={{
                         display: 'block',
-                        fontSize: 'clamp(3.5rem, 8vw, 7rem)',
+                        fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)',
                         color: T.offwhite,
-                        lineHeight: 0.9,
+                        lineHeight: 0.95,
                         letterSpacing: '-0.02em',
                     }}>
                         Nobody Redesigned the Factory Floor.
                     </span>
                 </h1>
 
-                <p className="hero-item" style={{ color: 'rgba(232,228,221,0.9)', fontSize: 'clamp(1rem, 1.5vw, 1.35rem)', maxWidth: '750px', lineHeight: 1.7, margin: '0 auto 3rem', fontFamily: '"Space Mono"' }}>
+                <p className="hero-item" style={{ color: 'rgba(232,228,221,0.9)', fontSize: 'clamp(1rem, 1.3vw, 1.2rem)', maxWidth: '750px', lineHeight: 1.7, margin: '0 auto 2.5rem', fontFamily: '"Space Mono"' }}>
                     Anthropic's latest data shows a 65-point gap between what AI can do and what companies actually use it for. 95% of AI pilots fail. Not because the technology doesn't work. Because nobody builds the system around it. I audit your workflows, find where AI creates real value, build it with your team, and hand it over.
                 </p>
 
@@ -118,7 +118,7 @@ function TheProblem() {
     ]
 
     return (
-        <section ref={ref} style={{ padding: '8rem 6vw', background: '#FFFFFF', color: T.black }}>
+        <section ref={ref} style={{ padding: '5rem 6vw', background: '#FFFFFF', color: T.black }}>
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <span className="prob-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE PROBLEM</span>
                 <h2 className="prob-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 1.5rem' }}>
@@ -196,10 +196,10 @@ function TheGapMethod() {
     ]
 
     return (
-        <section ref={containerRef} style={{ padding: '8rem 6vw', background: T.paper }}>
-            <div style={{ maxWidth: '800px', marginBottom: '4rem' }}>
+        <section ref={containerRef} style={{ padding: '5rem 6vw', background: T.paper }}>
+            <div style={{ maxWidth: '800px', marginBottom: '3rem' }}>
                 <span className="font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE GAP METHOD</span>
-                <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.black, textTransform: 'uppercase', lineHeight: 1, margin: '0 0 1.5rem' }}>
+                <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', color: T.black, textTransform: 'uppercase', lineHeight: 1, margin: '0 0 1.5rem' }}>
                     Close the Gap in 8 Weeks.
                 </h2>
                 <div style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.8)' }}>
@@ -226,7 +226,7 @@ function TheGapMethod() {
                 ))}
             </div>
 
-            <div style={{ textAlign: 'center', marginTop: '6rem' }}>
+            <div style={{ textAlign: 'center', marginTop: '4rem' }}>
                 <MagneticButton href={CTA_LINK} label={CTA_XRAY_TEXT} dark={true} />
                 <p className="font-data" style={{ marginTop: '1.5rem', color: 'rgba(17,17,17,0.5)', fontSize: '0.8rem', letterSpacing: '0.05em' }}>TWO WEEKS TO FULL CLARITY ON WHERE AI CREATES REAL VALUE IN YOUR BUSINESS.</p>
             </div>
@@ -312,13 +312,13 @@ function TheOffer() {
     ]
 
     return (
-        <section ref={ref} style={{ padding: '8rem 6vw', background: '#FFFFFF', color: T.black }}>
+        <section ref={ref} style={{ padding: '5rem 6vw', background: '#FFFFFF', color: T.black }}>
             <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
                 <span className="offer-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>WHAT YOU GET</span>
                 <h2 className="offer-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 1.5rem' }}>
                     Three Ways to Work Together.
                 </h2>
-                <p className="offer-fade" style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.7)', marginBottom: '4rem', maxWidth: '800px' }}>
+                <p className="offer-fade" style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.7)', marginBottom: '3rem', maxWidth: '800px' }}>
                     Most people start with the audit. Two weeks, full clarity. If there's more to build, we go from there.
                 </p>
 
@@ -384,7 +384,7 @@ function TheOffer() {
                 {/* Price Anchor */}
                 <div className="offer-fade" style={{
                     background: T.paper, borderRadius: '2rem', padding: 'clamp(2rem, 5vw, 3rem)',
-                    marginBottom: '4rem',
+                    marginBottom: '3rem',
                 }}>
                     <h3 className="font-data" style={{ fontSize: '0.85rem', letterSpacing: '0.1em', color: T.signal, margin: '0 0 2rem' }}>COMPARE THE ALTERNATIVES</h3>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1.5rem' }}>
@@ -499,21 +499,21 @@ function Proof() {
     }, [])
 
     return (
-        <section style={{ padding: '8rem 6vw', background: '#e1ddd6', color: T.black }}>
+        <section style={{ padding: '5rem 6vw', background: '#e1ddd6', color: T.black }}>
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
 
                 {/* Results in Numbers */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '2rem', marginBottom: '4rem', textAlign: 'center' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1.5rem', marginBottom: '3rem', textAlign: 'center' }}>
                     <div>
-                        <div className="font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.signal, marginBottom: '0.5rem' }}>65 pts</div>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', color: T.signal, marginBottom: '0.5rem' }}>65 pts</div>
                         <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>GAP BETWEEN AI CAPABILITY AND ACTUAL USE</p>
                     </div>
                     <div>
-                        <div className="font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.signal, marginBottom: '0.5rem' }}>95%</div>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', color: T.signal, marginBottom: '0.5rem' }}>95%</div>
                         <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>OF AI PILOTS FAIL TO SCALE</p>
                     </div>
                     <div>
-                        <div className="font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.signal, marginBottom: '0.5rem' }}>6-8 Weeks</div>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', color: T.signal, marginBottom: '0.5rem' }}>6-8 Weeks</div>
                         <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>FROM AUDIT TO FIRST MEASURABLE ROI</p>
                     </div>
                 </div>
@@ -589,7 +589,7 @@ function AntiHype() {
     ]
 
     return (
-        <section ref={ref} style={{ padding: '8rem 6vw', background: '#FFFFFF', color: T.black }}>
+        <section ref={ref} style={{ padding: '5rem 6vw', background: '#FFFFFF', color: T.black }}>
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <span className="anti-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE STAND</span>
                 <h2 className="anti-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 2rem' }}>
@@ -635,7 +635,7 @@ function AntiHype() {
    ═══════════════════════════════════════════════════════════════ */
 function IsThisRight() {
     return (
-        <section style={{ padding: '8rem 6vw', background: T.offwhite }}>
+        <section style={{ padding: '5rem 6vw', background: T.offwhite }}>
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <span className="font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>IS THIS RIGHT FOR YOU?</span>
 
@@ -682,7 +682,7 @@ function WhyMe() {
     }, [])
 
     return (
-        <section ref={ref} style={{ padding: '8rem 6vw', background: T.paper }}>
+        <section ref={ref} style={{ padding: '5rem 6vw', background: T.paper }}>
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <span className="why-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>WHY ME</span>
                 <div className="why-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', marginBottom: '3rem', maxWidth: '800px' }}>
@@ -764,7 +764,7 @@ function FAQ() {
     }, [])
 
     return (
-        <section style={{ padding: '8rem 6vw', background: '#FFFFFF' }}>
+        <section style={{ padding: '5rem 6vw', background: '#FFFFFF' }}>
             <div style={{ maxWidth: '800px', margin: '0 auto' }}>
                 <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', color: T.black, textTransform: 'uppercase', margin: '0 0 3rem' }}>
                     FAQ
@@ -782,7 +782,7 @@ function FAQ() {
    ═══════════════════════════════════════════════════════════════ */
 function Newsletter() {
     return (
-        <section style={{ padding: '8rem 6vw', background: T.paper }}>
+        <section style={{ padding: '5rem 6vw', background: T.paper }}>
             <div style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
                 <span className="font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE NEWSLETTER</span>
                 <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', color: T.black, textTransform: 'uppercase', margin: '0 0 1.5rem' }}>
@@ -810,9 +810,9 @@ function Newsletter() {
    ═══════════════════════════════════════════════════════════════ */
 function ClosingCTA() {
     return (
-        <section style={{ padding: '10rem 6vw', color: T.offwhite, textAlign: 'center', position: 'relative', overflow: 'hidden', background: `radial-gradient(ellipse 70% 50% at 50% 40%, rgba(217,119,87,0.20) 0%, transparent 70%), linear-gradient(to bottom, #0e0e12 0%, #111111 100%)` }}>
+        <section style={{ padding: '6rem 6vw', color: T.offwhite, textAlign: 'center', position: 'relative', overflow: 'hidden', background: `radial-gradient(ellipse 70% 50% at 50% 40%, rgba(217,119,87,0.20) 0%, transparent 70%), linear-gradient(to bottom, #0e0e12 0%, #111111 100%)` }}>
             <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-                <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', lineHeight: 1.1, margin: '0 0 2rem', textTransform: 'uppercase' }}>
+                <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, margin: '0 0 2rem', textTransform: 'uppercase' }}>
                     The Companies That Close This Gap First Win the Next Five Years.
                 </h2>
                 <div style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(245,243,238,0.8)', margin: '0 auto 3rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>

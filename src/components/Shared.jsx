@@ -259,7 +259,7 @@ export function FAQItem({ q, a }) {
 export function OtherServices({ current }) {
     const others = SERVICES.filter(s => s.path !== current)
     return (
-        <section style={{ padding: '8rem 6vw', background: T.offwhite }}>
+        <section style={{ padding: '5rem 6vw', background: T.offwhite }}>
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <span className="font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE SAME METHOD, APPLIED ELSEWHERE</span>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>

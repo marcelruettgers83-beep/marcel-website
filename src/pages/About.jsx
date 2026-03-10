@@ -25,7 +25,7 @@ function Hero() {
 
     return (
         <section ref={elRef} id="hero" style={{
-            minHeight: '100dvh', position: 'relative', overflow: 'hidden',
+            minHeight: '90dvh', position: 'relative', overflow: 'hidden',
             display: 'flex', flexDirection: 'column', justifyContent: 'center',
             background: T.black, color: '#fff'
         }}>
@@ -120,7 +120,7 @@ function Story() {
     }, [])
 
     return (
-        <section ref={ref} style={{ padding: '8rem 6vw', background: '#FFFFFF', color: T.black }}>
+        <section ref={ref} style={{ padding: '5rem 6vw', background: '#FFFFFF', color: T.black }}>
             <div style={{ maxWidth: '800px', margin: '0 auto' }}>
                 <span className="about-story-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>THE SHORT VERSION</span>
 
@@ -162,7 +162,7 @@ function Approach() {
     ]
 
     return (
-        <section ref={ref} style={{ padding: '8rem 6vw', background: T.paper, color: T.black }}>
+        <section ref={ref} style={{ padding: '5rem 6vw', background: T.paper, color: T.black }}>
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                 <span className="about-approach-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>HOW I THINK</span>
                 <h2 className="about-approach-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 1.5rem' }}>
@@ -202,9 +202,9 @@ function Approach() {
    ═══════════════════════════════════════════════════════════════ */
 function ClosingCTA() {
     return (
-        <section style={{ padding: '10rem 6vw', color: T.offwhite, textAlign: 'center', position: 'relative', overflow: 'hidden', background: `radial-gradient(ellipse 70% 50% at 50% 40%, rgba(217,119,87,0.20) 0%, transparent 70%), linear-gradient(to bottom, #0e0e12 0%, #111111 100%)` }}>
+        <section style={{ padding: '6rem 6vw', color: T.offwhite, textAlign: 'center', position: 'relative', overflow: 'hidden', background: `radial-gradient(ellipse 70% 50% at 50% 40%, rgba(217,119,87,0.20) 0%, transparent 70%), linear-gradient(to bottom, #0e0e12 0%, #111111 100%)` }}>
             <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-                <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', lineHeight: 1.1, margin: '0 0 2rem', textTransform: 'uppercase' }}>
+                <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, margin: '0 0 2rem', textTransform: 'uppercase' }}>
                     Let's See If There's a Fit.
                 </h2>
                 <div style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(245,243,238,0.8)', margin: '0 auto 3rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
