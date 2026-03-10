@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Check, X, ArrowRight, AlertTriangle, Layers, Ghost, ShieldAlert, TrendingDown } from 'lucide-react'
+import { Check, X, ArrowRight, AlertTriangle, Layers, Ghost, ShieldAlert, TrendingDown, Shield, Clock, Users } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { T, MagneticButton, CTA_LINK, CTA_TEXT, CTA_XRAY_TEXT, FAQItem, OtherServices, NEWSLETTER_URL } from '../components/Shared'
 import { useSEO } from '../hooks/useSEO'
@@ -35,13 +35,13 @@ function Hero() {
                 background: `radial-gradient(ellipse 80% 60% at 20% 50%, rgba(217,119,87,0.22) 0%, transparent 70%), radial-gradient(ellipse 60% 80% at 80% 80%, rgba(232,228,221,0.12) 0%, transparent 60%), linear-gradient(to bottom right, #0a0a0f 0%, #141418 50%, #1a1a24 100%)`,
             }} />
 
-            <div style={{ position: 'relative', zIndex: 2, padding: '12vh 6vw 4rem', maxWidth: '1000px' }}>
+            <div style={{ position: 'relative', zIndex: 2, padding: '12vh 6vw 4rem', maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
                 <h1 style={{ margin: '0 0 2.5rem', lineHeight: 1.05 }}>
                     <span className="hero-item" style={{
                         display: 'block',
                         fontFamily: '"Space Grotesk"',
                         fontWeight: 700,
-                        fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+                        fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
                         color: T.paper,
                         letterSpacing: '-0.02em',
                         marginBottom: '0.2rem',
@@ -55,17 +55,16 @@ function Hero() {
                         color: T.offwhite,
                         lineHeight: 0.9,
                         letterSpacing: '-0.02em',
-                        marginLeft: '-0.05em',
                     }}>
                         Nobody Redesigned the Factory Floor.
                     </span>
                 </h1>
 
-                <p className="hero-item" style={{ color: 'rgba(232,228,221,0.9)', fontSize: 'clamp(1rem, 1.25vw, 1.25rem)', maxWidth: '750px', lineHeight: 1.7, margin: '0 0 3rem', fontFamily: '"Space Mono"' }}>
+                <p className="hero-item" style={{ color: 'rgba(232,228,221,0.9)', fontSize: 'clamp(1rem, 1.5vw, 1.35rem)', maxWidth: '750px', lineHeight: 1.7, margin: '0 auto 3rem', fontFamily: '"Space Mono"' }}>
                     Anthropic's latest data shows a 65-point gap between what AI can do and what companies actually use it for. 95% of AI pilots fail. Not because the technology doesn't work. Because nobody builds the system around it. I audit your workflows, find where AI creates real value, build it with your team, and hand it over.
                 </p>
 
-                <div className="hero-item" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+                <div className="hero-item" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
                     <MagneticButton href={CTA_LINK} label={CTA_TEXT} />
                 </div>
                 <p className="hero-item font-data" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', letterSpacing: '0.05em' }}>30 MINUTES. NO PITCH DECK.</p>
@@ -135,6 +134,7 @@ function TheProblem() {
                     {problems.map((p, i) => (
                         <div key={i} style={{
                             background: T.offwhite, borderRadius: '1.5rem', padding: '2rem',
+                            border: `2px solid ${T.black}`,
                         }}>
                             <div style={{
                                 width: '3.5rem', height: '3.5rem', borderRadius: '50%',
@@ -235,6 +235,222 @@ function TheGapMethod() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   3b. THE OFFER (What You Get + Pricing + Guarantee)
+   ═══════════════════════════════════════════════════════════════ */
+function TheOffer() {
+    const ref = useRef(null)
+
+    useEffect(() => {
+        let ctx = gsap.context(() => {
+            gsap.from('.offer-fade', {
+                scrollTrigger: { trigger: ref.current, start: 'top 80%' },
+                y: 30, opacity: 0, duration: 1, stagger: 0.15, ease: 'power3.out'
+            })
+        }, ref)
+        return () => ctx.revert()
+    }, [])
+
+    const auditDeliverables = [
+        'Workflow audit across all departments',
+        '"Jagged frontier" map of your AI capability gap',
+        'Tool & vendor assessment (keep, cut, or add)',
+        'Team readiness score with adoption barriers identified',
+        'Governance gap analysis',
+        'Prioritized implementation roadmap with ROI estimates',
+        'Executive presentation with recommended next steps',
+    ]
+
+    const gapDeliverables = [
+        'Everything in the Audit, plus:',
+        'Custom AI architecture design for your workflows',
+        'Built workflows in your existing tools (not new vendors)',
+        'Prompt libraries & automation templates (yours to keep)',
+        'Hands-on team training with your actual data and workflows',
+        'Internal AI champion identification and coaching',
+        'Full documentation & playbooks',
+        'Performance dashboards',
+        '30 days post-handover support included',
+    ]
+
+    const retainerDeliverables = [
+        'Strategic AI advisory (async + monthly call)',
+        'Quarterly system review & optimization',
+        'Priority access for new implementation questions',
+        'Team coaching as needed',
+    ]
+
+    const tiers = [
+        {
+            name: 'AI Readiness Audit',
+            timeline: '2 Weeks',
+            price: '5,000',
+            desc: 'The starting point. Full clarity on where AI creates real value in your business and where it is just expensive noise.',
+            items: auditDeliverables,
+            highlight: false,
+            cta: 'Book a Call',
+        },
+        {
+            name: 'The Gap Method',
+            timeline: '8-12 Weeks',
+            price: '15,000',
+            desc: 'Full implementation. I build the AI system with your team. You own everything when I leave.',
+            items: gapDeliverables,
+            highlight: true,
+            cta: 'Book a Call',
+            badge: 'MOST POPULAR',
+        },
+        {
+            name: 'Advisory Retainer',
+            timeline: 'Ongoing',
+            price: '2,500',
+            priceUnit: '/month',
+            desc: 'For when the implementation is done and you want strategic access without the full engagement.',
+            items: retainerDeliverables,
+            highlight: false,
+            cta: 'Book a Call',
+        },
+    ]
+
+    return (
+        <section ref={ref} style={{ padding: '8rem 6vw', background: '#FFFFFF', color: T.black }}>
+            <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+                <span className="offer-fade font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>WHAT YOU GET</span>
+                <h2 className="offer-fade" style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 1.5rem' }}>
+                    Three Ways to Work Together.
+                </h2>
+                <p className="offer-fade" style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.7)', marginBottom: '4rem', maxWidth: '800px' }}>
+                    Most people start with the audit. Two weeks, full clarity. If there's more to build, we go from there.
+                </p>
+
+                {/* Tier Cards */}
+                <div className="offer-fade" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', marginBottom: '5rem' }}>
+                    {tiers.map((t) => (
+                        <div key={t.name} style={{
+                            background: t.highlight ? T.black : T.offwhite,
+                            color: t.highlight ? T.offwhite : T.black,
+                            border: t.highlight ? 'none' : `2px solid ${T.black}`,
+                            padding: 'clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2rem)', borderRadius: '2rem',
+                            display: 'flex', flexDirection: 'column', position: 'relative',
+                        }}>
+                            {t.badge && (
+                                <div className="font-data" style={{
+                                    position: 'absolute', top: '-0.75rem', left: '2rem',
+                                    background: T.signal, color: '#fff',
+                                    padding: '0.35rem 1rem', borderRadius: '9999px',
+                                    fontSize: '0.7rem', letterSpacing: '0.1em', fontWeight: 700,
+                                }}>{t.badge}</div>
+                            )}
+                            <h3 style={{ fontSize: '1.35rem', fontWeight: 700, margin: '0 0 0.5rem', textTransform: 'uppercase' }}>{t.name}</h3>
+                            <div className="font-data" style={{ fontSize: '0.8rem', color: T.signal, letterSpacing: '0.1em', marginBottom: '1.5rem' }}>{t.timeline}</div>
+
+                            <div style={{ marginBottom: '1.5rem' }}>
+                                <span style={{ fontSize: '0.95rem', opacity: 0.5 }}>Starting at </span>
+                                <span className="font-drama" style={{ fontSize: '2.5rem', color: T.signal }}>
+                                    &euro;{t.price}
+                                </span>
+                                {t.priceUnit && <span style={{ fontSize: '1rem', opacity: 0.7 }}>{t.priceUnit}</span>}
+                            </div>
+
+                            <p style={{ fontSize: '0.95rem', lineHeight: 1.7, opacity: 0.8, marginBottom: '2rem' }}>{t.desc}</p>
+
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', flex: 1, marginBottom: '2rem' }}>
+                                {t.items.map((item, j) => (
+                                    <div key={j} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                                        <Check size={16} style={{ color: t.highlight ? T.signal : '#166534', flexShrink: 0, marginTop: '0.2rem' }} />
+                                        <span style={{ fontSize: '0.9rem', lineHeight: 1.5, opacity: j === 0 && t.name === 'The Gap Method' ? 0.6 : 1 }}>{item}</span>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <a href={CTA_LINK} target="_blank" rel="noreferrer" className="btn-magnetic"
+                                style={{
+                                    background: t.highlight ? T.signal : T.black,
+                                    color: '#fff', padding: '1rem 2rem', borderRadius: '9999px',
+                                    fontSize: '0.95rem', fontWeight: 700, textDecoration: 'none',
+                                    letterSpacing: '0.04em', textAlign: 'center', display: 'block',
+                                }}>
+                                <span className="btn-slide" style={{ background: t.highlight ? T.black : T.signal }}></span>
+                                <span className="btn-label" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+                                    {t.cta} <ArrowRight size={16} />
+                                </span>
+                            </a>
+                            <p className="font-data" style={{ fontSize: '0.7rem', color: t.highlight ? 'rgba(245,243,238,0.4)' : 'rgba(17,17,17,0.4)', letterSpacing: '0.03em', textAlign: 'center', marginTop: '0.75rem', marginBottom: 0 }}>
+                                Let's talk about whether this fits.
+                            </p>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Price Anchor */}
+                <div className="offer-fade" style={{
+                    background: T.paper, borderRadius: '2rem', padding: 'clamp(2rem, 5vw, 3rem)',
+                    marginBottom: '4rem',
+                }}>
+                    <h3 className="font-data" style={{ fontSize: '0.85rem', letterSpacing: '0.1em', color: T.signal, margin: '0 0 2rem' }}>COMPARE THE ALTERNATIVES</h3>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1.5rem' }}>
+                        <div style={{ padding: '1.5rem', borderRadius: '1rem', background: 'rgba(17,17,17,0.04)' }}>
+                            <div className="font-drama" style={{ fontSize: '1.5rem', color: 'rgba(17,17,17,0.3)', marginBottom: '0.5rem' }}>&euro;100-500K</div>
+                            <div style={{ fontSize: '0.9rem', fontWeight: 700, marginBottom: '0.25rem' }}>Big 4 Consultancy</div>
+                            <div style={{ fontSize: '0.85rem', color: 'rgba(17,17,17,0.5)', lineHeight: 1.5 }}>6-12 months. Generic playbook. Junior team runs the project.</div>
+                        </div>
+                        <div style={{ padding: '1.5rem', borderRadius: '1rem', background: 'rgba(17,17,17,0.04)' }}>
+                            <div className="font-drama" style={{ fontSize: '1.5rem', color: 'rgba(17,17,17,0.3)', marginBottom: '0.5rem' }}>&euro;150-250K/yr</div>
+                            <div style={{ fontSize: '0.9rem', fontWeight: 700, marginBottom: '0.25rem' }}>Full-Time Chief AI Officer</div>
+                            <div style={{ fontSize: '0.85rem', color: 'rgba(17,17,17,0.5)', lineHeight: 1.5 }}>3-6 months to find and onboard. Expensive if your systems aren't ready.</div>
+                        </div>
+                        <div style={{ padding: '1.5rem', borderRadius: '1rem', background: 'rgba(17,17,17,0.04)' }}>
+                            <div className="font-drama" style={{ fontSize: '1.5rem', color: 'rgba(17,17,17,0.3)', marginBottom: '0.5rem' }}>&euro;50K+</div>
+                            <div style={{ fontSize: '0.9rem', fontWeight: 700, marginBottom: '0.25rem' }}>DIY with AI Tools</div>
+                            <div style={{ fontSize: '0.85rem', color: 'rgba(17,17,17,0.5)', lineHeight: 1.5 }}>Free to start. &euro;50K+ in wasted pilot spend before you figure out what works.</div>
+                        </div>
+                        <div style={{ padding: '1.5rem', borderRadius: '1rem', background: T.offwhite, border: `2px solid ${T.signal}` }}>
+                            <div className="font-drama" style={{ fontSize: '1.5rem', color: T.signal, marginBottom: '0.5rem' }}>From &euro;5K</div>
+                            <div style={{ fontSize: '0.9rem', fontWeight: 700, marginBottom: '0.25rem' }}>The Gap Method</div>
+                            <div style={{ fontSize: '0.85rem', color: 'rgba(17,17,17,0.7)', lineHeight: 1.5 }}>2-12 weeks. Built with your team. You own everything. I leave.</div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Guarantee */}
+                <div className="offer-fade" style={{
+                    background: T.offwhite, borderRadius: '2rem', padding: 'clamp(2rem, 4vw, 3rem)',
+                    border: `2px solid ${T.signal}`, marginBottom: '3rem',
+                }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
+                        <Shield size={28} style={{ color: T.signal }} />
+                        <h3 style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.35rem)', fontWeight: 700, margin: 0, textTransform: 'uppercase' }}>The Bridge Guarantee</h3>
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2rem' }}>
+                        <div>
+                            <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.1em', color: T.signal, marginBottom: '0.75rem' }}>STAGE 1: THE AUDIT</p>
+                            <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.8)', margin: 0 }}>
+                                Start with the Audit for &euro;5,000. If the findings don't convince you the full implementation will pay for itself within 6 months, I refund the Audit in full. You keep the report, the data, everything.
+                            </p>
+                        </div>
+                        <div>
+                            <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.1em', color: T.signal, marginBottom: '0.75rem' }}>STAGE 2: THE GAP METHOD</p>
+                            <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.8)', margin: 0 }}>
+                                Move forward with the full implementation? If it doesn't produce measurable productivity gains within 90 days of handover, I come back and fix it. For free. For as long as it takes.
+                            </p>
+                        </div>
+                    </div>
+                    <p className="font-data" style={{ fontSize: '0.85rem', color: T.signal, letterSpacing: '0.05em', marginTop: '2rem', marginBottom: 0, textAlign: 'center', fontWeight: 700 }}>
+                        YOUR MONEY OR YOUR RESULTS. YOU GET ONE OF THEM.
+                    </p>
+                </div>
+
+                {/* Scarcity */}
+                <div className="offer-fade" style={{ textAlign: 'center' }}>
+                    <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.6)' }}>
+                        I take on 2-3 implementation clients at a time to maintain quality. If there's availability, you'll see it on my calendar.
+                    </p>
+                </div>
+            </div>
+        </section>
+    )
+}
+
+/* ═══════════════════════════════════════════════════════════════
    4. PROOF
    ═══════════════════════════════════════════════════════════════ */
 function Proof() {
@@ -287,7 +503,7 @@ function Proof() {
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
 
                 {/* Results in Numbers */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', marginBottom: '4rem', textAlign: 'center' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '2rem', marginBottom: '4rem', textAlign: 'center' }}>
                     <div>
                         <div className="font-drama" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: T.signal, marginBottom: '0.5rem' }}>65 pts</div>
                         <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>GAP BETWEEN AI CAPABILITY AND ACTUAL USE</p>
@@ -303,7 +519,7 @@ function Proof() {
                 </div>
 
                 {/* Testimonials */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 'clamp(1.5rem, 3vw, 3rem)' }}>
                     <div>
                         <p className="font-drama" style={{ fontSize: '1.35rem', lineHeight: 1.6, color: T.black, marginBottom: '2rem' }}>
                             "Marcel exceeded our ambitious goals. He is a rare structured thinker that executes and leads with high precision."
@@ -418,18 +634,12 @@ function AntiHype() {
    6. IS THIS RIGHT FOR YOU? & HOW WE WORK TOGETHER
    ═══════════════════════════════════════════════════════════════ */
 function IsThisRight() {
-    const engagements = [
-        { name: 'AI Readiness Audit', timeline: '2 WEEKS', desc: "A full diagnostic of your workflows, tools, and team. You get a clear map showing exactly where AI creates real value in your business and where it's just noise. Most people start here because it answers the question they've been guessing at for months.", highlight: false },
-        { name: 'The Gap Method', timeline: '8-12 WEEKS', desc: "Full implementation: map, design, build, train, hand over. I build AI-augmented workflows with your team so they own it when I leave. Prompt templates, automation, governance guardrails. Designed for your team's actual capacity.", highlight: true },
-        { name: 'Advisory Retainer', timeline: 'ONGOING', desc: 'For when the implementation is done and you want strategic access without the full engagement. Monthly metric reviews, new use case identification, governance updates. Available for the decisions that matter, gone for everything else.', highlight: false },
-    ]
-
     return (
         <section style={{ padding: '8rem 6vw', background: T.offwhite }}>
             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+                <span className="font-data" style={{ color: T.signal, fontSize: '0.85rem', letterSpacing: '0.1em', display: 'block', marginBottom: '1.5rem' }}>IS THIS RIGHT FOR YOU?</span>
 
-                {/* Fit / Not Fit */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', marginBottom: '8rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
                     <div>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem', color: '#166534' }}>
                             <Check size={24} />
@@ -450,36 +660,6 @@ function IsThisRight() {
                         </p>
                     </div>
                 </div>
-
-                {/* How We Work Together */}
-                <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                    <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', color: T.black, textTransform: 'uppercase', margin: '0 0 1rem' }}>
-                        How We Work Together.
-                    </h2>
-                    <p style={{ fontFamily: '"Space Mono"', fontSize: '1.1rem', color: 'rgba(17,17,17,0.6)' }}>Three ways to engage, depending on where you are.</p>
-                </div>
-
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
-                    {engagements.map((t) => (
-                        <div key={t.name} style={{
-                            background: t.highlight ? T.black : T.paper,
-                            color: t.highlight ? T.offwhite : T.black,
-                            padding: '3rem 2rem', borderRadius: '1rem', display: 'flex', flexDirection: 'column'
-                        }}>
-                            <h3 style={{ fontSize: '1.25rem', fontFamily: '"Space Mono"', margin: '0 0 0.75rem', fontWeight: 700 }}>{t.name}</h3>
-                            <div className="font-data" style={{ fontSize: '0.8rem', margin: '0 0 1.5rem', color: T.signal, letterSpacing: '0.1em' }}>{t.timeline}</div>
-                            <p style={{ fontSize: '0.95rem', lineHeight: 1.7, opacity: 0.8, flex: 1, margin: 0 }}>{t.desc}</p>
-                        </div>
-                    ))}
-                </div>
-
-                <div style={{ textAlign: 'center', marginTop: '4rem' }}>
-                    <MagneticButton href={CTA_LINK} label="Book a Call" />
-                    <p className="font-data" style={{ color: 'rgba(17,17,17,0.5)', fontSize: '0.85rem', letterSpacing: '0.05em', marginTop: '1.5rem' }}>
-                        Or <a href="mailto:marcel@ruettgersdigital.com" style={{ color: T.signal, textDecoration: 'underline' }}>send me an email</a> if you'd prefer to start there.
-                    </p>
-                </div>
-
             </div>
         </section>
     )
@@ -552,8 +732,11 @@ function FAQ() {
         { q: "Do you work with remote or distributed teams?", a: "Yes. Most of my clients are remote or hybrid. I work async by default. Structured updates, shared dashboards, documented decisions. The audit and implementation work just as well over video as they do in person. I've done this across time zones from Amsterdam to San Francisco." },
         { q: "What if our team pushes back on AI adoption?", a: "This is exactly why I build with your team, not for them. When people help design the system, they actually use it.\nI've seen enough top-down implementations die on arrival. The workflows your team builds alongside me are the ones they'll run after I leave. Adoption isn't a compliance problem. It's a design problem. We solve it from day one." },
         { q: "What tools do you work with?", a: "Whatever you have. I'm vendor-agnostic. The problem is almost never the tools. It's how they're connected and whether anyone is using them consistently.\nI've worked with HubSpot, Salesforce, Pipedrive, custom setups, Zapier, Make, n8n, Claude, GPT, Copilot, and dozens of specialized AI tools. The architecture matters more than the vendor. If a tool genuinely isn't fit for purpose, I'll tell you. But most of the time, the stack you have is fine. It just needs to be wired together properly." },
-        { q: "How much does this cost?", a: "The AI Readiness Audit is a standalone two-week engagement. The full Gap Method implementation runs 8-12 weeks depending on scope. Advisory retainers are ongoing and light-touch.\nI price based on the engagement, not hourly. The audit alone pays for itself because it shows you exactly where AI creates real value and what's just expensive noise. Most companies I work with are between $5M and $50M in revenue." },
+        { q: "How much does this cost?", a: "The AI Readiness Audit starts at \u20ac5,000 for a two-week engagement. The full Gap Method implementation starts at \u20ac15,000 for 8-12 weeks depending on scope. Advisory retainers run \u20ac2,500 per month.\nFor context: a Big 4 consultancy charges \u20ac100-500K for comparable AI strategy work. A full-time Chief AI Officer costs \u20ac150-250K per year. The audit alone pays for itself because it shows you exactly where AI creates real value and what's just expensive noise." },
         { q: "What is an AI readiness audit?", a: "An AI readiness audit is a structured assessment of your company's ability to adopt AI effectively. I evaluate five dimensions: data readiness, technology infrastructure, people and skills, process maturity, and governance posture.\nThe output is a prioritized map of where AI creates real value in your specific business, where it doesn't, and what you need to fix before AI can deliver results. Think of it as an X-ray for your AI adoption gap. Two weeks, and you walk away knowing exactly what to do and in what order." },
+        { q: "What if the implementation doesn't work?", a: "The Bridge Guarantee covers both stages. If the AI Readiness Audit doesn't convince you the full implementation will pay for itself within 6 months, I refund the Audit in full. You keep the report, the data, everything.\nMove forward with The Gap Method? If the implementation doesn't produce measurable productivity gains within 90 days of handover, I come back and fix it. For free. For as long as it takes. Your money or your results. You get one of them." },
+        { q: "What's included in the \u20ac5,000 audit?", a: "A workflow audit across all departments. A \"jagged frontier\" map showing your AI capability gap. Tool and vendor assessment (what to keep, cut, or add). Team readiness score with adoption barriers identified. Governance gap analysis. A prioritized implementation roadmap with ROI estimates per initiative. And an executive presentation with recommended next steps.\nYou walk away with full clarity on where AI creates real value in your business. Most people start here." },
+        { q: "How many clients do you take on at once?", a: "Two to three implementation clients at a time. This isn't a scaled agency model. I'm hands-on throughout the engagement. Quality requires focus.\nIf there's availability, you'll see open slots on my calendar. If not, I'll let you know the next available start date." },
     ]
 
     useEffect(() => {
@@ -656,18 +839,35 @@ export default function Home() {
         ],
         schema: {
             "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "AI Implementation - The Gap Method",
-            "provider": {
-                "@type": "ProfessionalService",
-                "name": "Ruettgers Digital",
-                "url": "https://www.ruettgersdigital.com",
-                "address": { "@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL" }
-            },
-            "description": "AI implementation consulting using The Gap Method. Audit workflows, find where AI creates real value, build the system with your team, train to fluency, hand over.",
-            "areaServed": [
-                {"@type": "Continent", "name": "Europe"},
-                {"@type": "Continent", "name": "North America"}
+            "@graph": [
+                {
+                    "@type": "Service",
+                    "name": "AI Implementation - The Gap Method",
+                    "provider": {
+                        "@type": "ProfessionalService",
+                        "name": "Ruettgers Digital",
+                        "url": "https://www.ruettgersdigital.com",
+                        "address": { "@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL" }
+                    },
+                    "description": "AI implementation consulting using The Gap Method. Audit workflows, find where AI creates real value, build the system with your team, train to fluency, hand over.",
+                    "areaServed": [
+                        {"@type": "Continent", "name": "Europe"},
+                        {"@type": "Continent", "name": "North America"}
+                    ]
+                },
+                {
+                    "@type": "Product",
+                    "name": "The Gap Method",
+                    "description": "8-12 week AI implementation framework: audit workflows, design systems, build with your team, train to fluency, hand over.",
+                    "brand": {"@type": "Brand", "name": "Ruettgers Digital"},
+                    "offers": {
+                        "@type": "AggregateOffer",
+                        "priceCurrency": "EUR",
+                        "lowPrice": "5000",
+                        "highPrice": "15000",
+                        "offerCount": "2"
+                    }
+                }
             ]
         }
     })
@@ -677,6 +877,7 @@ export default function Home() {
             <Hero />
             <TheProblem />
             <TheGapMethod />
+            <TheOffer />
             <Proof />
             <AntiHype />
             <IsThisRight />

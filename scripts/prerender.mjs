@@ -20,6 +20,8 @@ const ROUTES = [
     '/affiliates',
     '/training',
     '/ai-systems',
+    '/blog',
+    '/blog/what-is-the-ai-adoption-gap',
     '/',  // Home page last so it overwrites dist/index.html after others are done
 ]
 

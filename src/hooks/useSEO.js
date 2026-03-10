@@ -38,6 +38,23 @@ export function useSEO({ title, description, canonical, ogImage, schema, breadcr
             setMeta('meta[property="og:url"]', 'content', canonical)
             setMeta('link[rel="canonical"]', 'href', canonical)
         }
+
+        // Inject hreflang tags
+        let hreflangDefault = null
+        let hreflangEn = null
+        if (canonical) {
+            hreflangDefault = document.createElement('link')
+            hreflangDefault.rel = 'alternate'
+            hreflangDefault.hreflang = 'x-default'
+            hreflangDefault.href = canonical
+            document.head.appendChild(hreflangDefault)
+
+            hreflangEn = document.createElement('link')
+            hreflangEn.rel = 'alternate'
+            hreflangEn.hreflang = 'en'
+            hreflangEn.href = canonical
+            document.head.appendChild(hreflangEn)
+        }
         if (ogImage) {
             setMeta('meta[property="og:image"]', 'content', ogImage)
             setMeta('meta[name="twitter:image"]', 'content', ogImage)
@@ -97,6 +114,8 @@ export function useSEO({ title, description, canonical, ogImage, schema, breadcr
             if (schemaEl) schemaEl.remove()
             if (breadcrumbEl) breadcrumbEl.remove()
             if (robotsMeta) robotsMeta.remove()
+            if (hreflangDefault) hreflangDefault.remove()
+            if (hreflangEn) hreflangEn.remove()
         }
     }, [])
 }

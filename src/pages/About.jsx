@@ -59,7 +59,7 @@ function Hero() {
                             </span>
                             <span className="font-drama" style={{
                                 display: 'block',
-                                fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+                                fontSize: 'clamp(1.75rem, 2.75vw, 2.5rem)',
                                 color: 'rgba(232,228,221,0.7)',
                                 marginTop: '0.5rem',
                             }}>
@@ -176,6 +176,7 @@ function Approach() {
                     {beliefs.map((b, i) => (
                         <div key={i} style={{
                             background: T.offwhite, borderRadius: '1.5rem', padding: '2rem',
+                            border: `2px solid ${T.black}`,
                         }}>
                             <div style={{
                                 width: '2.5rem', height: '2.5rem', borderRadius: '50%',

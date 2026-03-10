@@ -6,6 +6,8 @@ import Affiliates from './pages/Affiliates'
 import Training from './pages/Training'
 import AISystems from './pages/AISystems'
 import About from './pages/About'
+import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 import NotFound from './pages/NotFound'
 import './index.css'
 
@@ -23,6 +25,8 @@ export default function App() {
             <Route path="/training" element={<Training />} />
             <Route path="/ai-systems" element={<AISystems />} />
             <Route path="/about" element={<About />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

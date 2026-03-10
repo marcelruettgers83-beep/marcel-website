@@ -157,7 +157,7 @@ export function Navbar() {
                             style={{
                                 background: 'none', border: 'none',
                                 color: menuOpen ? T.offwhite : (scrolled ? T.black : T.paper),
-                                cursor: 'pointer', padding: '0.25rem',
+                                cursor: 'pointer', padding: '0.6rem',
                             }}
                             aria-label="Toggle menu"
                         >
@@ -310,6 +310,7 @@ export function Footer() {
                     <Link to="/growth-systems" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Growth Systems</Link>
                     <Link to="/affiliates" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Affiliates</Link>
                     <Link to="/about" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>About</Link>
+                    <Link to="/blog" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Blog</Link>
                     <a href="mailto:marcel@ruettgersdigital.com" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Contact</a>
                     <a href={NEWSLETTER_URL} target="_blank" rel="noreferrer" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>Newsletter</a>
                     <a href="https://www.linkedin.com/in/marcelruettgers/" target="_blank" rel="noreferrer" className="font-data link-lift" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', textDecoration: 'none' }}>LinkedIn</a>
