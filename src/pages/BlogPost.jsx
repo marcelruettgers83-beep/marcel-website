@@ -4,26 +4,72 @@ import { T, MagneticButton, CTA_LINK, CTA_TEXT, NEWSLETTER_URL } from '../compon
 import { useSEO } from '../hooks/useSEO'
 import { getPostBySlug, BLOG_POSTS } from '../content/blog/posts'
 
+// Parse inline markdown: **bold**, [link text](/url)
+function parseInline(text) {
+    const parts = []
+    const regex = /(\*\*(.+?)\*\*|\[([^\]]+)\]\(([^)]+)\))/g
+    let lastIndex = 0
+    let match
+    while ((match = regex.exec(text)) !== null) {
+        if (match.index > lastIndex) {
+            parts.push(text.slice(lastIndex, match.index))
+        }
+        if (match[2]) {
+            // Bold
+            parts.push(<strong key={match.index}>{match[2]}</strong>)
+        } else if (match[3] && match[4]) {
+            // Link
+            const isExternal = match[4].startsWith('http')
+            parts.push(
+                <a key={match.index} href={match[4]}
+                    {...(isExternal ? { target: '_blank', rel: 'noreferrer' } : {})}
+                    style={{ color: T.signal, textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                    {match[3]}
+                </a>
+            )
+        }
+        lastIndex = match.index + match[0].length
+    }
+    if (lastIndex < text.length) {
+        parts.push(text.slice(lastIndex))
+    }
+    return parts.length > 0 ? parts : text
+}
+
 function renderContent(content) {
     return content.map((block, i) => {
+        if (block.startsWith('### ')) {
+            return <h3 key={i} style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(1.15rem, 3vw, 1.4rem)', fontWeight: 700, textTransform: 'uppercase', margin: '2.5rem 0 1rem', lineHeight: 1.2, color: T.signal }}>{block.slice(4)}</h3>
+        }
         if (block.startsWith('## ')) {
             return <h2 key={i} style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(1.35rem, 4vw, 1.75rem)', fontWeight: 700, textTransform: 'uppercase', margin: '3rem 0 1.5rem', lineHeight: 1.2 }}>{block.slice(3)}</h2>
         }
-        if (block.startsWith('**') && block.endsWith('**')) {
-            return <p key={i} style={{ fontSize: '1.1rem', lineHeight: 1.8, color: T.black, margin: '0 0 1rem', fontWeight: 700 }}>{block.slice(2, -2)}</p>
-        }
-        if (block.startsWith('**')) {
-            const boldEnd = block.indexOf('**', 2)
-            if (boldEnd > -1) {
-                const boldText = block.slice(2, boldEnd)
-                const rest = block.slice(boldEnd + 2)
-                return <p key={i} style={{ fontSize: '1.1rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', margin: '0 0 1rem' }}><strong>{boldText}</strong>{rest}</p>
-            }
+        // Image blocks: ![alt text](/path/to/image.jpg)
+        const imgMatch = block.match(/^!\[([^\]]*)\]\(([^)]+)\)$/)
+        if (imgMatch) {
+            return <figure key={i} style={{ margin: '2.5rem 0', padding: 0 }}>
+                <img
+                    src={imgMatch[2]}
+                    alt={imgMatch[1]}
+                    loading="lazy"
+                    style={{
+                        width: '100%', maxWidth: '100%', height: 'auto',
+                        borderRadius: '1.5rem', display: 'block',
+                        border: `2px solid ${T.black}`,
+                    }}
+                />
+                {imgMatch[1] && (
+                    <figcaption className="font-data" style={{
+                        fontSize: '0.75rem', color: 'rgba(17,17,17,0.5)',
+                        letterSpacing: '0.03em', marginTop: '0.75rem', textAlign: 'center',
+                    }}>{imgMatch[1]}</figcaption>
+                )}
+            </figure>
         }
         if (/^\d+\.\s/.test(block)) {
-            return <p key={i} style={{ fontSize: '1.1rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', margin: '0 0 0.75rem', paddingLeft: '1.5rem' }}>{block}</p>
+            return <p key={i} style={{ fontSize: '1.1rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', margin: '0 0 0.75rem', paddingLeft: '1.5rem' }}>{parseInline(block)}</p>
         }
-        return <p key={i} style={{ fontSize: '1.1rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', margin: '0 0 1.5rem' }}>{block}</p>
+        return <p key={i} style={{ fontSize: '1.1rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', margin: '0 0 1.5rem' }}>{parseInline(block)}</p>
     })
 }
 

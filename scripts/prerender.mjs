@@ -22,6 +22,8 @@ const ROUTES = [
     '/ai-systems',
     '/blog',
     '/blog/what-is-the-ai-adoption-gap',
+    '/blog/why-ai-pilots-fail',
+    '/blog/what-is-an-ai-readiness-audit',
     '/',  // Home page last so it overwrites dist/index.html after others are done
 ]
 
