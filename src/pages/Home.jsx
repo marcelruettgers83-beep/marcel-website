@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Check, X, ArrowRight, AlertTriangle, Layers, Ghost, ShieldAlert, TrendingDown, Shield, Clock, Users } from 'lucide-react'
+import { Check, X, ArrowRight, AlertTriangle, Layers, Ghost, Shield } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { T, MagneticButton, CTA_LINK, CTA_TEXT, CTA_XRAY_TEXT, FAQItem, OtherServices, NEWSLETTER_URL } from '../components/Shared'
 import { useSEO } from '../hooks/useSEO'
@@ -47,7 +47,7 @@ function Hero() {
                         marginBottom: '0.2rem',
                         textTransform: 'uppercase',
                     }}>
-                        Your Company Bought the AI Tools.
+                        You Invested in AI.
                     </span>
                     <span className="hero-item font-drama" style={{
                         display: 'block',
@@ -56,12 +56,12 @@ function Hero() {
                         lineHeight: 0.95,
                         letterSpacing: '-0.02em',
                     }}>
-                        Nobody Redesigned the Factory Floor.
+                        Your Team Still Works Around It.
                     </span>
                 </h1>
 
                 <p className="hero-item" style={{ color: 'rgba(232,228,221,0.9)', fontSize: 'clamp(1rem, 1.3vw, 1.2rem)', maxWidth: '750px', lineHeight: 1.7, margin: '0 auto 2.5rem', fontFamily: '"Space Mono"' }}>
-                    Anthropic's latest data shows a 65-point gap between what AI can do and what companies actually use it for. 95% of AI pilots fail. Not because the technology doesn't work. Because nobody builds the system around it. I audit your workflows, find where AI creates real value, build it with your team, and hand it over.
+                    I close the gap between what AI can do and what your company actually uses it for. I audit your workflows, find where AI creates real value, build the system with your team, and hand it over. For companies with $5M-$50M in revenue who are done experimenting and ready to build.
                 </p>
 
                 <div className="hero-item" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
@@ -102,19 +102,9 @@ function TheProblem() {
         },
         {
             icon: <Ghost size={28} />,
-            title: 'Shadow AI Everywhere.',
-            desc: "78% of your employees are already using AI tools you didn't approve. 80% of companies have had AI-related data incidents. Your team is pasting customer data into consumer tools because the approved solution is too slow or too locked down."
+            title: 'The Fluency Gap.',
+            desc: "78% of your employees are already using AI tools you didn't approve. The rest sat through a workshop, learned to prompt, and went back to doing things the old way. Literacy is not fluency. Without a system, you get shadow AI and surface-level adoption at the same time."
         },
-        {
-            icon: <ShieldAlert size={28} />,
-            title: 'Training That Doesn\'t Stick.',
-            desc: "You ran the workshop. Everyone learned to prompt. A month later, only 13% use AI with real confidence. Literacy is not fluency. The gap between \"knows about AI\" and \"uses AI daily with good judgment\" takes 4-6 weeks of hands-on practice. Most programs skip that part."
-        },
-        {
-            icon: <TrendingDown size={28} />,
-            title: 'The Intensification Trap.',
-            desc: "AI makes your team faster, so the company demands more output instead of better output. Productivity gains go to the spreadsheet, not the people. Burnout rises. Resistance builds. The AI initiative becomes the thing everyone resents."
-        }
     ]
 
     return (
@@ -126,8 +116,8 @@ function TheProblem() {
                 </h2>
 
                 <div className="prob-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', marginBottom: '3rem', maxWidth: '800px' }}>
-                    <p>By 1900, electricity had been available for 20 years. Less than 5% of factories used it. Not because it didn't work. Because they kept the old layout and just swapped steam for electricity. The productivity explosion came when they redesigned the factory floor around the new technology.</p>
-                    <p style={{ marginTop: '1.5rem' }}>AI is the exact same story. The tools work. The implementations don't.</p>
+                    <p>Anthropic's data shows a 65-point gap between what AI can do and what companies actually use it for. 95% of AI pilots fail to scale. Not because the technology doesn't work. Because companies bolt AI onto old workflows instead of redesigning the system around it.</p>
+                    <p style={{ marginTop: '1.5rem' }}>Same story as electricity in 1900. Available for 20 years, adopted by less than 5% of factories. The breakthrough came when they redesigned the factory floor. AI is waiting for the same thing.</p>
                 </div>
 
                 <div className="prob-fade" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
@@ -505,12 +495,12 @@ function Proof() {
                 {/* Results in Numbers */}
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1.5rem', marginBottom: '3rem', textAlign: 'center' }}>
                     <div>
-                        <div className="font-drama" style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', color: T.signal, marginBottom: '0.5rem' }}>65 pts</div>
-                        <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>GAP BETWEEN AI CAPABILITY AND ACTUAL USE</p>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', color: T.signal, marginBottom: '0.5rem' }}>800%</div>
+                        <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>CUSTOMER GROWTH IN 9 MONTHS</p>
                     </div>
                     <div>
-                        <div className="font-drama" style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', color: T.signal, marginBottom: '0.5rem' }}>95%</div>
-                        <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>OF AI PILOTS FAIL TO SCALE</p>
+                        <div className="font-drama" style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', color: T.signal, marginBottom: '0.5rem' }}>300 &rarr; 2,700</div>
+                        <p className="font-data" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'rgba(17,17,17,0.6)', margin: 0 }}>CUSTOMERS/MONTH USING AI SYSTEMS</p>
                     </div>
                     <div>
                         <div className="font-drama" style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', color: T.signal, marginBottom: '0.5rem' }}>6-8 Weeks</div>
@@ -597,7 +587,7 @@ function AntiHype() {
                 </h2>
 
                 <div className="anti-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', marginBottom: '3rem' }}>
-                    <p>Most AI vendors are incentivized to sell you autonomy. Fully automated everything. AI that "thinks for you." The pitch sounds great. The results don't show up. I take the opposite approach: AI handles the repetitive work so your people can focus on the work that actually requires judgment.</p>
+                    <p>Most AI vendors sell you autonomy. Fully automated everything. The pitch sounds great. The results don't show up. I take the opposite approach: AI handles the repetitive work so your people can focus on what actually requires judgment.</p>
                 </div>
 
                 <div className="anti-fade" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
@@ -813,12 +803,12 @@ function ClosingCTA() {
         <section style={{ padding: '6rem 6vw', color: T.offwhite, textAlign: 'center', position: 'relative', overflow: 'hidden', background: `radial-gradient(ellipse 70% 50% at 50% 40%, rgba(217,119,87,0.20) 0%, transparent 70%), linear-gradient(to bottom, #0e0e12 0%, #111111 100%)` }}>
             <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
                 <h2 style={{ fontFamily: '"Space Grotesk"', fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, margin: '0 0 2rem', textTransform: 'uppercase' }}>
-                    The Companies That Close This Gap First Win the Next Five Years.
+                    Two Weeks From Now, You'll Know Exactly What to Build.
                 </h2>
                 <div style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(245,243,238,0.8)', margin: '0 auto 3rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                    <p>Right now, the gap between what AI can do and what your company uses it for is 65 points wide. That gap is a compounding disadvantage. Every month you spend in pilot purgatory is a month your competitors are building real systems.</p>
-                    <p>Start with the audit. Two weeks. You'll know exactly where AI creates real value in your business and where it's just noise. If the answer is "you don't need this right now," I'll tell you that too.</p>
-                    <p style={{ fontStyle: 'italic', color: 'rgba(245,243,238,0.6)' }}>It starts with a 30-minute call. If we're the right fit, the audit runs over two weeks. You'll know exactly what to build and in what order.</p>
+                    <p>Right now you're running pilots that don't scale, buying tools that don't connect, and watching your team work around AI instead of with it. That gap compounds every month.</p>
+                    <p>The audit gives you the full picture in two weeks. Where AI creates real value in your business, where it's just noise, and what to build first. If the answer is "you don't need this right now," I'll tell you that too.</p>
+                    <p style={{ fontStyle: 'italic', color: 'rgba(245,243,238,0.6)' }}>It starts with a 30-minute call. If we're the right fit, the audit runs over two weeks. You walk away with clarity either way.</p>
                 </div>
 
                 <p className="font-data" style={{ color: T.signal, fontSize: '0.85rem', marginBottom: '2rem', letterSpacing: '0.1em' }}>30 MINUTES. NO PITCH DECK.</p>
@@ -831,7 +821,7 @@ function ClosingCTA() {
 export default function Home() {
     useSEO({
         title: 'AI Implementation Consultant | Close the AI Adoption Gap | Ruettgers Digital',
-        description: "95% of AI pilots fail. Not because the technology doesn't work. Because nobody builds the system around it. I audit your workflows, build AI systems with your team, and hand them over. The Gap Method.",
+        description: "I close the gap between what AI can do and what your company uses it for. Audit workflows, build AI systems with your team, hand them over. The Gap Method. For companies $5M-$50M.",
         canonical: 'https://www.ruettgersdigital.com/',
         ogImage: 'https://www.ruettgersdigital.com/og-image.jpg',
         breadcrumbs: [
@@ -875,13 +865,13 @@ export default function Home() {
     return (
         <>
             <Hero />
+            <IsThisRight />
             <TheProblem />
+            <WhyMe />
             <TheGapMethod />
             <TheOffer />
-            <Proof />
             <AntiHype />
-            <IsThisRight />
-            <WhyMe />
+            <Proof />
             <FAQ />
             <OtherServices current="/" />
             <Newsletter />

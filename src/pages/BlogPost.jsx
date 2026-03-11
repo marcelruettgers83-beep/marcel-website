@@ -101,7 +101,7 @@ export default function BlogPost() {
                 "@type": "Person",
                 "name": "Marcel Ruettgers",
                 "url": "https://www.ruettgersdigital.com/about",
-                "jobTitle": "AI Implementation & Growth Systems Architect"
+                "jobTitle": "Fractional Chief AI Officer"
             },
             "publisher": {
                 "@type": "Organization",

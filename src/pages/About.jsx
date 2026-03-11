@@ -63,7 +63,7 @@ function Hero() {
                                 color: 'rgba(232,228,221,0.7)',
                                 marginTop: '0.5rem',
                             }}>
-                                AI Implementation & Growth Systems Architect
+                                Fractional Chief AI Officer
                             </span>
                         </h1>
 
@@ -129,7 +129,7 @@ function Story() {
 
                     <p>Then I went to the other end of the spectrum. At Blaze.ai, a high-growth AI startup, I built the AI-powered growth engine that scaled the company from 300 to 2,700 customers per month in 9 months. Affiliate programs, partner channels, marketing automation, revenue operations. All wired together into one system, with AI doing the middle work.</p>
 
-                    <p>Now I help companies close the gap between what AI can do and what they actually use it for. Anthropic's data shows a 65-point gap. 95% of AI pilots fail. Not because the technology doesn't work. Because nobody builds the system around it. I audit workflows, find where AI creates real value, build it with the team, and hand it over. I call it The Gap Method.</p>
+                    <p>Now I help companies close the gap between what AI can do and what they actually use it for. Research from Anthropic and Harvard/BCG confirms what I see in every engagement: the technology works, but the implementations don't. I audit workflows, find where AI creates real value, build it with the team, and hand it over. I call it The Gap Method.</p>
 
                     <p>I work from Amsterdam. I'm async by default. I care more about clarity than flash, and I'd rather build something that works quietly for years than something that looks impressive for a month.</p>
                 </div>
@@ -223,7 +223,7 @@ function ClosingCTA() {
 
 export default function About() {
     useSEO({
-        title: 'Marcel Ruettgers - AI Implementation & Growth Systems | Ruettgers Digital',
+        title: 'Marcel Ruettgers - Fractional Chief AI Officer | Ruettgers Digital',
         description: 'Marcel Ruettgers helps companies close the AI adoption gap. 20 years building systems across enterprise operations (IKEA) and high-growth startups (Blaze.ai). Based in Amsterdam.',
         canonical: 'https://www.ruettgersdigital.com/about',
         ogImage: 'https://www.ruettgersdigital.com/og-image.jpg',
@@ -235,7 +235,7 @@ export default function About() {
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Marcel Ruettgers",
-            "jobTitle": "AI Implementation & Growth Systems Architect",
+            "jobTitle": "Fractional Chief AI Officer",
             "worksFor": { "@type": "ProfessionalService", "name": "Ruettgers Digital", "url": "https://www.ruettgersdigital.com" },
             "url": "https://www.ruettgersdigital.com/about",
             "image": "https://www.ruettgersdigital.com/marcel-portrait-800.jpg",

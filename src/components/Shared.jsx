@@ -33,7 +33,7 @@ export const CTA_GROWTH_TEXT = "Start With The X-Ray"
 export const NEWSLETTER_URL = "https://marcelruettgers.substack.com"
 
 const SERVICES = [
-    { name: 'AI Implementation', path: '/', desc: 'I close the gap between what AI can do and what your company uses it for. Audit, build, train, hand over. Your team runs it.', cta: 'Book an AI Audit' },
+    { name: 'AI Implementation', path: '/', desc: 'I close the gap between what AI can do and what your company uses it for. For companies $5M-$50M. Audit, build, train, hand over.', cta: 'Book an AI Audit' },
     { name: 'Growth Systems', path: '/growth-systems', desc: 'Pipeline architecture, lead flow, marketing-to-sales alignment, CRM. The diagnostic finds the bottleneck. The buildout fixes it. Your team owns it.', cta: 'Growth Diagnostic' },
     { name: 'Affiliate & Partner Channel', path: '/affiliates', desc: 'Built from your ICP. Structured around your unit economics. Trained and transferred in 6-8 weeks. No ongoing agency fees.', cta: 'Affiliate Diagnostic' },
 ]

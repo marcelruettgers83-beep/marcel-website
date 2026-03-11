@@ -51,7 +51,7 @@ function Hero() {
                 </h1>
 
                 <p className="aff-hero-item" style={{ color: 'rgba(232,228,221,0.9)', fontSize: 'clamp(1rem, 1.25vw, 1.25rem)', maxWidth: '750px', lineHeight: 1.7, margin: '0 0 2.5rem', fontFamily: '"Space Mono"' }}>
-                    I build affiliate and partner programs that actually work. Then I hand them to your team to run. No agency retainer. No 12-month contract. A system that pays for itself. Most affiliate clients find their way here through a growth diagnostic. When the X-Ray finds that affiliate is the highest-leverage channel, this is what we build.
+                    I build affiliate and partner programs that actually work, then hand them to your team to run. No agency retainer. No 12-month contract. A system that pays for itself. Most clients find their way here through a growth diagnostic. When the X-Ray finds that affiliate is the highest-leverage channel, this is what we build.
                 </p>
 
                 <div className="aff-hero-item" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
@@ -188,7 +188,7 @@ function TheMethod() {
                     The Affiliate Architecture Method.
                 </h2>
                 <div style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.8)' }}>
-                    <p>This follows the same Growth Architecture Method I use across all engagements - applied here to your affiliate channel. I don't manage affiliate programs. I build them, train your team, and get out of the way. Three phases. Six to eight weeks. You own everything when I leave.</p>
+                    <p>This follows the same method I use across all engagements, applied here to your affiliate channel. I don't manage affiliate programs. I build them, train your team, and get out of the way. Three phases. Six to eight weeks. You own everything when I leave.</p>
                 </div>
             </div>
 

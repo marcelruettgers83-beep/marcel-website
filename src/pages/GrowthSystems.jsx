@@ -62,7 +62,7 @@ function Hero() {
                 </h1>
 
                 <p className="hero-item" style={{ color: 'rgba(232,228,221,0.9)', fontSize: 'clamp(1rem, 1.25vw, 1.25rem)', maxWidth: '750px', lineHeight: 1.7, margin: '0 0 2.5rem', fontFamily: '"Space Mono"' }}>
-                    I build growth systems for founder-led companies between $1M and $10M - so you stop being the bottleneck. I diagnose what's broken in your go-to-market, build the fix with your team, and hand it over so it runs without me.
+                    Sometimes the bottleneck isn't technology. It's the go-to-market system underneath. I build growth systems for founder-led companies between $1M and $10M, so you stop being the bottleneck. Diagnose what's broken, build the fix with your team, hand it over.
                 </p>
 
                 <div className="hero-item" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
@@ -153,7 +153,7 @@ function HowIWork() {
                     The X-Ray.
                 </h2>
                 <div style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(17,17,17,0.8)' }}>
-                    <p>Every engagement follows the same model: diagnose, build with your team, hand it over. I call it the Growth Architecture Method. Before I touch anything in your business, I need to see the whole picture - not what your dashboard says, but what's actually happening.</p>
+                    <p>Every engagement follows the same model: diagnose, build with your team, hand it over. Before I touch anything in your business, I need to see the whole picture. Not what your dashboard says, but what's actually happening. I call it The X-Ray.</p>
                 </div>
             </div>
 
@@ -209,9 +209,9 @@ function ThreeDomains() {
         },
         {
             name: 'AI Revenue Systems',
-            desc: "Speed-to-lead, outbound automation, CRM workflows. AI wired into your actual revenue process - built with your team, handed over to run.",
-            cta: 'AI Systems Audit',
-            path: '/ai-systems',
+            desc: "When the X-Ray reveals that AI is the highest-leverage fix, we shift to The Gap Method. AI wired into your actual revenue process, built with your team, handed over to run.",
+            cta: 'The Gap Method',
+            path: '/',
         },
         {
             name: 'Affiliate & Partner Channel',
