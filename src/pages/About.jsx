@@ -127,7 +127,7 @@ function Story() {
                 <div className="about-story-fade" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'rgba(17,17,17,0.8)', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                     <p>I spent 15 years in enterprise operations at IKEA, leading sales operations and growth initiatives across markets. I learned how systems work at scale: how to build processes that survive after the person who built them leaves, how to get alignment across large organizations, and how to turn messy data into clear decisions.</p>
 
-                    <p>Then I went to the other end of the spectrum. At Blaze.ai, a high-growth AI startup, I built the AI-powered growth engine that scaled the company from 300 to 2,700 customers per month in 9 months. Affiliate programs, partner channels, marketing automation, revenue operations. All wired together into one system, with AI doing the middle work.</p>
+                    <p>Then I went to the other end of the spectrum. At a high-growth AI startup, I built the AI-powered growth engine that scaled the company from 300 to 2,700 customers per month in 9 months. Affiliate programs, partner channels, marketing automation, revenue operations. All wired together into one system, with AI doing the middle work.</p>
 
                     <p>Now I help companies close the gap between what AI can do and what they actually use it for. Research from Anthropic and Harvard/BCG confirms what I see in every engagement: the technology works, but the implementations don't. I audit workflows, find where AI creates real value, build it with the team, and hand it over. I call it The Gap Method.</p>
 
@@ -224,7 +224,7 @@ function ClosingCTA() {
 export default function About() {
     useSEO({
         title: 'Marcel Ruettgers - Fractional Chief AI Officer | Ruettgers Digital',
-        description: 'Marcel Ruettgers helps companies close the AI adoption gap. 20 years building systems across enterprise operations (IKEA) and high-growth startups (Blaze.ai). Based in Amsterdam.',
+        description: 'Marcel Ruettgers helps companies close the AI adoption gap. 20 years building systems across enterprise operations (IKEA) and high-growth AI startups. Based in Amsterdam.',
         canonical: 'https://www.ruettgersdigital.com/about',
         ogImage: 'https://www.ruettgersdigital.com/og-image.jpg',
         breadcrumbs: [
